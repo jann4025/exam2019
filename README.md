@@ -3,9 +3,9 @@
 ## Coding standards
 `All styling most be done in scss in the folder /src/scss/*.scss`
 
-* [Airbnb Javascript Style guide] (https://github.com/airbnb/javascript) for general javascript.
-* [Airbnb CSS Style guide] (https://github.com/airbnb/css) for css/scss.
-* [Airbnb React/JSX Style guide] (https://github.com/airbnb/javascript/tree/master/react) for React & Jsx.
+* [Airbnb Javascript Style guide](https://github.com/airbnb/javascript) for general javascript.
+* [Airbnb CSS Style guide](https://github.com/airbnb/css) for css/scss.
+* [Airbnb React/JSX Style guide](https://github.com/airbnb/javascript/tree/master/react) for React & Jsx.
 
 
 ## Workflow
@@ -43,4 +43,4 @@ Commit as offen as posible. Commit when something is "Done" or atleast the part 
 Make sure to add commit messages that tells exactly what the commit is doing. As example if you fixed a bug in a function the commit message example could be: "Fixing calculator error in function 'randomNumberCalculator()'
 
 ## Style guide
-[Insert link to style guide] (https://jannickholm.dk)
+[Insert link to style guide](https://jannickholm.dk)
