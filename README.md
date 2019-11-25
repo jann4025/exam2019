@@ -44,3 +44,8 @@ Make sure to add commit messages that tells exactly what the commit is doing. As
 
 ## Style guide
 [Insert link to style guide](https://jannickholm.dk)
+
+
+## Wireframe & Mockup
+[Insert link to wireframe](https://jannickholm.dk)
+[Insert link to Mockup](https://jannickholm.dk)
