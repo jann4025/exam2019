@@ -47,5 +47,5 @@ Make sure to add commit messages that tells exactly what the commit is doing. As
 
 
 ## Wireframe & Mockup
-[Insert link to wireframe](https://jannickholm.dk)
+[Insert link to wireframe](https://jannickholm.dk) <br/>
 [Insert link to Mockup](https://jannickholm.dk)
