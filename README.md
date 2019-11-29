@@ -43,7 +43,7 @@ Commit as offen as posible. Commit when something is "Done" or atleast the part 
 Make sure to add commit messages that tells exactly what the commit is doing. As example if you fixed a bug in a function the commit message example could be: "Fixing calculator error in function 'randomNumberCalculator()'
 
 ## Style guide
-[Insert link to style guide](https://www.figma.com/file/g9xhVUM46ryidIh0UPQShM/Untitled?node-id=1%3A2)
+[Link to style guide](https://www.figma.com/file/g9xhVUM46ryidIh0UPQShM/Untitled?node-id=1%3A2)
 
 
 ## Wireframe & Mockup
