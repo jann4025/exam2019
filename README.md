@@ -49,4 +49,4 @@ Make sure to add commit messages that tells exactly what the commit is doing. As
 ## Wireframe & Mockup
 [Link to wireframe](https://www.figma.com/file/rw8OOSRriSgfwF2o55Xhjt/Wireframe?node-id=0%3A1) <br/>
 [Link to Mockup](https://www.figma.com/file/YYzhu7seHmbTVxgpH3pco9/Mockup?node-id=0%3A1) <br/>
-[Link to Form Mockup] (https://www.figma.com/file/86E0Y0lEK34f80xlLLEXrq/Untitled?node-id=0%3A1)
+[Link to Form Mockup](https://www.figma.com/file/86E0Y0lEK34f80xlLLEXrq/Untitled?node-id=0%3A1)
