@@ -1,0 +1,44 @@
+@mixin self-center {
+    & {
+      align-self: center;
+      justify-self: center;
+    }
+  }
+
+@mixin self-left {
+    & {
+      align-self: left;
+    }
+  }
+
+@mixin self-right {
+    & {
+      align-self: right;
+    }
+}
+
+@mixin display-grid {
+    & {
+        display: grid;
+    }
+}
+
+@mixin place-items-center-grid {
+    & {
+        justify-items: center;
+        align-items: center;
+    }
+}
+
+@mixin display-flex {
+    & {
+        display: flex;
+    }
+}
+
+@mixin place-items-center-flex {
+    & {
+        justify-content: center;
+        align-items: center;
+    }
+}
