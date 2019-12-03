@@ -1,0 +1,10 @@
+#hero {
+  background-image: url("/src/assets/img/bg-img.jpg");
+  background-size: cover;
+  height: 100vh;
+
+  h1 {
+    font-family: $font_logo;
+    font-size: 4em;
+  }
+}

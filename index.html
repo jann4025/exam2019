@@ -1,18 +1,150 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <link rel="stylesheet" href="src/scss/main.scss">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="src/scss/main.scss" />
     <title>Best Blackjack</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <header>
+      <nav>
+        <a href="">LOGO</a>
+        <a href="">Tilmeld dig</a>
+        <a href="">Log ind</a>
+        <a href="">Regler</a>
+      </nav>
+      <section id="hero">
+        <h1>Best blackjack</h1>
+        <p>Tilmeld dig nu og få</p>
+        <h2>100 kr. i bonus</h2>
+        <button>Tilmeld dig</button>
+      </section>
+    </header>
+    <main>
+      <section id="welcome">
+        <h1>Danmarks bedste online blackjack</h1>
+        <h2>Spil med hos Danmarks bedste online blackjack og vind fede præmier hver dag!</h2>
+        <p>
+          Hos os er alle velkomne, nybegyndere såvel som øvede. Her er rig mulighed for at du kan lære blackjack spillet og dets regler at kende ved at starte stille og roligt ud med vores
+          new-player-pakke. Hvis du allerede kender spillet og gerne vil udfordre dig selv, er dette stedet! Her kan du spille taktisk med andre øvede spillere mod dealeren.
+        </p>
+        <div class="images">
+          <img src="" alt="" />
+          <img src="" alt="" />
+          <img src="" alt="" />
+        </div>
+        <h1>Spil med nu</h1>
+        <p>
+          Blackjack er verdens mest populære casinospil og er samtidig let at forstå. Spillet er både intenst, taktisk og med rig mulighed for at vinde hurtige gevinster. Men inden du sætter dig til
+          bordet og spiller om de store præmier, er det en god idé at kende til reglerne i blackjack.
+        </p>
+      </section>
 
+      <section id="icons">
+        <div class="icon-box">
+          <img src="" alt="" />
+          <p>Hit</p>
+        </div>
+        <div class="icon-box">
+          <img src="" alt="" />
+          <p>Stand</p>
+        </div>
+        <div class="icon-box">
+          <img src="" alt="" />
+          <p>Split</p>
+        </div>
+      </section>
 
-    <script src='src/js/index.js'></script>
-</body>
+      <section id="rules">
+        <h1>Regler</h1>
+        <p>
+          Reglerne til Blackjack er i grunden relativt simple. Blackjack går ud på at få en korthånd med en totalværdi som er højere end dealerens uden at gå over værdien 21. Et spil blackjack starter
+          med, at du skal vælge hvor meget du vil satse. Minimum- og maksimumindsatserne kan variere, men på denne side er minimumindsatsen kr. 50. For at satse skal du klikke på jetonen med den
+          tilhørende værdi. Når du har valgt hvor meget du vil spille for, giver dealeren kort. Både du og dealer får to kort. Det er kun muligt at se dealerens ene kort med det samme. Når du har fået
+          dine 2 kort, skal du finde kortenes totale værdi. Denne finder du ved at lægge kortenes enkelte værdier sammen. For at kunne udregne dette, skal du naturligvis vide hvor meget de enkelte
+          kort er værd i blackjack. Se kortenes forskellige værdier ved at klikke her, eller scrolle længere ned på siden.
+        </p>
+        <details>
+          <summary>Vinderhånd</summary>
+          <p>
+            For at vinde i blackjack skal du slå dealeren. For at gøre det skal du have en hånd, der scorer højere end dealerens hånd, men som ikke overstiger 21 i samlet værdi. Det er også muligt at
+            finde hvis du har en hånd der er mindre end 22 og dealerens hånd overstiger 21. Den bedste hånd i blackjack hedder “blackjack”. Denne består af et es og et kort med værdien 10 - dvs. alle
+            knægte, damer, konger og 10’ere. Blackjack gives på dine to første kort og kan ikke slås. Dog kan den blive uafgjort, hvis dealeren også får blackjack. Hvis du har blackjack og dealerens
+            kort tilsammen har værdien 21 vil du stadig vinde, da du har den bedste hånd. Dette gælder dog også hvis dealeren har blackjack og dine kort tilsammen har værdien 21. Du vil med det samme
+            få dine penge tildelt, efter hvert vindende spil.
+          </p>
+        </details>
 
+        <details>
+          <summary>Taberhånd</summary>
+          <p>
+            Du taber spillet hvis dealerens kort tilsammen har en værdi der er højere end din. Du kan også tabe hvis dine korts samlede værdi overstiger 21. Når dette sker, er du gået “bust” og du
+            taber automatisk dine satsede penge. Hvis dealerens og dine kort har den samme samlede værdi kaldes det “push”, hvilket betyder at spillet er uafgjort og du vil få din indsats tilbage, men
+            du får ikke nogle ekstra penge. Dine tabte penge vil med det samme blive fjernet fra din oversigt efter hvert spil.
+          </p>
+        </details>
+
+        <details>
+          <summary>Hit</summary>
+          <p>
+            Hver gang det er din tur, kan du bede om et eller flere kort for at forbedre din hånd. Kortene vil blive trukket et ad gangen, indtil hånden har en værdi på 21 eller højere. For at få et
+            nyt kort, skal du klikke på “hit”-ikonet.
+          </p>
+        </details>
+
+        <details>
+          <summary>Stand</summary>
+          <p>
+            Når den samlede værdi af din hånd er 21 eller mindre, kan du vælge at stå. Herved risikerer du ikke, at din hånd overstiger 21. Når du vælger at stå er det den næstes tur, indtil
+            dealerens. For at stå, skal du klikke på “stand”-ikonet.
+          </p>
+        </details>
+
+        <details>
+          <summary>Split</summary>
+          <p>
+            Grundlæggende forvandler du én hånd til to, hvis du splitter din hånd, hvilket giver dig flere vinderchancer. Du kan splitte din hånd når dine første 2 kort har samme værdi (f.eks. syv-syv
+            eller knægt-knægt). Når du har splittet dine kort vil du spille med 2 hænder, og du skal derfør gøre endnu en indsats, svarende til din oprindelige indsats. Herved danner du en ny hånd,
+            som du også spiller mod dealeren. Begge hænder bliver spillet uafhængigt at hinanden og vinder, taber eller ender uafgjort hver for sig. Hvis du ønsker at splitte, skal du klikke på
+            “split”-ikonet.
+          </p>
+        </details>
+
+        <details>
+          <summary>Fordobling</summary>
+          <p>
+            Du kan fordoble din oprindelige indsats. Efter de første to kort er givet, kan du tilføje en ekstra indsats svarende til din oprindelige indsats, og så modtage ét ekstra kort i håb om at
+            forbedre din hånd. Fordobling kan ikke ske, hvis du har blackjack. Her vinder du automatisk og det er derfor ikke muligt at fordoble. For at fordoble, skal du klikke på “fordoble”-ikonet.
+          </p>
+        </details>
+      </section>
+
+      <section id="card-value">
+        <h1>Kortenes værdier</h1>
+        <div class="value-box">
+          <img src="" alt="" />
+          <h2>Es</h2>
+          <p>
+            Dette kort har to værdier: 1 eller 11. Det er op til en selv at værdisætte sit es.
+          </p>
+        </div>
+        <div class="value-box">
+          <img src="" alt="" />
+          <h2>Billedkort og 10'ere</h2>
+          <p>Disse kort har alle værdien 10.</p>
+        </div>
+        <div class="value-box">
+          <img src="" alt="" />
+          <h2>2 - 9</h2>
+          <p>Disse kort har den værdi de viser på kortet.</p>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script src="src/js/index.js"></script>
+  </body>
 </html>

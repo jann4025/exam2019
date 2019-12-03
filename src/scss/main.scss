@@ -1,12 +1,7 @@
-@import './fonts';
-@import './colors';
-@import './effects';
-@import './reset';
-@import './layout';
-@import './landingpage/landingpage_main.scss';
-@import './game/main_game.scss';
-
-body {
-    @include display-grid;
-    @include
-}
+@import "./fonts";
+@import "./colors";
+@import "./effects";
+@import "./reset";
+@import "./layout";
+@import "./landingpage/landingpage_main.scss";
+@import "./game/main_game.scss";

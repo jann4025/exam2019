@@ -1,13 +1,12 @@
 @font-face {
-    font-family: 'neonregular';
-    src: url('../assets/fonts/neon-webfont.woff2') format('woff2'),
-         url('neon-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "neonregular";
+  src: url("../assets/fonts/neon-webfont.woff2") format("woff2"), url("../assets/fonts/neon-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @import url("https://use.typekit.net/dsa0xgj.css");
 
-$font_logo: 'neonregular';
+$font_logo: "neonregular";
 
-$font_headline: ('neue-haas-grotesk-display', sans-serif);
-$font_body: ('neue-haas-grotesk-text', sans-serif);
+$font_headline: ("neue-haas-grotesk-display", sans-serif);
+$font_body: ("neue-haas-grotesk-text", sans-serif);
