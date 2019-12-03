@@ -1,10 +1,181 @@
+body {
+  background: $black_primary;
+  color: $white_primary;
+}
+
+h1 {
+  font-family: $font_headline;
+  $min_font: 50px;
+  $max_font: 100px;
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+p {
+  font-family: $font_body;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: $white_primary;
+  font-family: $font_body;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+
+  .logo {
+    position: absolute;
+    padding: 0.5em;
+
+    img {
+      max-width: 100px;
+    }
+  }
+
+  .nav-txt {
+    text-align: right;
+    font-size: 0.8em;
+    margin: 2em 1em;
+    a {
+      padding: 2em;
+    }
+  }
+}
+
 #hero {
   background-image: url("/src/assets/img/bg-img.jpg");
   background-size: cover;
   height: 100vh;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  & > * {
+    padding: 0.6em;
+  }
+
   h1 {
+    padding: 0.2em;
+    color: $red_primary;
+    text-shadow: $primary_glow;
     font-family: $font_logo;
-    font-size: 4em;
+  }
+
+  h2 {
+    color: $yellow_primary;
+    font-size: 3.5em;
+    font-family: $font_headline;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1.4em;
+  }
+
+  button {
+    background: $red_primary;
+    box-shadow: $primary_glow;
+    font-size: 1.8em;
+    color: $white_primary;
+    border: none;
+    border-radius: 5px;
+    padding: 0.6em 1em;
+    margin-top: 1em;
+    cursor: pointer;
+  }
+}
+
+#welcome {
+  display: grid;
+  justify-items: center;
+  margin: 3em 5em;
+
+  & > * {
+    padding: 0.4em 2em;
+  }
+
+  h2 {
+    font-family: $font_headline;
+    font-size: 1.8em;
+    padding: 1em;
+  }
+  .images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    margin: 3em 0em;
+    img {
+      max-width: 400px;
+      width: 100%;
+    }
+  }
+}
+
+#icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: -1em;
+  justify-items: center;
+  text-align: center;
+
+  padding: 4em;
+}
+
+#rules {
+  display: grid;
+  margin: 3em 5em;
+
+  & > * {
+    padding: 0.4em 2em;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  a {
+    font-weight: bold;
+  }
+  details {
+    cursor: pointer;
+    summary {
+      font-size: 1.6em;
+      font-family: $font_headline;
+      border-bottom: 1px $white_primary solid;
+      padding: 0.4em 0em;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+  }
+}
+
+#card-value {
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.4em;
+    font-family: $font_headline;
+  }
+
+  .value-box {
+    display: flex;
+    margin: 3em 5em;
+
+    & > * {
+      padding: 0.4em 2em;
+    }
+    img {
+      max-width: 130px;
+      width: 100%;
+    }
   }
 }

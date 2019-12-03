@@ -11,10 +11,16 @@
   <body>
     <header>
       <nav>
-        <a href="">LOGO</a>
-        <a href="">Tilmeld dig</a>
-        <a href="">Log ind</a>
-        <a href="">Regler</a>
+        <div class="logo">
+          <a href="">
+            <img src="/src/assets/img/logo.svg" alt="Logo" />
+          </a>
+        </div>
+        <div class="nav-txt">
+          <a href="">Tilmeld dig</a>
+          <a href="">Log ind</a>
+          <a href="">Regler</a>
+        </div>
       </nav>
       <section id="hero">
         <h1>Best blackjack</h1>
@@ -32,9 +38,9 @@
           new-player-pakke. Hvis du allerede kender spillet og gerne vil udfordre dig selv, er dette stedet! Her kan du spille taktisk med andre øvede spillere mod dealeren.
         </p>
         <div class="images">
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
+          <img src="/src/assets/img/chips.jpeg" alt="" />
+          <img src="/src/assets/img/chips.jpeg" alt="" />
+          <img src="/src/assets/img/chips.jpeg" alt="" />
         </div>
         <h1>Spil med nu</h1>
         <p>
@@ -45,27 +51,30 @@
 
       <section id="icons">
         <div class="icon-box">
-          <img src="" alt="" />
+          <img src="/src/assets/img/hit.svg" alt="Hit icon" />
           <p>Hit</p>
         </div>
         <div class="icon-box">
-          <img src="" alt="" />
+          <img src="/src/assets/img/stand.svg" alt="Stand icon" />
           <p>Stand</p>
         </div>
         <div class="icon-box">
-          <img src="" alt="" />
+          <img src="/src/assets/img/split.svg" alt="Split icon" />
           <p>Split</p>
         </div>
       </section>
 
       <section id="rules">
         <h1>Regler</h1>
+        <p>Reglerne til Blackjack er i grunden relativt simple. Blackjack går ud på at få en korthånd med en totalværdi som er højere end dealerens uden at gå over værdien 21.</p>
         <p>
-          Reglerne til Blackjack er i grunden relativt simple. Blackjack går ud på at få en korthånd med en totalværdi som er højere end dealerens uden at gå over værdien 21. Et spil blackjack starter
-          med, at du skal vælge hvor meget du vil satse. Minimum- og maksimumindsatserne kan variere, men på denne side er minimumindsatsen kr. 50. For at satse skal du klikke på jetonen med den
-          tilhørende værdi. Når du har valgt hvor meget du vil spille for, giver dealeren kort. Både du og dealer får to kort. Det er kun muligt at se dealerens ene kort med det samme. Når du har fået
-          dine 2 kort, skal du finde kortenes totale værdi. Denne finder du ved at lægge kortenes enkelte værdier sammen. For at kunne udregne dette, skal du naturligvis vide hvor meget de enkelte
-          kort er værd i blackjack. Se kortenes forskellige værdier ved at klikke her, eller scrolle længere ned på siden.
+          Et spil blackjack starter med, at du skal vælge hvor meget du vil satse. Minimum- og maksimumindsatserne kan variere, men på denne side er minimumindsatsen kr. 50. For at satse skal du
+          klikke på jetonen med den tilhørende værdi.
+        </p>
+        <p>
+          Når du har valgt hvor meget du vil spille for, giver dealeren kort. Både du og dealer får to kort. Det er kun muligt at se dealerens ene kort med det samme. Når du har fået dine 2 kort, skal
+          du finde kortenes totale værdi. Denne finder du ved at lægge kortenes enkelte værdier sammen. For at kunne udregne dette, skal du naturligvis vide hvor meget de enkelte kort er værd i
+          blackjack. Se kortenes forskellige værdier ved at <a href="#card-value">klikke her</a> eller scrolle længere ned på siden.
         </p>
         <details>
           <summary>Vinderhånd</summary>
@@ -125,21 +134,25 @@
       <section id="card-value">
         <h1>Kortenes værdier</h1>
         <div class="value-box">
-          <img src="" alt="" />
-          <h2>Es</h2>
-          <p>
-            Dette kort har to værdier: 1 eller 11. Det er op til en selv at værdisætte sit es.
-          </p>
+          <img src="/src/assets/img/aces.png" alt="" />
+          <div class="value-txt">
+            <h2>Es</h2>
+            <p>Dette kort har to værdier: 1 eller 11. <br />Det er op til en selv at værdisætte sit es.</p>
+          </div>
         </div>
         <div class="value-box">
-          <img src="" alt="" />
-          <h2>Billedkort og 10'ere</h2>
-          <p>Disse kort har alle værdien 10.</p>
+          <img src="/src/assets/img/10s.png" alt="" />
+          <div class="value-txt">
+            <h2>Billedkort og 10'ere</h2>
+            <p>Disse kort har alle værdien 10.</p>
+          </div>
         </div>
         <div class="value-box">
-          <img src="" alt="" />
-          <h2>2 - 9</h2>
-          <p>Disse kort har den værdi de viser på kortet.</p>
+          <img src="/src/assets/img/normal_cards.png" alt="" />
+          <div class="value-txt">
+            <h2>2 - 9</h2>
+            <p>Disse kort har den værdi de viser på kortet.</p>
+          </div>
         </div>
       </section>
     </main>

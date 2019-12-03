@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="152.87" height="74.79" viewBox="0 0 152.87 74.79">
+  <defs>
+    <style>
+      .cls-1, .cls-6 {
+        font-size: 29.32px;
+        font-family: NEON;
+      }
+
+      .cls-1 {
+        fill: #3cc28f;
+      }
+
+      .cls-2 {
+        letter-spacing: -0.05em;
+      }
+
+      .cls-3 {
+        letter-spacing: -0.06em;
+      }
+
+      .cls-4 {
+        letter-spacing: -0.06em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        fill: #dd2e59;
+      }
+    </style>
+  </defs>
+  <title>logo</title>
+  <g id="Layer_4" data-name="Layer 4">
+    <text class="cls-1" transform="translate(44.39 25.66)">BE<tspan class="cls-2" x="28.5" y="0">S</tspan><tspan x="41.46" y="0">T </tspan><tspan x="-39.9" y="35.18">BL</tspan><tspan class="cls-3" x="-11.29" y="35.18">A</tspan><tspan x="3.9" y="35.18">CKJ</tspan><tspan class="cls-4" x="51.31" y="35.18">A</tspan><tspan class="cls-5" x="66.49" y="35.18">CK</tspan></text>
+    <text class="cls-6" transform="translate(46.39 27.66)">BE<tspan class="cls-2" x="28.5" y="0">S</tspan><tspan x="41.46" y="0">T </tspan><tspan x="-39.9" y="35.18">BL</tspan><tspan class="cls-3" x="-11.29" y="35.18">A</tspan><tspan x="3.9" y="35.18">CKJ</tspan><tspan class="cls-4" x="51.31" y="35.18">A</tspan><tspan class="cls-5" x="66.49" y="35.18">CK</tspan></text>
+  </g>
+</svg>
