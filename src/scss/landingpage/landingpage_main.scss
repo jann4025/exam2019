@@ -5,14 +5,18 @@ body {
 
 h1 {
   font-family: $font_headline;
-  $min_font: 50px;
-  $max_font: 100px;
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  //   $min_font: 50px;
+  //   $max_font: 100px;
+  //   @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  font-size: 4em;
+  text-align: center;
 }
 
 p {
   font-family: $font_body;
   line-height: 1.5;
+  max-width: 70vw;
+  width: 100%;
 }
 
 a {
@@ -80,7 +84,7 @@ nav {
   button {
     background: $red_primary;
     box-shadow: $primary_glow;
-    font-size: 1.8em;
+    font-size: 1.2em;
     color: $white_primary;
     border: none;
     border-radius: 5px;
@@ -102,7 +106,6 @@ nav {
   h2 {
     font-family: $font_headline;
     font-size: 1.8em;
-    padding: 1em;
   }
   .images {
     display: grid;
@@ -116,14 +119,121 @@ nav {
   }
 }
 
-#icons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: -1em;
-  justify-items: center;
-  text-align: center;
+#reviews {
+  display: flex;
+  justify-content: center;
 
-  padding: 4em;
+  .review-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #f3f6fe;
+    max-width: 350px;
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    color: black;
+    margin: 2em;
+    font-size: 0.8em;
+
+    & > * {
+      padding: 1.2em;
+    }
+
+    img {
+      position: absolute;
+      width: 100px;
+      border-radius: 50%;
+      top: 35%;
+      left: 30%;
+    }
+
+    .review-txt {
+      padding: 2em 2em 4em;
+
+      h2 {
+        font-family: $font_headline;
+        font-size: 1.3em;
+        padding-bottom: 0.6em;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+
+    .review-info {
+      background: #6a04f5;
+      color: #fef6fe;
+      text-align: center;
+      padding-top: 4em;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      h3 {
+        font-family: $font_headline;
+        font-size: 1.2em;
+        padding-bottom: 0.6em;
+      }
+
+      svg {
+        width: 180px;
+      }
+    }
+  }
+}
+
+#introduction {
+  display: grid;
+  justify-items: center;
+  margin: 3em 5em;
+  & > * {
+    padding: 0.4em 2em;
+  }
+}
+
+#images {
+  display: flex;
+  justify-content: center;
+  transform: skewY(-5deg);
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 80vh;
+
+  margin: 6em 0em;
+
+  .skew {
+    color: white;
+    text-align: center;
+    align-items: center;
+    /* Safari transitionend event.propertyName === flex */
+    /* Chrome + FF transitionend event.propertyName === flex-grow */
+    transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
+    font-size: 20px;
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      flex: 1.5;
+    }
+  }
+
+  .skew1 {
+    background-image: url("/src/assets/img/game.png");
+  }
+  .skew2 {
+    background-image: url("/src/assets/img/champagne.png");
+  }
+  .skew3 {
+    background-image: url("/src/assets/img/chips.png");
+  }
+
+  img {
+    // max-width: 33.33vw;
+    margin: 3em 0em;
+  }
 }
 
 #rules {
@@ -141,6 +251,20 @@ nav {
   a {
     font-weight: bold;
   }
+
+  .rules-txt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4em;
+  }
+
+  .rules-accordion {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em 4em;
+  }
+
   details {
     cursor: pointer;
     summary {
@@ -177,5 +301,44 @@ nav {
       max-width: 130px;
       width: 100%;
     }
+  }
+}
+
+#join {
+  background-image: url(/src/assets/img/table.png);
+  width: 100%;
+  height: 45vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  margin-bottom: 10em;
+
+  & > * {
+    padding: 0.3em;
+  }
+
+  h2 {
+    font-size: 3em;
+    font-family: $font_headline;
+  }
+
+  h3 {
+    font-size: 1.8em;
+    font-family: $font_headline;
+  }
+  button {
+    background: $red_primary;
+    box-shadow: $primary_glow;
+    font-size: 1.2em;
+    color: $white_primary;
+    border: none;
+    border-radius: 5px;
+    padding: 0.6em 2em;
+    margin-top: 2em;
+    cursor: pointer;
   }
 }
