@@ -10,7 +10,14 @@ export default function ListItem(props) {
       <td>{props.mail}</td>
       <td>{props.user}</td>
       <td>
-        <button className="bg-red-500 hover:bg-red-300 w-20 rounded-lg m-4">Slet</button>
+        <button
+          className="bg-red-500 hover:bg-red-300 w-20 rounded-lg m-4"
+          onClick={() => {
+            props.deleteTask(props.id);
+          }}
+        >
+          Slet
+        </button>
         <button className="bg-gray-400 hover:bg-gray-300 w-20 rounded-lg m-4">Rediger</button>
       </td>
     </tr>
