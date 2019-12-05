@@ -37,7 +37,7 @@ Merge the branches with following commands `git checkout master`(To make sure yo
 After merging delete the branch on the github.com repo
 
 ### Commits
-Commit as offen as posible. Commit when something is "Done" or atleast the part youve been working on is working
+Commit as offent as posible. Commit when something is "Done" or atleast the part youve been working on is working
 
 **Commit messages:** <br/>
 Make sure to add commit messages that tells exactly what the commit is doing. As example if you fixed a bug in a function the commit message example could be: "Fixing calculator error in function 'randomNumberCalculator()'
