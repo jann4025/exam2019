@@ -1,44 +1,37 @@
 import React from "react";
+import Footer from "./components/footer";
+import List from "./components/list";
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
-      <div className="List">
-        <div className="Listitem"></div>
-      </div>
+      <header className="bg-gray-400 mb-10">
+        <h1 className="uppercase flex justify-center p-10 ">Liste over brugere</h1>
 
-      {/* <Footer></Footer> */}
+        <div className="flex justify-center p-5">
+          <label>Sorter:</label>
+          <select className="mr-10">
+            <option>A-Z</option>
+            <option>Id nummer</option>
+            <option>Brugerrolle</option>
+          </select>
+          <label>Filtrer:</label>
+          <select>
+            <option>Bruger ID</option>
+            <option>Navn</option>
+            <option>Email</option>
+            <option>Brugerrolle</option>
+          </select>
+        </div>
+        <div className="flex justify-center p-10">
+          <button className="bg-green-500 hover:bg-green-300 w-20 rounded-lg w-32">Tilføj bruger</button>
+        </div>
+      </header>
+
+      <List />
+      <Footer />
     </div>
   );
 }
-
-function Header() {
-  return (
-    <>
-      <header>
-        <h1 className="uppercase flex justify-center m-10">List of users</h1>
-        <ul className="flex flex-row justify-around mt-24">
-          <li>Name</li>
-          <li>Mail</li>
-          <li>User</li>
-          <li>User ID</li>
-        </ul>
-        <div
-          className="w-11/12 h-1 bg-black my-auto
-        mx-16"
-        ></div>
-      </header>
-    </>
-  );
-}
-
-// function Footer() {
-//   return (
-//     <>
-//       <footer className=" bg-gray-400 h-20 bottom-0">This is a footer</footer>
-//     </>
-//   );
-// }
 
 export default App;
