@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/7e534ec87d.js" crossorigin="anonymous"></script>
     <title>Form</title>
     <link rel="stylesheet" href="./src/scss/main.scss">
 </head>
@@ -15,11 +16,50 @@
         <h1>Tilmeld dig</h1>
         <h3>Og få din gratis bonus første gang du spiller</h3>
 
+        <div class="flex-form-field">
+            <div class="field">
+                <!-- <i class="fas fa-question-circle"></i> -->
+                <input type="text" name="firstname" id="firstname" placeholder="F.eks Jane"
+                    pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+                <label for="firstname">Fornavn</label>
+            </div>
+            <div class="field">
+                <input type="text" name="lastname" id="lastname" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"
+                    placeholder="F.eks Appleseed" required>
+                <label for="lastname">Efternavn</label>
+            </div>
+        </div>
+
+        <div class="field">
+            <!-- <i class="fas fa-question-circle"></i> -->
+            <input type="email" name="email" id="email" placeholder="F.eks jane.appleseed@gmail.com" required>
+            <label for="email">E-mail</label>
+        </div>
+
+        <div class="field">
+            <!-- <i class="fas fa-question-circle"></i> -->
+            <input type="tel" name="tel" id="tel" placeholder="F.eks 22 22 81 73" required>
+            <label for="tel">Mobil nr. <small>(Valgfrit)</small></label>
+        </div>
 
 
+        <div class="field">
+            <!-- <i class="fas fa-question-circle"></i> -->
+            <input type="password" name="password" id="password" placeholder="Adgangskode"
+                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+            <label for="password">Adgangskode</label>
+        </div>
+
+        <div class="field">
+            <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Adgangskode" required>
+            <label for="repeatPassword">Gentag adgangskode</label>
+        </div>
+
+        <input type="submit" value="Tilmeld dig">
 
     </form>
 
+    <script src="./src/js/form_script.js"></script>
 </body>
 
 </html>
