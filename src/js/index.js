@@ -66,6 +66,23 @@ function welcome(fetchWelcome) {
   });
 }
 
+function reviews(fetchReviews) {
+  console.log(fetchReviews);
+
+  let destReviews = document.querySelector("#reviews");
+  let tempReviews = document.querySelector(".reviews_template");
+
+  fetchReviews.forEach(obj => {
+    let klon = tempReviews.cloneNode(!0).content;
+    klon.querySelector(".reviews_headline").innerHTML = obj.headline_review;
+    klon.querySelector(".reviews_txt").innerHTML = obj.txt_review;
+    klon.querySelector(".reviews_img").src = obj.img_reviews.guid;
+    klon.querySelector(".reviews_name").innerHTML = obj.name_review;
+    klon.querySelector(".reviews_title").innerHTML = obj.titel_review;
+    destReviews.prepend(klon);
+  });
+}
+
 function introduction(fetchIntro) {
   console.log(fetchIntro);
   fetchIntro.forEach(obj => {
@@ -107,7 +124,7 @@ function join(fetchJoin) {
 function details(fetchDetails) {
   console.log(fetchDetails);
 
-  let destRules = document.querySelector(".rules-accordion");
+  let destRules = document.querySelector(".rules_accordion");
   let tempRules = document.querySelector(".rules_template");
 
   fetchDetails.forEach(obj => {
@@ -120,32 +137,23 @@ function details(fetchDetails) {
 
 function values(fetchValues) {
   console.log(fetchValues);
+  let destRules = document.querySelector(".rules_accordion");
+  let tempRules = document.querySelector(".values_template");
 
-  let destRules = document.querySelector(".rules-accordion");
-  let tempRules = document.querySelector(".rules_template");
-
-  fetchDetails.forEach(obj => {
+  fetchValues.forEach(obj => {
     let klon = tempRules.cloneNode(!0).content;
     klon.querySelector("summary").innerHTML = obj.values_headline;
-    klon.querySelector(".details_txt").innerHTML = obj.values_txt;
-    klon.querySelector(".details_img").src = obj.values_img.guid;
+    klon.querySelector(".details_subheadline1").innerHTML = obj.values_subheadline1;
+    klon.querySelector(".details_img1").src = obj.values_img1.guid;
+    klon.querySelector(".details_txt1").innerHTML = obj.values_txt1;
+
+    klon.querySelector(".details_subheadline2").innerHTML = obj.values_subheadline2;
+    klon.querySelector(".details_img2").src = obj.values_img2.guid;
+    klon.querySelector(".details_txt2").innerHTML = obj.values_txt2;
+
+    klon.querySelector(".details_subheadline3").innerHTML = obj.values_subheadline3;
+    klon.querySelector(".details_txt3").innerHTML = obj.values_txt3;
+    klon.querySelector(".details_img3").src = obj.values_img3.guid;
     destRules.prepend(klon);
-  });
-}
-
-function reviews(fetchReviews) {
-  console.log(fetchReviews);
-
-  let destReviews = document.querySelector(".review-container");
-  let tempReviews = document.querySelector(".reviews_template");
-
-  fetchReviews.forEach(obj => {
-    let klon = tempReviews.cloneNode(!0).content;
-    klon.querySelector(".reviews_headline").innerHTML = obj.headline_review;
-    klon.querySelector(".reviews_txt").innerHTML = obj.txt_review;
-    klon.querySelector(".reviews_img").src = obj.img_reviews.guid;
-    klon.querySelector(".reviews_name").innerHTML = obj.name_review;
-    klon.querySelector(".reviews_title").innerHTML = obj.titel_review;
-    destReviews.prepend(klon);
   });
 }

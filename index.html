@@ -16,7 +16,7 @@
             <img src="/src/assets/img/logo.svg" alt="Logo" />
           </a>
         </div>
-        <div class="nav-txt">
+        <div class="nav_txt">
           <a href="">Tilmeld dig</a>
           <a href="">Log ind</a>
           <a href="">Regler</a>
@@ -37,92 +37,94 @@
       </section>
 
       <section id="reviews">
-        <div class="review-container">
-            <template class="reviews_template">
-          <div class="review-txt-box">
-            <h2 class="reviews_headline"></h2>
-            <p class="reviews_txt"></p>
+        <template class="reviews_template">
+          <div class="review_container">
+            <div class="review_txt_box">
+              <h2 class="reviews_headline"></h2>
+              <p class="reviews_txt"></p>
+            </div>
+            <div class="reviews_image">
+              <img src="" class="reviews_img" alt="" />
+            </div>
+            <div class="review_info">
+              <svg id="stars" data-name="stars reviews" xmlns="http://www.w3.org/2000/svg" width="107.14mm" height="17mm" viewBox="0 0 303.69 48.19">
+                <polygon class="star1" fill="#fbbb4e" points="24.26 1.13 31.76 16.32 48.52 18.75 36.39 30.58 39.25 47.27 24.26 39.39 9.27 47.27 12.13 30.58 0 18.75 16.76 16.32 24.26 1.13" />
+                <polygon class="star2" fill="#fbbb4e" points="87.78 1.13 95.28 16.32 112.04 18.75 99.91 30.58 102.78 47.27 87.78 39.39 72.79 47.27 75.66 30.58 63.52 18.75 80.29 16.32 87.78 1.13" />
+                <polygon
+                  class="star3"
+                  fill="#fbbb4e"
+                  points="151.31 1.13 158.81 16.32 175.57 18.75 163.44 30.58 166.3 47.27 151.31 39.39 136.32 47.27 139.18 30.58 127.05 18.75 143.81 16.32 151.31 1.13"
+                />
+                <polygon
+                  class="star4"
+                  fill="#fbbb4e"
+                  points="214.84 1.13 222.33 16.32 239.09 18.75 226.97 30.58 229.83 47.27 214.84 39.39 199.84 47.27 202.71 30.58 190.57 18.75 207.34 16.32 214.84 1.13"
+                />
+                <polygon
+                  class="star5"
+                  fill="none"
+                  stroke="#fbbb4e"
+                  points="278.36 1.13 285.86 16.32 302.62 18.75 290.49 30.58 293.35 47.27 278.36 39.39 263.37 47.27 266.23 30.58 254.1 18.75 270.86 16.32 278.36 1.13"
+                />
+              </svg>
+              <h3 class="reviews_name"></h3>
+              <p class="reviews_title"></p>
+            </div>
           </div>
-          <div class="reviews_image">
-          <img src="" class="reviews_img" alt="" />
-        </div>
-          <div class="review-info">
-            <svg id="stars" data-name="stars reviews" xmlns="http://www.w3.org/2000/svg" width="107.14mm" height="17mm" viewBox="0 0 303.69 48.19">
-              <polygon class="star1" fill="#fbbb4e" points="24.26 1.13 31.76 16.32 48.52 18.75 36.39 30.58 39.25 47.27 24.26 39.39 9.27 47.27 12.13 30.58 0 18.75 16.76 16.32 24.26 1.13" />
-              <polygon class="star2" fill="#fbbb4e" points="87.78 1.13 95.28 16.32 112.04 18.75 99.91 30.58 102.78 47.27 87.78 39.39 72.79 47.27 75.66 30.58 63.52 18.75 80.29 16.32 87.78 1.13" />
-              <polygon
-                class="star3"
-                fill="#fbbb4e"
-                points="151.31 1.13 158.81 16.32 175.57 18.75 163.44 30.58 166.3 47.27 151.31 39.39 136.32 47.27 139.18 30.58 127.05 18.75 143.81 16.32 151.31 1.13"
-              />
-              <polygon
-                class="star4"
-                fill="#fbbb4e"
-                points="214.84 1.13 222.33 16.32 239.09 18.75 226.97 30.58 229.83 47.27 214.84 39.39 199.84 47.27 202.71 30.58 190.57 18.75 207.34 16.32 214.84 1.13"
-              />
-              <polygon
-                class="star5"
-                fill="none"
-                stroke="#fbbb4e"
-                points="278.36 1.13 285.86 16.32 302.62 18.75 290.49 30.58 293.35 47.27 278.36 39.39 263.37 47.27 266.23 30.58 254.1 18.75 270.86 16.32 278.36 1.13"
-              />
-            </svg>
-            <h3 class="reviews_name"></h3>
-            <p class="reviews_title"></p>
-          </div>
-        </div>
-    </template>
-
+        </template>
       </section>
       <section id="introduction">
         <h1 class="intro_headline"></h1>
         <p class="intro_p"></p>
       </section>
       <section id="images">
-        <div class="skew skew1"></div>
+        <div class="skew skew1">
+          <p class="p-txt">lorem ipsum</p>
+        </div>
         <div class="skew skew2"></div>
         <div class="skew skew3"></div>
       </section>
 
       <section id="rules">
         <h1 class="rules_headline"></h1>
-        <div class="rules-txt">
+        <div class="rules_txt">
           <p class="txt_rules_1"></p>
           <p class="txt_rules_2"></p>
         </div>
-        <div class="rules-accordion">
+        <div class="rules_accordion">
           <template class="rules_template">
             <details>
               <summary class="details_summary"></summary>
-              <h3 class="values_subheadline"></h3>
               <p class="details_txt"></p>
-              <img src="" alt="" class="details_img">
             </details>
           </template>
-          <!-- <details>
-            <summary></summary>
-            <div class="value-box">
-              <img src="/src/assets/img/aces.png" alt="" />
-              <div class="value-txt">
-                <h2>Es</h2>
-                <p></p>
+
+          <template class="values_template">
+            <details>
+              <summary class="details_summary"></summary>
+              <div class="details_box">
+                <img src="" alt="" class="details_img1" />
+                <div class="details-txt-box">
+                  <h3 class="details_subheadline1"></h3>
+                  <p class="details_txt1"></p>
+                </div>
               </div>
-            </div>
-            <div class="value-box">
-              <img src="/src/assets/img/10s.png" alt="" />
-              <div class="value-txt">
-                <h2>Billedkort og 10'ere</h2>
-                <p></p>
+              <div class="details_box">
+                <img src="" alt="" class="details_img2" />
+                <div class="details-txt-box">
+                  <h3 class="details_subheadline2"></h3>
+                  <p class="details_txt2"></p>
+                </div>
               </div>
-            </div>
-            <div class="value-box">
-              <img src="/src/assets/img/normal_cards.png" alt="" />
-              <div class="value-txt">
-                <h2>2 - 9</h2>
-                <p>2</p>
+              <div class="details_box">
+                <img src="" alt="" class="details_img3" />
+                <div class="details-txt-box">
+                  <h3 class="details_subheadline3"></h3>
+                  <p class="details_txt3"></p>
+                </div>
               </div>
-            </div>
-          </details> -->
+            </details>
+          </template>
         </div>
       </section>
       <section id="join">

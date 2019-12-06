@@ -38,7 +38,7 @@ nav {
     }
   }
 
-  .nav-txt {
+  .nav_txt {
     text-align: right;
     font-size: 0.8em;
     margin: 2em 1em;
@@ -58,10 +58,6 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
-
-  & > * {
-    padding: 0.6em;
-  }
 
   h1 {
     padding: 0.2em;
@@ -120,10 +116,12 @@ nav {
 }
 
 #reviews {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  margin: 0em 3em;
 
-  .review-container {
+  .review_container {
     display: grid;
     grid-template-columns: 1fr;
     background: #f3f6fe;
@@ -143,6 +141,7 @@ nav {
       display: flex;
       justify-content: center;
       padding: 0;
+      outline: none;
 
       img {
         width: 100px;
@@ -150,7 +149,7 @@ nav {
       }
     }
 
-    .review-txt-box {
+    .review_txt_box {
       h2 {
         font-family: $font_headline;
         font-size: 1.3em;
@@ -160,7 +159,7 @@ nav {
       }
     }
 
-    .review-info {
+    .review_info {
       background: #6a04f5;
       color: #fef6fe;
       text-align: center;
@@ -170,6 +169,7 @@ nav {
       h3 {
         font-family: $font_headline;
         font-size: 1.2em;
+        font-weight: bold;
         padding-bottom: 0.6em;
       }
 
@@ -199,21 +199,23 @@ nav {
 
   margin: 6em 0em;
 
+  .hidden {
+    visibility: hidden;
+  }
+
   .skew {
     color: white;
     text-align: center;
     align-items: center;
     transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
+    font-size: 20px;
     background-size: cover;
     background-position: center;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    background-repeat: no-repeat;
+    flex-grow: 1;
 
     &:hover {
-      flex: 1.5;
+      flex-grow: 1.5;
     }
   }
 
@@ -239,13 +241,13 @@ nav {
     font-weight: bold;
   }
 
-  .rules-txt {
+  .rules_txt {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 4em;
   }
 
-  .rules-accordion {
+  .rules_accordion {
     margin-top: 2em;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -254,6 +256,7 @@ nav {
 
   details {
     cursor: pointer;
+
     summary {
       font-size: 1.6em;
       font-family: $font_headline;
@@ -264,29 +267,26 @@ nav {
         display: none;
       }
     }
-  }
-}
 
-#card-value {
-  h1 {
-    text-align: center;
-  }
+    .details_box {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      margin: 2em 0em;
 
-  h2 {
-    font-size: 1.4em;
-    font-family: $font_headline;
-  }
+      & > * {
+        padding: 0.6em;
+      }
 
-  .value-box {
-    display: flex;
-    margin: 3em 5em;
-
-    & > * {
-      padding: 0.4em 2em;
-    }
-    img {
-      max-width: 130px;
-      width: 100%;
+      h3 {
+        font-size: 1.3em;
+        font-family: $font_headline;
+        font-weight: bold;
+      }
+      img {
+        max-width: 100px;
+        width: 100%;
+      }
     }
   }
 }
