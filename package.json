@@ -2,5 +2,8 @@
   "devDependencies": {
     "imask": "^5.2.1",
     "sass": "^1.23.7"
+  },
+  "dependencies": {
+    "regenerator": "^0.14.2"
   }
 }

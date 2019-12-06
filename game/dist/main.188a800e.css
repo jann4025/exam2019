@@ -1,0 +1,534 @@
+@import url("https://use.typekit.net/dsa0xgj.css");
+@font-face {
+  font-family: "neonregular";
+  src: url("/neon-webfont.508bd6ca.woff2") format("woff2"), url("/neon-webfont.5e167b7e.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.primary_button, input[type=submit] {
+  -webkit-appearance: none;
+  border: none;
+  background-image: none;
+  background: #dd2e59;
+  color: #f3f6fe;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  margin-top: 3rem;
+  box-shadow: rgba(221, 46, 89, 0.5) 0 0 30px;
+  cursor: pointer;
+}
+
+.headline, form h1 {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+form {
+  margin: 2em 0;
+  color: #17161c;
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  max-width: 800px;
+  margin: auto;
+  background: #f3f6fe;
+  padding: 5em;
+  text-align: center;
+}
+.flex-form-field {
+  display: flex;
+  max-width: 60%;
+  margin: auto;
+  justify-content: space-between;
+}
+.flex-form-field .field {
+  width: 48%;
+}
+.flex-form-field .field:first-of-type {
+  margin-right: 1em;
+}
+
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin: auto;
+  margin-bottom: 1rem;
+  max-width: 60%;
+  text-align: left;
+  position: relative;
+}
+.field #lastname, .field #firstname {
+  text-transform: capitalize;
+}
+.field #email {
+  text-transform: lowercase;
+}
+.field small {
+  font-size: 0.4rem;
+}
+.field:first-of-type {
+  margin-top: 2rem;
+}
+
+label, input {
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
+input {
+  font-size: 1em;
+  border: 1px solid #8D8D8D;
+  font-family: inherit;
+  -webkit-appearance: none;
+  min-height: 32px;
+  cursor: text;
+  padding: 0 0.7rem;
+  border-radius: 3px;
+}
+input:focus {
+  outline: 0;
+  border: 1px solid #6a04f5;
+}
+
+label {
+  letter-spacing: 0.05em;
+  font-size: 0.6em;
+}
+
+input:placeholder-shown + label {
+  cursor: text;
+  max-width: 66.66%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0.7rem, 1.5rem) scale(1.5);
+}
+
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+  text-transform: none;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  transform: translate(0, 0) scale(1);
+  cursor: pointer;
+}
+
+.invalid, input:invalid:not(:placeholder-shown):not(:focus) {
+  border: #dd2e59 1px solid;
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><g fill='none' fill-rule='evenodd'><circle cx='10' cy='10' r='10' fill='crimson'/><path fill='%23FFFFFF' d='M9,6.84848485 C9,5.93939394 9.4,5.33333333 10,5.33333333 C10.6,5.33333333 11,5.93939394 11,6.84848485 L11,10.4848485 C11,11.3939394 10.6,12 10,12 C9.4,12 9,11.3939394 9,10.4848485 L9,6.84848485 Z M10,14.6666667 C9.41666667,14.6666667 9,14.25 9,13.6666667 C9,13.0833333 9.41666667,12.6666667 10,12.6666667 C10.5833333,12.6666667 11,13.0833333 11,13.6666667 C11,14.25 10.5833333,14.6666667 10,14.6666667 L10,14.6666667 Z'/></g></svg>");
+  transition: none;
+  background-position-x: calc(100% - 16px);
+  background-position-y: 50%;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  color: #dd2e59;
+  animation: errorShake 0.12s 2 forwards;
+}
+.invalid + label, input:invalid:not(:placeholder-shown):not(:focus) + label {
+  color: #dd2e59;
+}
+
+.valid,
+input[type=text]:valid:not(:placeholder-shown):not(:focus),
+input[type=password]:valid:not(:placeholder-shown):not(:focus),
+input[type=email]:valid:not(:placeholder-shown):not(:focus),
+input[type=tel]:valid:not(:placeholder-shown):not(:focus) {
+  border: #3cc28f 1px solid;
+  transition: none;
+  background-position-x: calc(100% - 16px);
+  background-position-y: 50%;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  color: #3cc28f;
+  background-image: url("https://www.shareicon.net/data/128x128/2017/02/09/878601_check_512x512.png");
+}
+.valid + label,
+input[type=text]:valid:not(:placeholder-shown):not(:focus) + label,
+input[type=password]:valid:not(:placeholder-shown):not(:focus) + label,
+input[type=email]:valid:not(:placeholder-shown):not(:focus) + label,
+input[type=tel]:valid:not(:placeholder-shown):not(:focus) + label {
+  color: #3cc28f;
+}
+
+@keyframes errorShake {
+  50% {
+    transform: translateX(5px);
+  }
+}
+.valid,
+input:valid:not(:placeholder-shown):not(:focus) + i {
+  opacity: 0;
+}
+
+i {
+  position: absolute;
+  right: 0.5rem;
+  top: 40%;
+}
+
+body {
+  background: #17161c;
+  color: #f3f6fe;
+}
+
+h1 {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-size: 4em;
+  text-align: center;
+}
+
+p {
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  line-height: 1.5;
+  max-width: 70vw;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #f3f6fe;
+  font-family: "neue-haas-grotesk-text", sans-serif;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+}
+nav .logo {
+  position: absolute;
+  padding: 0.5em;
+}
+nav .logo img {
+  max-width: 100px;
+}
+nav .nav-txt {
+  text-align: right;
+  font-size: 0.8em;
+  margin: 2em 1em;
+}
+nav .nav-txt a {
+  padding: 2em;
+}
+
+#hero {
+  background-image: url("/bg-img.cc21ea66.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#hero > * {
+  padding: 0.6em;
+}
+#hero h1 {
+  padding: 0.2em;
+  color: #dd2e59;
+  text-shadow: rgba(221, 46, 89, 0.5) 0 0 30px;
+  font-family: "neonregular";
+}
+#hero h2 {
+  color: #ffbd4c;
+  font-size: 3.5em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 600;
+}
+#hero p {
+  font-size: 1.4em;
+}
+#hero button {
+  background: #dd2e59;
+  box-shadow: rgba(221, 46, 89, 0.5) 0 0 30px;
+  font-size: 1.2em;
+  color: #f3f6fe;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6em 1em;
+  margin-top: 1em;
+  cursor: pointer;
+}
+
+#welcome {
+  display: grid;
+  justify-items: center;
+  margin: 3em 5em;
+}
+#welcome > * {
+  padding: 0.4em 2em;
+}
+#welcome h2 {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-size: 1.8em;
+}
+#welcome .images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  margin: 3em 0em;
+}
+#welcome .images img {
+  max-width: 400px;
+  width: 100%;
+}
+
+#reviews {
+  display: flex;
+  justify-content: center;
+}
+#reviews .review-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #f3f6fe;
+  max-width: 350px;
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+  color: black;
+  margin: 2em;
+  font-size: 0.8em;
+}
+#reviews .review-container > * {
+  padding: 1.2em;
+}
+#reviews .review-container img {
+  position: absolute;
+  width: 100px;
+  border-radius: 50%;
+  top: 35%;
+  left: 30%;
+}
+#reviews .review-container .review-txt {
+  padding: 2em 2em 4em;
+}
+#reviews .review-container .review-txt h2 {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-size: 1.3em;
+  padding-bottom: 0.6em;
+  font-weight: bold;
+  text-align: center;
+}
+#reviews .review-container .review-info {
+  background: #6a04f5;
+  color: #fef6fe;
+  text-align: center;
+  padding-top: 4em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+#reviews .review-container .review-info h3 {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-size: 1.2em;
+  padding-bottom: 0.6em;
+}
+#reviews .review-container .review-info svg {
+  width: 180px;
+}
+
+#introduction {
+  display: grid;
+  justify-items: center;
+  margin: 3em 5em;
+}
+#introduction > * {
+  padding: 0.4em 2em;
+}
+
+#images {
+  display: flex;
+  justify-content: center;
+  transform: skewY(-5deg);
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 80vh;
+  margin: 6em 0em;
+}
+#images .skew {
+  color: white;
+  text-align: center;
+  align-items: center;
+  /* Safari transitionend event.propertyName === flex */
+  /* Chrome + FF transitionend event.propertyName === flex-grow */
+  transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
+  font-size: 20px;
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+#images .skew:hover {
+  flex: 1.5;
+}
+#images .skew1 {
+  background-image: url("/game.1d3b2d2f.png");
+}
+#images .skew2 {
+  background-image: url("/champagne.0e00369b.png");
+}
+#images .skew3 {
+  background-image: url("/chips.b77ac905.png");
+}
+#images img {
+  margin: 3em 0em;
+}
+
+#rules {
+  display: grid;
+  margin: 3em 5em;
+}
+#rules > * {
+  padding: 0.4em 2em;
+}
+#rules h1 {
+  text-align: center;
+}
+#rules a {
+  font-weight: bold;
+}
+#rules .rules-txt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4em;
+}
+#rules .rules-accordion {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em 4em;
+}
+#rules details {
+  cursor: pointer;
+}
+#rules details summary {
+  font-size: 1.6em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  border-bottom: 1px #f3f6fe solid;
+  padding: 0.4em 0em;
+}
+#rules details summary::-webkit-details-marker {
+  display: none;
+}
+
+#card-value h1 {
+  text-align: center;
+}
+#card-value h2 {
+  font-size: 1.4em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+}
+#card-value .value-box {
+  display: flex;
+  margin: 3em 5em;
+}
+#card-value .value-box > * {
+  padding: 0.4em 2em;
+}
+#card-value .value-box img {
+  max-width: 130px;
+  width: 100%;
+}
+
+#join {
+  background-image: url(/table.4ff7dd5a.png);
+  width: 100%;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 10em;
+}
+#join > * {
+  padding: 0.3em;
+}
+#join h2 {
+  font-size: 3em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+}
+#join h3 {
+  font-size: 1.8em;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+}
+#join button {
+  background: #dd2e59;
+  box-shadow: rgba(221, 46, 89, 0.5) 0 0 30px;
+  font-size: 1.2em;
+  color: #f3f6fe;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6em 2em;
+  margin-top: 2em;
+  cursor: pointer;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*# sourceMappingURL=/main.188a800e.css.map */
