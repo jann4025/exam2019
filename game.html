@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Best Blackjack || Vind 100kr til dit første spil</title>
+    <link rel="stylesheet" href="/src/scss/main.scss">
+</head>
+
+<body id="game">
+    <section id="main_game">
+        <div id="btns">
+            <div class="btn hit">Hit</div>
+            <div class="btn stand">Stand</div>
+        </div>
+        <div id="deck">
+            <div class="card">
+                <div class="front">
+                    <img src="https://cdn.shopify.com/s/files/1/0200/7616/products/playing-cards-bicycle-rider-back-1_1024x1024.png?v=1535755695"
+                        class="front_image">
+                </div>
+                <div class="back">
+                    <img src="" class="back_image">
+                </div>
+            </div>
+
+        </div>
+        <div id="dealer-container">
+
+            <div id="dealer-value">0</div>
+        </div>
+        <div id="player-container">
+
+            <div id="player-value">0</div>
+
+
+        </div>
+
+    </section>
+
+    <template id="newCard">
+        <div class="card">
+            <div class="front">
+                <img src="https://cdn.shopify.com/s/files/1/0200/7616/products/playing-cards-bicycle-rider-back-1_1024x1024.png?v=1535755695"
+                    class="front_image">
+            </div>
+            <div class="back">
+                <img src="" class="back_image">
+            </div>
+        </div>
+    </template>
+    <script src="game.js"></script>
+</body>
+
+</html>
