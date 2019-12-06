@@ -21,7 +21,7 @@ export default function List() {
       .then(e => setPosts(e));
   }, []);
 
-  const deleteTask = id => {
+  const deleteUser = id => {
     console.log(id);
     const newPosts = posts.filter(post => {
       if (post._id != id) {
@@ -40,6 +40,14 @@ export default function List() {
       });
   };
 
+  // const data = {
+  //   name: "Sarah",
+  //   lastname: "Davidsen",
+  //   email: "Jofh@kea.dk",
+  //   user_id: "3",
+  //   user: "Hoofhearted"
+  // };
+
   console.log(posts);
 
   return (
@@ -49,7 +57,7 @@ export default function List() {
 
         <tbody>
           {posts.map(post => {
-            return <ListItem key={uuidv1()} deleteTask={deleteTask} user_id={post.user_id} firstname={post.name} lastname={post.lastname} user={post.user} mail={post.email} id={post._id} />;
+            return <ListItem key={uuidv1()} deleteUser={deleteUser} user_id={post.user_id} firstname={post.name} lastname={post.lastname} user={post.user} mail={post.email} id={post._id} />;
           })}
         </tbody>
       </table>

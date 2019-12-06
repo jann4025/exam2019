@@ -18,7 +18,14 @@ export default function ListItem(props) {
         >
           Slet
         </button>
-        <button className="bg-gray-400 hover:bg-gray-300 w-20 rounded-lg m-4">Rediger</button>
+        <button
+          className="bg-gray-400 hover:bg-gray-300 w-20 rounded-lg m-4"
+          // onClick={() => {
+          //   props.data(props.id);
+          // }}
+        >
+          Rediger
+        </button>
       </td>
     </tr>
   );
