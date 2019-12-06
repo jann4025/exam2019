@@ -138,18 +138,19 @@ nav {
     & > * {
       padding: 1.2em;
     }
+    .reviews_image {
+      background: linear-gradient(to bottom, #f3f6fe 0%, #f3f6fe 50%, #f3f6fe 50%, #6a04f5 50%, #6a04f5 100%);
+      display: flex;
+      justify-content: center;
+      padding: 0;
 
-    img {
-      position: absolute;
-      width: 100px;
-      border-radius: 50%;
-      top: 35%;
-      left: 30%;
+      img {
+        width: 100px;
+        border-radius: 50%;
+      }
     }
 
-    .review-txt {
-      padding: 2em 2em 4em;
-
+    .review-txt-box {
       h2 {
         font-family: $font_headline;
         font-size: 1.3em;
@@ -163,7 +164,6 @@ nav {
       background: #6a04f5;
       color: #fef6fe;
       text-align: center;
-      padding-top: 4em;
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
 
@@ -203,10 +203,7 @@ nav {
     color: white;
     text-align: center;
     align-items: center;
-    /* Safari transitionend event.propertyName === flex */
-    /* Chrome + FF transitionend event.propertyName === flex-grow */
     transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
-    font-size: 20px;
     background-size: cover;
     background-position: center;
     flex: 1;
@@ -218,16 +215,6 @@ nav {
     &:hover {
       flex: 1.5;
     }
-  }
-
-  .skew1 {
-    background-image: url("/src/assets/img/game.png");
-  }
-  .skew2 {
-    background-image: url("/src/assets/img/champagne.png");
-  }
-  .skew3 {
-    background-image: url("/src/assets/img/chips.png");
   }
 
   img {

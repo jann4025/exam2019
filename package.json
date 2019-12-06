@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "sass": "^1.23.7"
+  },
+  "dependencies": {
+    "regenerator": "^0.14.2"
   }
 }
