@@ -265,7 +265,6 @@ function dealNewCardDealer() {
             });
             animation.addEventListener('finish', () => {
                 el.classList.add("flip");
-                el.addEventListener("transitionend", showDealerValuesFull);
             });
         }
     }
@@ -303,7 +302,6 @@ function stand() {
     checkValue();
     document.querySelector("#dealer-container").childNodes[4].classList.add('flip');
     document.querySelector("#dealer-container").childNodes[4].addEventListener("transitionend", () => {
-        showDealerValuesFull();
         if (dealerValue < 17) {
             dealNewCardDealer();
         } else {
