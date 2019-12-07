@@ -71,6 +71,7 @@ nav {
     font-size: 3.5em;
     font-family: $font_headline;
     font-weight: 600;
+    text-align: center;
   }
 
   p {
@@ -85,7 +86,7 @@ nav {
     border: none;
     border-radius: 5px;
     padding: 0.6em 1em;
-    margin-top: 1em;
+    margin-top: 2em;
     cursor: pointer;
   }
 }
@@ -102,6 +103,7 @@ nav {
   h2 {
     font-family: $font_headline;
     font-size: 1.8em;
+    text-align: center;
   }
   .images {
     display: grid;
@@ -174,7 +176,7 @@ nav {
       }
 
       svg {
-        width: 180px;
+        width: 200px;
       }
     }
   }
@@ -199,28 +201,51 @@ nav {
 
   margin: 6em 0em;
 
-  .hidden {
-    visibility: hidden;
-  }
-
   .skew {
     color: white;
     text-align: center;
     align-items: center;
     transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
-    font-size: 20px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     flex-grow: 1;
+    display: grid;
+    justify-items: center;
 
+    span {
+      visibility: hidden;
+      line-height: 1.5;
+
+      & > * {
+        padding: 1em;
+      }
+
+      h2 {
+        font-size: 2em;
+        font-family: $font_headline;
+        max-width: 300px;
+        width: 100%;
+      }
+
+      button {
+        background: $red_primary;
+        box-shadow: $primary_glow;
+        border: none;
+        color: $white_primary;
+        font-size: 1em;
+      }
+    }
     &:hover {
-      flex-grow: 1.5;
+      flex-grow: 2;
+
+      span {
+        visibility: visible;
+      }
     }
   }
 
   img {
-    // max-width: 33.33vw;
     margin: 3em 0em;
   }
 }
