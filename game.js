@@ -299,9 +299,10 @@ function checkValue() {
 }
 
 function stand() {
-    checkValue();
+    btns.style.display = "none";
     document.querySelector("#dealer-container").childNodes[4].classList.add('flip');
     document.querySelector("#dealer-container").childNodes[4].addEventListener("transitionend", () => {
+        checkValue();
         if (dealerValue < 17) {
             dealNewCardDealer();
         } else {
