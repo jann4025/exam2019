@@ -10,6 +10,18 @@
 </head>
 
 <body id="game">
+    <div class="gameEnd">
+        <!-- Animation created by Lexi Michel https://lottiefiles.com/6902-exploding-ribbon-and-confetti -->
+        <lottie-player id="confettiAnimation" src="https://assets10.lottiefiles.com/packages/lf20_aEFaHc.json"
+            background="transparent" speed=".5" style="width: 100%; height: 100%;">
+        </lottie-player>
+        <div class="content">
+            <h1>Sådan Jannick, du vandt over dealeren!</h1>
+            <p>Nu er du klar til at få din gratis bonus på 100 kr. til dit første spil!</p>
+            <p>Tryk på "Få din bonus nu" for at komme i gang med at spille!</p>
+            <button class="btn">Få din bonus nu</button>
+        </div>
+    </div>
     <section id="main_game">
         <div id="btns">
             <div class="btn hit">Hit</div>
@@ -52,6 +64,7 @@
         </div>
     </template>
     <script src="game.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 
 </html>
