@@ -1,0 +1,32 @@
+@mixin desktop {
+}
+
+@mixin ll {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin ls {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin ml {
+  @media screen and (max-width: 414px) {
+    @content;
+  }
+}
+
+@mixin mm {
+  @media screen and (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin ms {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}

@@ -17,6 +17,11 @@ p {
   line-height: 1.5;
   max-width: 70vw;
   width: 100%;
+
+  @include ls {
+    max-width: 90%;
+    padding: 0.5em;
+  }
 }
 
 a {
@@ -96,8 +101,20 @@ nav {
   justify-items: center;
   margin: 3em 5em;
 
+  @include ls {
+    margin: 1em;
+  }
+
   & > * {
     padding: 0.4em 2em;
+
+    @include ls {
+      padding: 0.4em 1em;
+    }
+
+    @include ml {
+      padding: 0.4em 0;
+    }
   }
 
   h2 {
@@ -115,25 +132,50 @@ nav {
       width: 100%;
     }
   }
+
+  p {
+    @include ls {
+      margin: 0 2em;
+    }
+  }
 }
 
 #reviews {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  margin: 0em 3em;
+  margin: 0 8em;
+
+  @include ll {
+    margin: 0;
+  }
+
+  @include ls {
+    grid-template-columns: 1fr;
+  }
+
+  @include ml {
+    display: block;
+    margin: 1em;
+  }
 
   .review_container {
     display: grid;
     grid-template-columns: 1fr;
     background: #f3f6fe;
     max-width: 350px;
-    width: 100%;
     position: relative;
     border-radius: 10px;
     color: black;
     margin: 2em;
     font-size: 0.8em;
+
+    @include ll {
+      max-width: 300px;
+    }
+    @include ls {
+      max-width: 350px;
+    }
 
     & > * {
       padding: 1.2em;
@@ -188,6 +230,14 @@ nav {
   margin: 3em 5em;
   & > * {
     padding: 0.4em 2em;
+
+    @include ls {
+      padding: 0.4em 0;
+    }
+  }
+
+  @include ls {
+    margin: 1em;
   }
 }
 
@@ -201,6 +251,15 @@ nav {
 
   margin: 6em 0em;
 
+  @include ll {
+    transform: skewY(0deg);
+    min-height: 50vh;
+  }
+
+  @include ml {
+    display: block;
+  }
+
   .skew {
     color: white;
     text-align: center;
@@ -212,33 +271,54 @@ nav {
     flex-grow: 1;
     display: grid;
     justify-items: center;
+    .wrap {
+      transform: skewY(5deg);
 
-    span {
-      visibility: hidden;
-      line-height: 1.5;
-
-      & > * {
-        padding: 1em;
+      @include ll {
+        transform: skewY(0deg);
       }
 
-      h2 {
-        font-size: 2em;
-        font-family: $font_headline;
-        max-width: 300px;
-        width: 100%;
+      @include ml {
+        padding: 2em;
       }
 
-      button {
-        background: $red_primary;
-        box-shadow: $primary_glow;
-        border: none;
-        color: $white_primary;
-        font-size: 1em;
+      span {
+        visibility: hidden;
+        line-height: 1.5;
+
+        & > * {
+          padding: 1em;
+        }
+
+        @include ll {
+          visibility: visible;
+        }
+
+        h2 {
+          font-size: 2em;
+          font-family: $font_headline;
+          max-width: 300px;
+          width: 100%;
+
+          @include ls {
+            font-size: 1.4em;
+            max-width: 200px;
+          }
+        }
+
+        button {
+          background: $red_primary;
+          box-shadow: $primary_glow;
+          border: none;
+          color: $white_primary;
+          font-size: 1em;
+          border-radius: 5px;
+          cursor: pointer;
+        }
       }
     }
     &:hover {
       flex-grow: 2;
-
       span {
         visibility: visible;
       }
@@ -246,16 +326,27 @@ nav {
   }
 
   img {
-    margin: 3em 0em;
+    // margin: 3em 0em;
   }
 }
 
 #rules {
   display: grid;
   margin: 3em 5em;
+  @include ls {
+    padding: 0.4em 0;
+  }
+
+  @include ls {
+    margin: 1em;
+  }
 
   & > * {
     padding: 0.4em 2em;
+
+    @include ml {
+      padding: 0;
+    }
   }
 
   h1 {
@@ -270,6 +361,14 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 4em;
+
+    @include ls {
+      grid-gap: 2em;
+    }
+
+    @include ml {
+      display: block;
+    }
   }
 
   .rules_accordion {
@@ -277,6 +376,10 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1em 4em;
+
+    @include ml {
+      display: block;
+    }
   }
 
   details {
