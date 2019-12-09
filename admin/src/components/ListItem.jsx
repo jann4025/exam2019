@@ -13,7 +13,7 @@ export default function ListItem(props) {
         <button
           className="bg-red-500 hover:bg-red-300 w-20 rounded-lg m-4"
           onClick={() => {
-            props.deleteTask(props.id);
+            props.deleteUser(props.id);
           }}
         >
           Slet

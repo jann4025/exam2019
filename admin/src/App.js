@@ -11,7 +11,7 @@ const headers = {
 };
 
 export default function App(props) {
-  // const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
@@ -34,16 +34,8 @@ export default function App(props) {
     setUser(e.target.value);
   };
 
-  // const onUserAdded = data => {
-  //   setPosts(posts.concat(data));
-  // };
-
   const onSubmit = e => {
     e.preventDefault();
-
-    // const onUserAdded = data => {
-    //   setPosts(posts.concat(data));
-    // };
 
     fetch(baseURL, {
       method: "post",
@@ -58,12 +50,15 @@ export default function App(props) {
       .then(e => e.json())
       .then(e => {
         console.log(e);
-        // props.onUserAdded(e);
+        onUserAdded(e);
         setName("");
         setLastname("");
         setEmail("");
         setUser("");
       });
+  };
+  const onUserAdded = data => {
+    setPosts(posts.concat(data));
   };
 
   return (

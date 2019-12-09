@@ -10,7 +10,7 @@ const headers = {
   "cache-control": "no-cache"
 };
 
-export default function List() {
+export default function List(props) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetch(baseURL, {
@@ -40,6 +40,10 @@ export default function List() {
       });
   };
 
+  const onUserAdded = data => {
+    setPosts(posts.concat(data));
+  };
+
   // const data = {
   //   name: "Sarah",
   //   lastname: "Davidsen",
@@ -57,7 +61,19 @@ export default function List() {
 
         <tbody>
           {posts.map(post => {
-            return <ListItem key={uuidv1()} deleteUser={deleteUser} user_id={post.user_id} firstname={post.name} lastname={post.lastname} user={post.user} mail={post.email} id={post._id} />;
+            return (
+              <ListItem
+                key={uuidv1()}
+                deleteUser={deleteUser}
+                onUserAdded={onUserAdded}
+                user_id={post.user_id}
+                firstname={post.name}
+                lastname={post.lastname}
+                user={post.user}
+                mail={post.email}
+                id={post._id}
+              />
+            );
           })}
         </tbody>
       </table>
