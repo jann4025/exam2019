@@ -11,7 +11,7 @@ const headers = {
 };
 
 export default function List(props) {
-  const [posts, setPosts] = useState([]);
+  /*const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetch(baseURL, {
       method: "get",
@@ -19,8 +19,8 @@ export default function List(props) {
     })
       .then(e => e.json())
       .then(e => setPosts(e));
-  }, []);
-
+  }, []);*/
+  /*
   const deleteUser = id => {
     console.log(id);
     const newPosts = posts.filter(post => {
@@ -43,7 +43,7 @@ export default function List(props) {
   const onUserAdded = data => {
     setPosts(posts.concat(data));
   };
-
+*/
   // const data = {
   //   name: "Sarah",
   //   lastname: "Davidsen",
@@ -52,7 +52,7 @@ export default function List(props) {
   //   user: "Hoofhearted"
   // };
 
-  console.log(posts);
+  console.log(props.posts);
 
   return (
     <>
@@ -60,20 +60,8 @@ export default function List(props) {
         <Header />
 
         <tbody>
-          {posts.map(post => {
-            return (
-              <ListItem
-                key={uuidv1()}
-                deleteUser={deleteUser}
-                onUserAdded={onUserAdded}
-                user_id={post.user_id}
-                firstname={post.name}
-                lastname={post.lastname}
-                user={post.user}
-                mail={post.email}
-                id={post._id}
-              />
-            );
+          {props.posts.map(post => {
+            return <ListItem key={uuidv1()} deleteUser={props.deleteUser} user_id={post.user_id} firstname={post.name} lastname={post.lastname} user={post.user} mail={post.email} id={post._id} />;
           })}
         </tbody>
       </table>
