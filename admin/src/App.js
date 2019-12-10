@@ -17,26 +17,15 @@ export default function App(props) {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [user, setUser] = useState("Standard");
-  const [sort, setSort] = useState("id");
-  const [sorted, setSorted] = useState([]);
-  const onSort = e => {
-    console.log(e.target.value);
-    const copy = [...posts];
-    copy.sort(function(a, b) {
-      var nameA = a[e.target.value]; // ignore upper and lowercase
-      var nameB = b[e.target.value]; // ignore upper and lowercase
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
+  const [sort, setSort] = useState("user_id");
+  const [filter, setFilter] = useState("Alle");
 
-      // names must be equal
-      return 0;
-    });
-    console.log("ramt");
-    setSorted(copy);
+  const onSort = e => {
+    setSort(e.target.value);
+  };
+
+  const onFilter = e => {
+    setFilter(e.target.value);
   };
   useEffect(() => {
     fetch(baseURL, {
@@ -46,23 +35,6 @@ export default function App(props) {
       .then(e => e.json())
       .then(e => {
         setPosts(e);
-
-        const copy = [...e];
-        copy.sort(function(a, b) {
-          var nameA = a["name"]; // ignore upper and lowercase
-          var nameB = b["name"]; // ignore upper and lowercase
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-
-          // names must be equal
-          return 0;
-        });
-        console.log("ramt");
-        setSorted(copy);
       });
   }, []);
 
@@ -111,7 +83,7 @@ export default function App(props) {
   const deleteUser = id => {
     console.log(id);
     const newPosts = posts.filter(post => {
-      if (post._id != id) {
+      if (post._id !== id) {
         return post;
       }
     });
@@ -127,6 +99,37 @@ export default function App(props) {
       });
   };
 
+  //sort
+  //FRA MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  let copy = [...posts];
+
+  copy.sort(function(a, b) {
+    var nameA = a[sort]; // ignore upper and lowercase
+    var nameB = b[sort]; // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+
+    // names must be equal
+    return 0;
+  });
+
+  //filter
+  copy = copy.filter(post => {
+    if (filter === "Alle") {
+      return true;
+    } else {
+      return post.user === filter;
+    }
+
+    // hvis filter er All, så return true
+    // ellers, return kun true hvis post.user er = filter
+    //  return post.user === filter;
+  });
+
   return (
     <div className="App">
       <header className="bg-gray-400 mb-10">
@@ -134,32 +137,31 @@ export default function App(props) {
 
         <div className="flex justify-center p-5">
           <label>Sorter:</label>
-          <select className="mr-10" onChange={onSort}>
+          <select className="mr-10" value={sort} onChange={onSort}>
             <option value="name">A-Z</option>
             <option value="user_id">Id nummer</option>
             <option value="user">Brugerrolle</option>
           </select>
           <label>Filtrer:</label>
-          <select>
-            <option>Bruger ID</option>
-            <option>Navn</option>
-            <option>Email</option>
-            <option>Brugerrolle</option>
+          <select value={filter} onChange={onFilter}>
+            <option>Alle</option>
+            <option>Admin</option>
+            <option>Standard</option>
           </select>
         </div>
 
         <form className="flex justify-center p-10" onSubmit={onSubmit}>
-          <label className="mr-2">Fornavn</label>
-          <input className="mr-10" type="text" size="25" placeholder="Jane" name="name" onChange={nameChanged} value={name} required></input>
+          <label className="mr-1">Fornavn</label>
+          <input className="mr-4" type="text" size="25" placeholder="Jane" name="name" onChange={nameChanged} value={name} required></input>
 
-          <label className="mr-2">Efternavn</label>
-          <input className="mr-10" type="text" size="25" placeholder="Doe" name="lastname" onChange={lastnameChanged} value={lastname} required></input>
+          <label className="mr-1">Efternavn</label>
+          <input className="mr-4" type="text" size="25" placeholder="Doe" name="lastname" onChange={lastnameChanged} value={lastname} required></input>
 
-          <label className="mr-2">Email</label>
-          <input className="mr-10" type="text" size="25" placeholder="Jane_doe@gmai.com" onChange={emailChanged} name="email" value={email} required></input>
+          <label className="mr-1">Email</label>
+          <input className="mr-4" type="text" size="25" placeholder="Jane_doe@gmail.com" onChange={emailChanged} name="email" value={email} required></input>
 
-          <label>Brugerrolle</label>
-          <select onChange={userChanged} value={user} required>
+          <label className="mr-1">Brugerrolle</label>
+          <select className="mr-4" onChange={userChanged} value={user} required>
             <option>Admin</option>
             <option>Standard</option>
           </select>
@@ -176,7 +178,7 @@ export default function App(props) {
         </div> */}
       </header>
 
-      <List posts={sorted} deleteUser={deleteUser} />
+      <List posts={copy} deleteUser={deleteUser} />
       <Footer />
     </div>
   );

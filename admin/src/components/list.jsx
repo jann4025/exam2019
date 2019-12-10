@@ -3,55 +3,7 @@ import ListItem from "./ListItem";
 import Header from "./header";
 import uuidv1 from "uuid/v1";
 
-const baseURL = "https://frontend19-ccb8.restdb.io/rest/user-exam";
-const headers = {
-  "Content-Type": "application/json; charset=utf-8",
-  "x-apikey": "5d88747dfd86cb75861e25ff",
-  "cache-control": "no-cache"
-};
-
 export default function List(props) {
-  /*const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    fetch(baseURL, {
-      method: "get",
-      headers: headers
-    })
-      .then(e => e.json())
-      .then(e => setPosts(e));
-  }, []);*/
-  /*
-  const deleteUser = id => {
-    console.log(id);
-    const newPosts = posts.filter(post => {
-      if (post._id != id) {
-        return post;
-      }
-    });
-    setPosts(newPosts);
-
-    fetch(baseURL + "/" + id, {
-      method: "delete",
-      headers: headers
-    })
-      .then(e => e.json())
-      .then(e => {
-        console.log(e);
-      });
-  };
-
-  const onUserAdded = data => {
-    setPosts(posts.concat(data));
-  };
-*/
-  // const data = {
-  //   name: "Sarah",
-  //   lastname: "Davidsen",
-  //   email: "Jofh@kea.dk",
-  //   user_id: "3",
-  //   user: "Hoofhearted"
-  // };
-
   console.log(props.posts);
 
   return (
