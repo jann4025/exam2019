@@ -14,21 +14,18 @@ let hitButton = document.querySelector(".btn.hit");
 
 const btns = document.querySelector("#btns");
 
+let nameFilled = false;
 
-
-
-
-function newFunction() {
-    let newDeck;
-    return newDeck;
-}
 
 function start() {
     console.log('Connection between the DOM and the Script was successfull! Nice 😎');
     creatNewDeck();
     addEventListener();
-
-
+    if (localStorage.getItem("PlayedBefore") === null) {
+        onBoarding();
+    } else if (localStorage.getItem("PlayedBefore") == true) {
+        return;
+    }
 }
 
 function reset() {
@@ -45,6 +42,29 @@ function setInitialValues() {
     return { dealer, player, playerSum, dealerSum };
 }
 
+
+function onBoarding() {
+    const form = document.querySelector("form#fornavn");
+    console.log(name);
+    document.querySelector("#onboarding").style.display = "block";
+    form.addEventListener("submit", e => {
+        onSubmit(form, e);
+    });
+}
+
+function onSubmit(form, e) {
+    const name = form.elements.name.value;
+    e.preventDefault();
+    localStorage.setItem("firstname", name);
+    document.querySelector(".form").style.display = "none";
+    document.querySelector(".start").style.display = "block";
+    nameFilled = !nameFilled;
+    localStorage.setItem("PlayedBefore", nameFilled);
+    document.querySelector(".start .name").innerHTML = localStorage.getItem("firstname");
+    document.querySelector(".spilNu").addEventListener("click", () => {
+        document.querySelector("#onboarding").style.display = "none";
+    });
+}
 
 function creatNewDeck() {
     newDeck = generateDeck();
@@ -87,38 +107,41 @@ function addEventListener() {
 function firstDeal() {
     let id;
     document.querySelector(".btn.hit").removeEventListener("click", firstDeal);
-    //dealer
-    for (let x = 0; x < 2; x++) {
-        let rN = Math.floor(Math.random() * newDeck.length);
-        id = newDeck[rN].Suit.charAt(0).toUpperCase() + newDeck[rN].Value;
-        let card = { Value: newDeck[rN].Value, Suit: newDeck[rN].Suit, Image: newDeck[rN].Image, ID: id };
-        let klon = temp.cloneNode(!0).content;
-        klon.querySelector(".back_image").src = newDeck[rN].Image;
-        klon.querySelector(".card").classList.add(id);
-        deck.appendChild(klon);
-        newDeck.splice(rN, 1);
-        dealer.push(card);
-    }
-
-
-
-    //player
-    for (let x = 0; x < 2; x++) {
-        let rN = Math.floor(Math.random() * newDeck.length);
-        id = newDeck[rN].Suit.charAt(0).toUpperCase() + newDeck[rN].Value;
-        let card = { Value: newDeck[rN].Value, Suit: newDeck[rN].Suit, Image: newDeck[rN].Image, ID: id };
-        let klon = temp.cloneNode(!0).content;
-        klon.querySelector(".back_image").src = newDeck[rN].Image;
-        klon.querySelector(".card").classList.add(id);
-        deck.appendChild(klon);
-        newDeck.splice(rN, 1);
-        player.push(card);
-    }
+    firstDealPlayer();
     console.log(player);
     console.log(dealer);
     player.forEach(x => flipPlayer(x.ID));
     dealer.forEach(x => flipDealer(x.ID));
     checkValue();
+
+    function firstDealPlayer() {
+        for (let x = 0; x < 2; x++) {
+            let rN = Math.floor(Math.random() * newDeck.length);
+            id = newDeck[rN].Suit.charAt(0).toUpperCase() + newDeck[rN].Value;
+            let card = { Value: newDeck[rN].Value, Suit: newDeck[rN].Suit, Image: newDeck[rN].Image, ID: id };
+            let klon = temp.cloneNode(!0).content;
+            klon.querySelector(".back_image").src = newDeck[rN].Image;
+            klon.querySelector(".card").classList.add(id);
+            deck.appendChild(klon);
+            newDeck.splice(rN, 1);
+            player.push(card);
+        }
+        firstDealDealer();
+    }
+
+    function firstDealDealer() {
+        for (let x = 0; x < 2; x++) {
+            let rN = Math.floor(Math.random() * newDeck.length);
+            id = newDeck[rN].Suit.charAt(0).toUpperCase() + newDeck[rN].Value;
+            let card = { Value: newDeck[rN].Value, Suit: newDeck[rN].Suit, Image: newDeck[rN].Image, ID: id };
+            let klon = temp.cloneNode(!0).content;
+            klon.querySelector(".back_image").src = newDeck[rN].Image;
+            klon.querySelector(".card").classList.add(id);
+            deck.appendChild(klon);
+            newDeck.splice(rN, 1);
+            dealer.push(card);
+        }
+    }
 }
 
 function checkWinner() {
@@ -390,11 +413,26 @@ function showdealerSumFull() {
 }
 
 function winScreen() {
-    document.querySelector(".gameEnd").classList.add("fade-in");
+    document.querySelector(".winScreen").classList.add("fade-in");
+    document.querySelector(".winScreen .name").innerHTML = localStorage.getItem("firstname");
     document.querySelector(".fade-in").addEventListener("animationend", () => {
         document.querySelector("#confettiAnimation").play();
     });
+}
 
+function tieScreen() {
+    document.querySelector(".tieScreen").classList.add("fade-in");
+    document.querySelector(".tieScreen .name").innerHTML = localStorage.getItem("firstname");
+}
+
+function gameoverScreen() {
+    document.querySelector(".gameoverScreen").classList.add("fade-in");
+    document.querySelector(".gameoverScreen .name").innerHTML = localStorage.getItem("firstname");
+    if (playerSum > 21) {
+        document.querySelector(".gameoverScreen p").innerHTML = `Da du fik over 21 point vinder dealeren desværre denne runde! Men bare rolig du kan prøve så mange gange du vil indtil du vinder! <br> Hvad siger du? Skal vi prøve igen!`;
+    } else if (dealerSum > playerSum) {
+        document.querySelector(".gameoverScreen p").innerHTML = `Hahahahahaha fuckin taber`;
+    }
 
 }
 

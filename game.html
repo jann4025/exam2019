@@ -10,18 +10,62 @@
 </head>
 
 <body id="game">
-    <div class="gameEnd">
+    <div id="onboarding">
+        <div class="content form">
+            <h1>Du er næsten klar til at spille!</h1>
+            <p>Før vi går i gang vil vi rigtig gerne lære dig lidt bedre, hvad må vi kalde dig?</p>
+            <form id="fornavn">
+                <div class="field">
+                    <input type="text" placeholder="Dit fornavn" name="firstname" id="name" required>
+                    <label for="name">Dit fornavn</label>
+                </div>
+                <input type="submit" value="Spil nu">
+            </form>
+        </div>
+
+        <div class="content start">
+            <h1>Hej <span class="name"></span>! <br> Er du klar til at spille?</h1>
+            <p>Vi har ikke brug for mere fra dig nu, så hvis du er klar til at spille og vinde din bonus på 100 kr.
+                til dit første spil, så er vi også! <br><br></p>
+            <p>Skal vi ikke bare se at komme i gang?</p>
+            <button class="btn spilNu">Spil nu</button>
+        </div>
+    </div>
+
+    <section class="winScreen">
         <!-- Animation created by Lexi Michel https://lottiefiles.com/6902-exploding-ribbon-and-confetti -->
         <lottie-player id="confettiAnimation" src="https://assets10.lottiefiles.com/packages/lf20_aEFaHc.json"
             background="transparent" speed=".5" style="width: 100%; height: 100%;">
         </lottie-player>
         <div class="content">
-            <h1>Sådan Jannick, du vandt over dealeren!</h1>
+            <h1>Sådan <span class="name"></span>, du vandt over dealeren!</h1>
             <p>Nu er du klar til at få din gratis bonus på 100 kr. til dit første spil!</p>
             <p>Tryk på "Få din bonus nu" for at komme i gang med at spille!</p>
             <button class="btn">Få din bonus nu</button>
         </div>
-    </div>
+    </section>
+
+    <section class="tieScreen">
+        <div class="content">
+            <h1>Øv <span class="name"></span> du vandt ikke denne runde</h1>
+            <p>Da du fik lige så mange point som dealeren, vandt du desværre ikke denne runde - Men du tabte
+                selvfølgelig heller
+                ikke, det er det vi kalder for en Tie i blackjack! Husk du kan prøve så mange gange du vil indtil
+                du vinder!</p>
+            <p>Hvad siger du? Skal vi prøve igen?</p>
+            <button class="btn">Prøv igen</button>
+        </div>
+    </section>
+
+    <section class="gameoverScreen">
+        <div class="content">
+            <h1>Øv <span class="name"></span> du vandt ikke denne runde</h1>
+            <p></p>
+            <p>Hvad siger du? Skal vi prøve igen?</p>
+            <button class="btn">Prøv igen</button>
+        </div>
+    </section>
+
     <section id="main_game">
         <div id="btns">
             <div class="btn hit">Hit</div>
