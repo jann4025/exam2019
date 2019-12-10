@@ -5,6 +5,17 @@ document.addEventListener("DOMContentLoaded", start);
 
 function start() {
   fetchContent();
+  document.addEventListener("scroll", navColor);
+}
+
+function navColor() {
+  console.log(window.pageYOffset);
+
+  const scrollY = window.pageYOffset;
+  const nav = document.querySelector("#nav_bar");
+
+  scrollY >= 800 ? nav.classList.add("nav_colored") : "";
+  scrollY <= 800 ? nav.classList.remove("nav_colored") : "";
 }
 
 async function fetchContent() {
@@ -100,6 +111,14 @@ function images(fetchImg) {
     document.querySelector(".skew1").style.background = `url(${image1})`;
     document.querySelector(".skew2").style.background = `url(${image2})`;
     document.querySelector(".skew3").style.background = `url(${image3})`;
+
+    document.querySelector(".img_subheadline1").innerHTML = obj.img_subheadline1;
+    document.querySelector(".img_subheadline2").innerHTML = obj.img_subheadline2;
+    document.querySelector(".img_subheadline3").innerHTML = obj.img_subheadline3;
+
+    document.querySelector(".img_button1").innerHTML = obj.img_button_txt;
+    document.querySelector(".img_button2").innerHTML = obj.img_button_txt;
+    document.querySelector(".img_button3").innerHTML = obj.img_button_txt;
   });
 }
 

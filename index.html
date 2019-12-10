@@ -10,10 +10,10 @@
 
   <body>
     <header>
-      <nav>
+      <nav id="nav_bar">
         <div class="logo">
           <a href="">
-            <img src="/src/assets/img/logo.svg" alt="Logo" />
+            <img src="/src/assets/img/logo1_1.svg" alt="Logo" />
           </a>
         </div>
         <div class="nav_txt">
@@ -80,24 +80,20 @@
       <section id="images">
         <div class="skew skew1">
           <div class="wrap">
-            <span class="image-txt"><h2>Nybegynder og interesseret i at lære spillet?</h2></span>
-            <span class="image-txt"><button>Klik her!</button></span>
+            <h2 class="img_subheadline1"></h2>
+            <button class="img_button1"></button>
           </div>
         </div>
         <div class="skew skew2">
           <div class="wrap">
-            <span class="image-txt"><h2>Øvet og interesseret i at spille med andre?</h2></span>
-            <span class="image-txt">
-              <button>Klik her!</button>
-            </span>
+            <h2 class="img_subheadline2"></h2>
+            <button class="img_button2"></button>
           </div>
         </div>
         <div class="skew skew3">
           <div class="wrap">
-            <span class="image-txt"><h2>Ønsker du at spille alene?</h2></span>
-            <span class="image-txt">
-              <button>Klik her!</button>
-            </span>
+            <h2 class="img_subheadline3"></h2>
+            <button class="img_button3"></button>
           </div>
         </div>
       </section>
@@ -109,6 +105,12 @@
           <p class="txt_rules_2"></p>
         </div>
         <div class="rules_accordion">
+          <template class="rules_template">
+            <details>
+              <summary class="details_summary"></summary>
+              <p class="details_txt"></p>
+            </details>
+          </template>
           <template class="rules_template">
             <details>
               <summary class="details_summary"></summary>

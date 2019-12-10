@@ -1,3 +1,12 @@
+// $min_width: 320px;
+// $max_width: 1000px;
+// $min_font: 16px;
+// $max_font: 22px;
+
+// html {
+//     @include fluid-type($min_width, $max_width, $min_font, $max_font);
+//   }
+
 body {
   background: $black_primary;
   color: $white_primary;
@@ -8,8 +17,42 @@ h1 {
   //   $min_font: 50px;
   //   $max_font: 100px;
   //   @include fluid-type($min_width, $max_width, $min_font, $max_font);
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
+
+  @include mm_horisontal {
+    font-size: 2.5em;
+  }
+
+  @include ms {
+    font-size: 1.8em;
+  }
+
+  @include iphone5_horisontal {
+    font-size: 2em;
+  }
+}
+
+h2 {
+  font-family: $font_headline;
+  font-size: 1.8em;
+  text-align: center;
+
+  @include mm_horisontal {
+    font-size: 1.5em;
+  }
+
+  @include mm {
+    font-size: 1.3em;
+  }
+
+  @include ms {
+    font-size: 1.1em;
+  }
+
+  @include iphone5_horisontal {
+    font-size: 1.2em;
+  }
 }
 
 p {
@@ -19,8 +62,16 @@ p {
   width: 100%;
 
   @include ls {
-    max-width: 90%;
-    padding: 0.5em;
+    padding: 0.4em;
+    max-width: 100%;
+  }
+
+  @include ms {
+    font-size: 0.8em;
+  }
+
+  @include iphone5_horisontal {
+    font-size: 0.8em;
   }
 }
 
@@ -30,16 +81,21 @@ a {
   font-family: $font_body;
 }
 
+.nav_colored {
+  background: $black_primary;
+}
+
 nav {
   position: fixed;
   width: 100%;
+  z-index: 999;
 
   .logo {
     position: absolute;
     padding: 0.5em;
 
     img {
-      max-width: 100px;
+      max-width: 120px;
     }
   }
 
@@ -65,22 +121,67 @@ nav {
   text-align: center;
 
   h1 {
+    font-size: 6em;
     padding: 0.2em;
     color: $red_primary;
     text-shadow: $primary_glow;
     font-family: $font_logo;
+
+    @include ml {
+      font-size: 3em;
+    }
+    @include mm_horisontal {
+      font-size: 3em;
+    }
+    @include ls {
+      font-size: 5em;
+    }
+
+    @include iphone5_horisontal {
+      font-size: 2.5em;
+    }
   }
 
   h2 {
     color: $yellow_primary;
     font-size: 3.5em;
-    font-family: $font_headline;
     font-weight: 600;
-    text-align: center;
+
+    @include ml {
+      font-size: 2em;
+    }
+
+    @include mm_horisontal {
+      font-size: 2em;
+    }
+
+    @include ls {
+      font-size: 3.5em;
+    }
+
+    @include iphone5_horisontal {
+      font-size: 2em;
+    }
   }
 
   p {
     font-size: 1.4em;
+
+    @include ml {
+      font-size: 1.2em;
+    }
+
+    @include mm_horisontal {
+      font-size: 1.2em;
+    }
+
+    @include ls {
+      font-size: 1.4em;
+    }
+
+    @include iphone5_horisontal {
+      font-size: 1.2em;
+    }
   }
 
   button {
@@ -93,6 +194,22 @@ nav {
     padding: 0.6em 1em;
     margin-top: 2em;
     cursor: pointer;
+
+    @include ml {
+      font-size: 0.8em;
+    }
+
+    @include mm_horisontal {
+      font-size: 0.8em;
+    }
+
+    @include ls {
+      font-size: 1.2em;
+    }
+
+    @include iphone5_horisontal {
+      font-size: 0.8em;
+    }
   }
 }
 
@@ -113,15 +230,10 @@ nav {
     }
 
     @include ml {
-      padding: 0.4em 0;
+      padding: 0.4em;
     }
   }
 
-  h2 {
-    font-family: $font_headline;
-    font-size: 1.8em;
-    text-align: center;
-  }
   .images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -150,15 +262,14 @@ nav {
     margin: 0;
   }
 
-  @include ls {
-    grid-template-columns: 1fr;
-  }
-
   @include ml {
     display: block;
     margin: 1em;
   }
 
+  @include mm_horisontal {
+    grid-template-columns: 1fr;
+  }
   .review_container {
     display: grid;
     grid-template-columns: 1fr;
@@ -195,11 +306,9 @@ nav {
 
     .review_txt_box {
       h2 {
-        font-family: $font_headline;
         font-size: 1.3em;
         padding-bottom: 0.6em;
         font-weight: bold;
-        text-align: center;
       }
     }
 
@@ -260,6 +369,11 @@ nav {
     display: block;
   }
 
+  @include iphone5_horisontal {
+    min-height: 100%;
+    margin: 2em 0;
+  }
+
   .skew {
     color: white;
     text-align: center;
@@ -271,8 +385,10 @@ nav {
     flex-grow: 1;
     display: grid;
     justify-items: center;
+
     .wrap {
       transform: skewY(5deg);
+      transition: opacity 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
 
       @include ll {
         transform: skewY(0deg);
@@ -282,62 +398,62 @@ nav {
         padding: 2em;
       }
 
-      span {
-        visibility: hidden;
-        line-height: 1.5;
+      opacity: 0;
+      line-height: 1.5;
 
-        & > * {
-          padding: 1em;
+      & > * {
+        padding: 1em;
+      }
+
+      @include ll {
+        opacity: 1;
+      }
+
+      h2 {
+        font-size: 2em;
+        max-width: 300px;
+
+        @include mm_horisontal {
+          font-size: 1.2em;
+          max-width: 200px;
         }
 
-        @include ll {
-          visibility: visible;
-        }
-
-        h2 {
-          font-size: 2em;
-          font-family: $font_headline;
-          max-width: 300px;
-          width: 100%;
-
-          @include ls {
-            font-size: 1.4em;
-            max-width: 200px;
-          }
-        }
-
-        button {
-          background: $red_primary;
-          box-shadow: $primary_glow;
-          border: none;
-          color: $white_primary;
+        @include iphone5_horisontal {
           font-size: 1em;
-          border-radius: 5px;
-          cursor: pointer;
+        }
+      }
+
+      button {
+        background: $red_primary;
+        box-shadow: $primary_glow;
+        border: none;
+        color: $white_primary;
+        font-size: 1em;
+        border-radius: 5px;
+        cursor: pointer;
+
+        @include mm_horisontal {
+          font-size: 0.8em;
         }
       }
     }
     &:hover {
       flex-grow: 2;
-      span {
-        visibility: visible;
+      .wrap {
+        opacity: 1;
       }
     }
-  }
-
-  img {
-    // margin: 3em 0em;
   }
 }
 
 #rules {
   display: grid;
   margin: 3em 5em;
-  @include ls {
+  @include mm_horisontal {
     padding: 0.4em 0;
   }
 
-  @include ls {
+  @include mm_horisontal {
     margin: 1em;
   }
 
@@ -345,7 +461,7 @@ nav {
     padding: 0.4em 2em;
 
     @include ml {
-      padding: 0;
+      padding: 0.4em 0;
     }
   }
 
@@ -362,7 +478,7 @@ nav {
     grid-template-columns: 1fr 1fr;
     grid-gap: 4em;
 
-    @include ls {
+    @include mm_horisontal {
       grid-gap: 2em;
     }
 
@@ -394,6 +510,14 @@ nav {
       &::-webkit-details-marker {
         display: none;
       }
+
+      @include ml {
+        font-size: 1.4em;
+      }
+
+      @include iphone5_horisontal {
+        font-size: 1.2em;
+      }
     }
 
     .details_box {
@@ -422,14 +546,13 @@ nav {
 #join {
   background-image: url(/src/assets/img/table.png);
   width: 100%;
-  height: 45vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-
+  padding: 2em 0em;
   margin-bottom: 10em;
 
   & > * {
@@ -439,11 +562,27 @@ nav {
   h2 {
     font-size: 3em;
     font-family: $font_headline;
+
+    @include ml {
+      font-size: 2em;
+    }
+
+    @include iphone5_horisontal {
+      font-size: 2em;
+    }
   }
 
   h3 {
     font-size: 1.8em;
     font-family: $font_headline;
+
+    @include ml {
+      font-size: 1.4em;
+    }
+
+    @include iphone5_horisontal {
+      font-size: 1.4em;
+    }
   }
   button {
     background: $red_primary;
@@ -455,5 +594,12 @@ nav {
     padding: 0.6em 2em;
     margin-top: 2em;
     cursor: pointer;
+
+    @include mm_horisontal {
+      font-size: 1em;
+    }
+    @include iphone5_horisontal {
+      font-size: 1em;
+    }
   }
 }
