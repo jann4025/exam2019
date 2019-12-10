@@ -135,7 +135,7 @@ export default function App(props) {
       <header className="bg-gray-400 mb-10">
         <h1 className="uppercase flex justify-center p-10 ">Liste over brugere</h1>
 
-        <div className="flex justify-center p-5">
+        <div className="flex justify-center p-5 ">
           <label>Sorter:</label>
           <select className="mr-10" value={sort} onChange={onSort}>
             <option value="name">A-Z</option>
@@ -150,32 +150,36 @@ export default function App(props) {
           </select>
         </div>
 
-        <form className="flex justify-center p-10" onSubmit={onSubmit}>
+        <form className="flex flex-col justify-center items-center   md:m-auto" onSubmit={onSubmit}>
           <label className="mr-1">Fornavn</label>
-          <input className="mr-4" type="text" size="25" placeholder="Jane" name="name" onChange={nameChanged} value={name} required></input>
+          <div className="m-4">
+            <input className="mr-4 w-48" type="text" size="25" placeholder="Jane" name="name" onChange={nameChanged} value={name} required></input>
+          </div>
 
           <label className="mr-1">Efternavn</label>
-          <input className="mr-4" type="text" size="25" placeholder="Doe" name="lastname" onChange={lastnameChanged} value={lastname} required></input>
+          <div className="m-4">
+            <input className="mr-4 w-48" type="text" size="25" placeholder="Doe" name="lastname" onChange={lastnameChanged} value={lastname} required></input>
+          </div>
 
           <label className="mr-1">Email</label>
-          <input className="mr-4" type="text" size="25" placeholder="Jane_doe@gmail.com" onChange={emailChanged} name="email" value={email} required></input>
+          <div className="m-4">
+            <input className="mr-4 w-48" type="text" size="25" placeholder="Jane_doe@gmail.com" onChange={emailChanged} name="email" value={email} required></input>
+          </div>
 
           <label className="mr-1">Brugerrolle</label>
-          <select className="mr-4" onChange={userChanged} value={user} required>
-            <option>Admin</option>
-            <option>Standard</option>
-          </select>
-
-          <input className="bg-green-500 hover:bg-green-300 w-20 rounded-lg w-32" type="submit" value="Tilføj bruger" />
+          <div className="m-4">
+            <select className="mr-4 w-48" onChange={userChanged} value={user} required>
+              <option>Admin</option>
+              <option>Standard</option>
+            </select>
+          </div>
+          <input
+            className="bg-green-500 hover:bg-green-300 w-20 rounded-lg w-32
+          m-10"
+            type="submit"
+            value="Tilføj bruger"
+          />
         </form>
-
-        {/* <div className="flex justify-center p-10">
-          <button className="bg-green-500 hover:bg-green-300 w-20 rounded-lg w-32">Tilføj</button>
-        </div> */}
-
-        {/* <div className="flex justify-center p-10">
-          <button className="bg-green-500 hover:bg-green-300 w-20 rounded-lg w-32">Tilføj bruger</button>
-        </div> */}
       </header>
 
       <List posts={copy} deleteUser={deleteUser} />

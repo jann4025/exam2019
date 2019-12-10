@@ -8,7 +8,7 @@ export default function List(props) {
 
   return (
     <>
-      <table className="table-auto w-5/6 m-auto">
+      <table className="table-auto w-5/6 m-auto sm:w-10/12 ">
         <Header />
 
         <tbody>
