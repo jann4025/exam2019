@@ -13,7 +13,19 @@ export default function List(props) {
 
         <tbody>
           {props.posts.map(post => {
-            return <ListItem key={uuidv1()} deleteUser={props.deleteUser} user_id={post.user_id} firstname={post.name} lastname={post.lastname} user={post.user} mail={post.email} id={post._id} />;
+            return (
+              <ListItem
+                key={uuidv1()}
+                deleteUser={props.deleteUser}
+                editUser={props.editUser}
+                user_id={post.user_id}
+                firstname={post.name}
+                lastname={post.lastname}
+                user={post.user}
+                mail={post.email}
+                id={post._id}
+              />
+            );
           })}
         </tbody>
       </table>

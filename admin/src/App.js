@@ -99,6 +99,30 @@ export default function App(props) {
       });
   };
 
+  const editUser = id => {
+    console.log("edit user firing" + id);
+
+    fetch(baseURL + "/" + id, {
+      method: "put",
+      headers: headers,
+      body: JSON.stringify({
+        name: name,
+        lastname: lastname,
+        email: email,
+        user: user
+      })
+    })
+      .then(e => e.json())
+      .then(e => {
+        console.log(e);
+        onUserAdded(e);
+        setName("");
+        setLastname("");
+        setEmail("");
+        setUser("");
+      });
+  };
+
   //sort
   //FRA MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
   let copy = [...posts];
@@ -182,7 +206,7 @@ export default function App(props) {
         </form>
       </header>
 
-      <List posts={copy} deleteUser={deleteUser} />
+      <List posts={copy} deleteUser={deleteUser} editUser={editUser} />
       <Footer />
     </div>
   );

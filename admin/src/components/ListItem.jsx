@@ -20,9 +20,9 @@ export default function ListItem(props) {
         </button>
         <button
           className="bg-gray-400 hover:bg-gray-300 w-20 rounded-lg m-4"
-          // onClick={() => {
-          //   props.data(props.id);
-          // }}
+          onClick={() => {
+            props.editUser(props.id);
+          }}
         >
           Rediger
         </button>
