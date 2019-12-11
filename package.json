@@ -3,6 +3,7 @@
     "sass": "^1.23.7"
   },
   "dependencies": {
-    "regenerator": "^0.14.2"
+    "regenerator": "^0.14.2",
+    "regenerator-runtime": "^0.13.3"
   }
 }
