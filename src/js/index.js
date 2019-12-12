@@ -12,7 +12,7 @@ function navColor() {
   console.log(window.pageYOffset);
 
   const scrollY = window.pageYOffset;
-  const nav = document.querySelector("#nav_bar");
+  const nav = document.querySelector("nav");
 
   scrollY >= 800 ? nav.classList.add("nav_colored") : "";
   scrollY <= 800 ? nav.classList.remove("nav_colored") : "";
