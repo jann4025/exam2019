@@ -592,6 +592,12 @@ video {
   }
 }
 
+@media (min-width: 380px) {
+  .container {
+    max-width: 380px;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
@@ -8346,7 +8352,7 @@ video {
   z-index: auto;
 }
 
-@media (min-width: 370px) {
+@media (min-width: 380px) {
   .sm\:sr-only {
     position: absolute;
     width: 1px;

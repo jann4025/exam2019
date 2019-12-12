@@ -4,8 +4,8 @@ export default function Header(props) {
   return (
     <>
       <thead>
-        <tr>
-          <th className="text-left">Bruger ID</th>
+        <tr className="">
+          <th className="text-left ">Bruger ID</th>
           <th className="text-left">Navn</th>
           <th className="text-left">Email</th>
           <th className="text-left">Brugerrolle</th>

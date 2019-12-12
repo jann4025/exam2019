@@ -12,7 +12,6 @@ const headers = {
 
 export default function App(props) {
   const [posts, setPosts] = useState([]);
-
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -27,6 +26,8 @@ export default function App(props) {
   const onFilter = e => {
     setFilter(e.target.value);
   };
+
+  // GET METHOD
   useEffect(() => {
     fetch(baseURL, {
       method: "get",
@@ -54,6 +55,7 @@ export default function App(props) {
     setUser(e.target.value);
   };
 
+  // POST METHOD
   const onSubmit = e => {
     e.preventDefault();
 
@@ -80,6 +82,8 @@ export default function App(props) {
   const onUserAdded = data => {
     setPosts(posts.concat(data));
   };
+
+  // DELETE METHOD
   const deleteUser = id => {
     console.log(id);
     const newPosts = posts.filter(post => {
@@ -98,6 +102,8 @@ export default function App(props) {
         console.log(e);
       });
   };
+
+  // PUT METHOD
 
   const editUser = id => {
     console.log("edit user firing" + id);
@@ -148,16 +154,12 @@ export default function App(props) {
     } else {
       return post.user === filter;
     }
-
-    // hvis filter er All, så return true
-    // ellers, return kun true hvis post.user er = filter
-    //  return post.user === filter;
   });
 
   return (
     <div className="App">
       <header className="bg-gray-400 mb-10">
-        <h1 className="uppercase flex justify-center p-10 ">Liste over brugere</h1>
+        <h1 className="uppercase flex justify-center p-10">Liste over brugere</h1>
 
         <div className="flex justify-center p-5 ">
           <label>Sorter:</label>
@@ -197,9 +199,15 @@ export default function App(props) {
               <option>Standard</option>
             </select>
           </div>
+          <button
+            className=" bg-blue-500 hover:bg-blue-300 w-20 rounded-lg w-32
+          m-4 "
+          >
+            Gem
+          </button>
           <input
             className="bg-green-500 hover:bg-green-300 w-20 rounded-lg w-32
-          m-10"
+          m-6"
             type="submit"
             value="Tilføj bruger"
           />

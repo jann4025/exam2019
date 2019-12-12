@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ListItem from "./ListItem";
 import Header from "./header";
 import uuidv1 from "uuid/v1";
@@ -8,10 +8,10 @@ export default function List(props) {
 
   return (
     <>
-      <table className="table-auto w-5/6 m-auto sm:w-10/12 ">
+      <table className="table-auto lg:w-5/6 m-auto">
         <Header />
 
-        <tbody>
+        <tbody className="">
           {props.posts.map(post => {
             return (
               <ListItem
