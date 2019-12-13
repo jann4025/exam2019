@@ -589,6 +589,8 @@ video {
 @media (min-width: 370px) {
   .container {
     max-width: 370px;
+    outline: 2px solid red;
+    outline-offset: -5px;
   }
 }
 

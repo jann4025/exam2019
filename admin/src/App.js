@@ -18,7 +18,9 @@ export default function App(props) {
   const [user, setUser] = useState("Standard");
   const [sort, setSort] = useState("user_id");
   const [filter, setFilter] = useState("Alle");
-
+  const [formState, setFormState] = useState("post");
+  const [user_id, setUserId] = useState("");
+  const [id, setId] = useState("");
   const onSort = e => {
     setSort(e.target.value);
   };
@@ -58,26 +60,50 @@ export default function App(props) {
   // POST METHOD
   const onSubmit = e => {
     e.preventDefault();
-
-    fetch(baseURL, {
-      method: "post",
-      headers: headers,
-      body: JSON.stringify({
-        name: name,
-        lastname: lastname,
-        email: email,
-        user: user
+    if (formState === "post") {
+      fetch(baseURL, {
+        method: "post",
+        headers: headers,
+        body: JSON.stringify({
+          name: name,
+          lastname: lastname,
+          email: email,
+          user: user
+        })
       })
-    })
-      .then(e => e.json())
-      .then(e => {
-        console.log(e);
-        onUserAdded(e);
-        setName("");
-        setLastname("");
-        setEmail("");
-        setUser("");
-      });
+        .then(e => e.json())
+        .then(e => {
+          console.log(e);
+          onUserAdded(e);
+          setName("");
+          setLastname("");
+          setEmail("");
+          setUser("");
+        });
+    } else if (formState === "put") {
+      fetch(baseURL + "/" + id, {
+        method: "put",
+        headers: headers,
+        body: JSON.stringify({
+          name: name,
+          lastname: lastname,
+          email: email,
+          user: user
+        })
+      })
+        .then(e => e.json())
+        .then(e => {
+          console.log(e);
+          //onUserAdded(e);
+          setName("");
+          setLastname("");
+          setEmail("");
+          setUser("");
+          setId("");
+          setFormState("post");
+          window.location = "";
+        });
+    }
   };
   const onUserAdded = data => {
     setPosts(posts.concat(data));
@@ -105,28 +131,19 @@ export default function App(props) {
 
   // PUT METHOD
 
-  const editUser = id => {
-    console.log("edit user firing" + id);
-
-    fetch(baseURL + "/" + id, {
-      method: "put",
-      headers: headers,
-      body: JSON.stringify({
-        name: name,
-        lastname: lastname,
-        email: email,
-        user: user
-      })
-    })
-      .then(e => e.json())
-      .then(e => {
-        console.log(e);
-        onUserAdded(e);
-        setName("");
-        setLastname("");
-        setEmail("");
-        setUser("");
-      });
+  const editUser = data => {
+    console.log("edit user firing", data);
+    console.count("state");
+    setName(data.firstname);
+    console.count("state");
+    setLastname(data.lastname);
+    console.count("state");
+    setEmail(data.mail);
+    console.count("state");
+    setUser(data.user);
+    setFormState("put");
+    setUserId(data.user_id);
+    setId(data.id);
   };
 
   //sort
@@ -176,40 +193,40 @@ export default function App(props) {
           </select>
         </div>
 
-        <form className="flex flex-col justify-center items-center   md:m-auto" onSubmit={onSubmit}>
+        <form className="flex flex-col justify-center items-center lg:flex-row  md:m-auto" onSubmit={onSubmit}>
           <label className="mr-1">Fornavn</label>
-          <div className="m-4">
-            <input className="mr-4 w-48" type="text" size="25" placeholder="Jane" name="name" onChange={nameChanged} value={name} required></input>
+          <div>
+            <input className="mr-4 w-48 " type="text" size="25" placeholder="Jane" name="name" onChange={nameChanged} value={name} required></input>
           </div>
 
           <label className="mr-1">Efternavn</label>
-          <div className="m-4">
+          <div>
             <input className="mr-4 w-48" type="text" size="25" placeholder="Doe" name="lastname" onChange={lastnameChanged} value={lastname} required></input>
           </div>
 
           <label className="mr-1">Email</label>
-          <div className="m-4">
+          <div>
             <input className="mr-4 w-48" type="text" size="25" placeholder="Jane_doe@gmail.com" onChange={emailChanged} name="email" value={email} required></input>
           </div>
 
           <label className="mr-1">Brugerrolle</label>
-          <div className="m-4">
+          <div>
             <select className="mr-4 w-48" onChange={userChanged} value={user} required>
-              <option>Admin</option>
-              <option>Standard</option>
+              <option value="Admin">Admin</option>
+              <option value="Standard">Standard</option>
             </select>
           </div>
-          <button
+          {/* <button
             className=" bg-blue-500 hover:bg-blue-300 w-20 rounded-lg w-32
           m-4 "
           >
             Gem
-          </button>
+          </button> */}
           <input
             className="bg-green-500 hover:bg-green-300 w-20 rounded-lg w-32
           m-6"
             type="submit"
-            value="Tilføj bruger"
+            value={formState}
           />
         </form>
       </header>

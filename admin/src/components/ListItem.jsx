@@ -2,16 +2,19 @@ import React from "react";
 
 export default function ListItem(props) {
   return (
-    <tr>
-      <td>{props.user_id}</td>
-      <td>
-        {props.firstname} {props.lastname}
+    <tr className="hover:bg-grey-200">
+      <td className="w-30 p-6">{props.user_id}</td>
+      <td className="w-64 p-4 ">
+        <strong className="block">
+          {props.firstname} {props.lastname}
+        </strong>
+        <small className="block">{props.mail}</small>
+        <small className="block">{props.user}</small>
       </td>
-      <td>{props.mail}</td>
-      <td>{props.user}</td>
+
       <td>
         <button
-          className="bg-red-500 hover:bg-red-300 w-20 rounded-lg m-4"
+          className="text-red-600 m-4 hover:text-gray-300 "
           onClick={() => {
             props.deleteUser(props.id);
           }}
@@ -19,9 +22,9 @@ export default function ListItem(props) {
           Slet
         </button>
         <button
-          className="bg-gray-400 hover:bg-gray-300 w-20 rounded-lg m-4"
+          className="text-gray-900 m-4 hover:text-gray-300"
           onClick={() => {
-            props.editUser(props.id);
+            props.editUser(props);
           }}
         >
           Rediger
