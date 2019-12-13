@@ -3,19 +3,37 @@ const regeneratorRuntime = require("regenerator-runtime/runtime");
 
 document.addEventListener("DOMContentLoaded", start);
 
+let detailsAll;
+
+document.querySelector(".hero_button").addEventListener("click", test);
+
+function test() {
+  console.log("clicked");
+}
+
 function start() {
   fetchContent();
+
   document.addEventListener("scroll", navColor);
 }
 
 function navColor() {
-  console.log(window.pageYOffset);
-
   const scrollY = window.pageYOffset;
   const nav = document.querySelector("nav");
 
   scrollY >= 800 ? nav.classList.add("nav_colored") : "";
   scrollY <= 800 ? nav.classList.remove("nav_colored") : "";
+}
+
+function removeOpen(e) {
+  console.log("RemoveOpen");
+  if (e.target.getAttribute("open") === null) {
+    detailsAll.forEach(detail => detail.removeAttribute("open"));
+    e.target.setAttribute("open", true);
+  } else {
+    console.info(true);
+    e.target.removeAttribute("open");
+  }
 }
 
 async function fetchContent() {
@@ -143,20 +161,26 @@ function join(fetchJoin) {
 function details(fetchDetails) {
   console.log(fetchDetails);
 
-  let destRules = document.querySelector(".rules_accordion");
+  let destRules1 = document.querySelector(".rules_dest_1");
+  let destRules2 = document.querySelector(".rules_dest_2");
   let tempRules = document.querySelector(".rules_template");
 
   fetchDetails.forEach(obj => {
     let klon = tempRules.cloneNode(!0).content;
     klon.querySelector("summary").innerHTML = obj.headline;
     klon.querySelector(".details_txt").innerHTML = obj.details_txt;
-    destRules.prepend(klon);
+    if (destRules2.childNodes.length < 5) {
+      destRules2.prepend(klon);
+      console.info(destRules1.childNodes.length);
+    } else {
+      destRules1.prepend(klon);
+    }
   });
 }
 
 function values(fetchValues) {
   console.log(fetchValues);
-  let destRules = document.querySelector(".rules_accordion");
+  let destRules = document.querySelector(".rules_dest_2");
   let tempRules = document.querySelector(".values_template");
 
   fetchValues.forEach(obj => {
@@ -175,4 +199,6 @@ function values(fetchValues) {
     klon.querySelector(".details_img3").src = obj.values_img3.guid;
     destRules.prepend(klon);
   });
+  detailsAll = document.querySelectorAll("details");
+  detailsAll.forEach(detail => detail.addEventListener("click", removeOpen));
 }
