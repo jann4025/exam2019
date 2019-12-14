@@ -1,78 +1,143 @@
- form {
-    margin: 2em 0;
-    color: $black_primary;
-    font-family: $font_body;
-    max-width: 800px;
-    margin: auto;
-    background: $white_primary;
-    padding: 5em;
-    text-align: center;
+form {
+  margin: 2em 0;
+  color: $black_primary;
+  font-family: $font_body;
+  max-width: 800px;
+  margin: auto;
+  background: $white_primary;
+  padding: 5em;
+  text-align: center;
 
-    h1{
-      @extend .headline;
-    }
+  h1 {
+    @extend .headline;
   }
 
-  .flex-form-field {
-    display: flex;
-    max-width: 60%;
-    margin: auto;
-    justify-content: space-between;
-
-    .field {
-        width: 48%;
-        
-        &:first-of-type{
-            margin-right: 1em;
-        }
-    }
-  }
-   
-  .field {
-    display: flex;
-    flex-flow: column-reverse;
-    margin: auto;
-    margin-bottom: 1rem;
-    max-width: 60%;
+  .password-requirements {
+    list-style: initial;
     text-align: left;
-    position: relative;
+    max-width: 100%;
+    margin-left: 1.2rem;
+    line-height: 1.5;
+    display: none;
+    order: -1;
 
-    #lastname, #firstname {
-        text-transform: capitalize;
-    }
+    li {
+      color: $border_grey;
+      font-family: $font_body;
 
-    #email {
-        text-transform: lowercase;
-    }
+      b {
+        font-weight: 700;
+      }
 
-    small {
-        font-size: .4rem;
+      &.active {
+        color: $green_primary;
+        list-style: none;
+        margin-left: -1.4rem;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          margin-top: 0.1em;
+          margin-right: 0.7rem;
+          width: 12px;
+          height: 12px;
+          background-image: $valid;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+      }
     }
-    
+  }
+
+  .confirm-email {
+    display: none;
+    img {
+      width: 100%;
+      max-width: 200px;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.passwords-match {
+  font-family: $font_body;
+  color: $border_grey;
+  display: none;
+  order: -1;
+  b {
+    font-weight: 700;
+  }
+  &.active {
+    color: $green_primary;
+  }
+}
+
+#password:not(:placeholder-shown) ~ .password-requirements,
+#repeatPassword:not(:placeholder-shown) ~ .passwords-match {
+  display: block;
+}
+
+.flex-form-field {
+  display: flex;
+  max-width: 60%;
+  margin: auto;
+  justify-content: space-between;
+
+  .field {
+    width: 48%;
 
     &:first-of-type {
-        margin-top: 2rem;
+      margin-right: 1em;
     }
   }
+}
 
-  label, input {
-    transition: all 0.2s;
-    touch-action: manipulation;
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin: auto;
+  margin-bottom: 1rem;
+  max-width: 60%;
+  text-align: left;
+  position: relative;
+
+  #lastname,
+  #firstname {
+    text-transform: capitalize;
   }
-  
-  input {
-    font-size: 1em;
-    border: 1px solid $border_grey;
-    font-family: inherit;
-    -webkit-appearance: none;
-    min-height: 32px;
-    cursor: text;
-    padding: 0 .7rem;
-    border-radius: 3px;
 
-    &[type=submit] {
-        @extend .primary_button;
-    }
+  #email {
+    text-transform: lowercase;
+  }
+
+  small {
+    font-size: 0.4rem;
+  }
+
+  &:first-of-type {
+    margin-top: 2rem;
+  }
+}
+
+label,
+input {
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
+input {
+  font-size: 1em;
+  border: 1px solid $border_grey;
+  font-family: inherit;
+  -webkit-appearance: none;
+  min-height: 32px;
+  cursor: text;
+  padding: 0 0.7rem;
+  border-radius: 3px;
+
+  &[type='submit'] {
+    @extend .primary_button;
+  }
 
   &:focus {
     outline: 0;
@@ -80,84 +145,83 @@
   }
 }
 
-  label {
-    letter-spacing: 0.05em;
-    font-size: .6em;
+label {
+  letter-spacing: 0.05em;
+  font-size: 0.6em;
+}
+input:placeholder-shown + label {
+  cursor: text;
+  max-width: 66.66%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0.7rem, 1.5rem) scale(1.5);
+}
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+  text-transform: none;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  transform: translate(0, 0) scale(1);
+  cursor: pointer;
+}
+
+.invalid,
+input:invalid:not(:placeholder-shown):not(:focus) {
+  border: $red_primary 1px solid;
+  background-image: $error;
+  transition: none;
+  background-position-x: calc(100% - 16px);
+  background-position-y: 50%;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  color: $red_primary;
+  animation: errorShake 0.12s 2 forwards;
+
+  & + label {
+    color: $red_primary;
   }
-  input:placeholder-shown + label {
-    cursor: text;
-    max-width: 66.66%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    transform-origin: left bottom;
-    transform: translate(.7rem, 1.5rem) scale(1.5);
+}
+
+.valid,
+input[type='text']:valid:not(:placeholder-shown):not(:focus),
+input[type='password']:valid:not(:placeholder-shown):not(:focus),
+input[type='email']:valid:not(:placeholder-shown):not(:focus),
+input[type='tel']:valid:not(:placeholder-shown):not(:focus) {
+  border: $green_primary 1px solid;
+  transition: none;
+  background-position-x: calc(100% - 16px);
+  background-position-y: 50%;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  color: $green_primary;
+  background-image: $valid;
+
+  & + label {
+    color: $green_primary;
   }
-  ::-webkit-input-placeholder {
-    opacity: 0;
-    transition: inherit;
-    text-transform: none;
+}
+
+@keyframes errorShake {
+  50% {
+    transform: translateX(5px);
   }
+}
 
-  input:focus::-webkit-input-placeholder {
-    opacity: 1;
-  }
+.valid,
+input:valid:not(:placeholder-shown):not(:focus) + i {
+  opacity: 0;
+}
 
-  input:not(:placeholder-shown) + label,
-  input:focus + label {
-    transform: translate(0, 0) scale(1);
-    cursor: pointer;
-  }
-
-  .invalid, input:invalid:not(:placeholder-shown):not(:focus) {
-            border: $red_primary 1px solid;
-            background-image: $error;
-            transition:  none;
-            background-position-x: calc(100% - 16px);
-            background-position-y: 50%;
-            background-size: 20px 20px;
-            background-repeat: no-repeat;
-            color: $red_primary;
-            animation: errorShake .12s 2 forwards;
-
-            &+label {
-                color: $red_primary;
-            }
-        }
-
-        .valid,
-        input[type=text]:valid:not(:placeholder-shown):not(:focus),
-        input[type=password]:valid:not(:placeholder-shown):not(:focus),
-        input[type=email]:valid:not(:placeholder-shown):not(:focus),
-        input[type=tel]:valid:not(:placeholder-shown):not(:focus){
-            border: $green_primary 1px solid;
-            transition:  none;
-            background-position-x: calc(100% - 16px);
-            background-position-y: 50%;
-            background-size: 20px 20px;
-            background-repeat: no-repeat;
-            color: $green_primary ;
-            background-image: $valid;
-
-            &+label {
-                color: $green_primary ;
-            }
-        }
-    
-        @keyframes errorShake {
-            50% {
-                transform: translateX(5px);
-            }
-        }
-
-        .valid,
-        input:valid:not(:placeholder-shown):not(:focus) + i {
-        opacity: 0;
-        }
-
-        i {
-            position: absolute;
-            right: .5rem;
-            top: 40%;
-      }
-
-      
+i {
+  position: absolute;
+  right: 0.5rem;
+  top: 40%;
+}

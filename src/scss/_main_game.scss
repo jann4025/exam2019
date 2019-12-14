@@ -1,156 +1,172 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    hyphens: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  hyphens: auto;
 }
 body#game {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background-color: $black_primary;
-    background-image: url('/src/assets/svg/bg-table.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: $black_primary;
+  background-image: url('/src/assets/svg/bg-table.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
-#onboarding {
+  &.blur-body {
+    filter: blur(10px);
+  }
+
+  #onboarding {
     position: absolute;
-        z-index: 9999;
+    z-index: 9999;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($black_primary, 0.7);
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      h1 {
+        font-weight: 900;
+        margin-bottom: 2rem;
+      }
+      form#fornavn {
+        background: none;
+        padding: 0;
+
+        input {
+          min-height: 50px;
+          text-transform: capitalize;
+        }
+
+        input:placeholder-shown + label {
+          cursor: text;
+          max-width: 66.66%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          transform-origin: left bottom;
+          transform: translate(0.7rem, 2.1rem) scale(2);
+        }
+
+        input:not(:placeholder-shown) + label,
+        input:focus + label {
+          opacity: 0;
+          cursor: pointer;
+          color: whitesmoke;
+        }
+      }
+
+      &.rules {
+        small {
+          font-family: $font_body;
+          color: $white_primary;
+          font-size: small;
+        }
+        .btn {
+          @extend .primary_button;
+        }
+      }
+      &.form {
         display: none;
-        top: 0;
-        left:0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba($black_primary, .7);
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            h1 {
-                font-weight: 900;
-                margin-bottom: 2rem;
-            }
-        form#fornavn {
-            background: none;
-            padding: 0;
-            
-            input {
-                min-height: 50px;
-            }
-
-
-            input:placeholder-shown + label {
-                cursor: text;
-                max-width: 66.66%;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                transform-origin: left bottom;
-                transform: translate(.7rem, 2.1rem) scale(2);
-              }
-
-            input:not(:placeholder-shown) + label,
-            input:focus + label {
-              opacity: 0;
-              cursor: pointer;
-              color: whitesmoke;
-            }
-
-            
+        .btn {
+          @extend .primary_button;
         }
-
-        &.start {
-            display: none;
-            .btn {
-                @extend .primary_button;
-            }
-        }
-}
-}
-
-    .winScreen {
-        position: absolute;
-        z-index: 9999;
+      }
+      &.start {
         display: none;
-        top: 0;
-        left:0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba($black_primary, .7);
-        
-
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-
-            #confettiAnimation {
-                position: relative;
-
-            }
-
-            h1 {
-                font-weight: 900;
-                margin-bottom: 2rem;
-            }
-
-            .btn {
-                @extend .primary_button;
-            }
+        .btn {
+          @extend .primary_button;
         }
+      }
+    }
+  }
 
-        &.fade-in {
-            animation: fadeIn .5s ease-in-out 1 both;
-            display: block;
-        }
+  .winScreen {
+    position: absolute;
+    z-index: 9999;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($black_primary, 0.7);
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+
+      #confettiAnimation {
+        position: relative;
+      }
+
+      h1 {
+        font-weight: 900;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        @extend .primary_button;
+      }
     }
 
-    .tieScreen,
-    .gameoverScreen {
-        position: absolute;
-        z-index: 9999;
-        display: none;
-        top: 0;
-        left:0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba($black_primary, .7);
+    &.fade-in {
+      animation: fadeIn 0.5s ease-in-out 1 both;
+      display: block;
+    }
+  }
 
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+  .tieScreen,
+  .gameoverScreen {
+    position: absolute;
+    z-index: 9999;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($black_primary, 0.7);
 
-            img {
-                width: 100%;
-                max-width: 500px;
-                margin: auto;
-            }
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
 
-            h1 {
-                font-weight: 900;
-                margin-bottom: 2rem;
-            }
+      img {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+      }
 
-            .btn {
-                @extend .primary_button;
-            }
-        }
+      h1 {
+        font-weight: 900;
+        margin-bottom: 2rem;
+      }
 
-        &.fade-in {
-            animation: fadeIn .5s ease-in-out 1 both;
-            display: block;
-        }
+      .btn {
+        @extend .primary_button;
+      }
     }
 
-#main_game {
+    &.fade-in {
+      animation: fadeIn 0.5s ease-in-out 1 both;
+      display: block;
+    }
+  }
+
+  #main_game {
     width: 100%;
     max-width: 800px;
     height: 100%;
@@ -161,9 +177,9 @@ body#game {
     align-items: center;
     justify-items: start;
     grid-template-rows: [row1-start] 50% [row1-end row2-start] 50% [row2-end];
-}
+  }
 
-#dealer-container {
+  #dealer-container {
     width: auto;
     min-width: 376px;
     height: 100%;
@@ -176,47 +192,47 @@ body#game {
     grid-row: row1;
     margin: auto;
 
-    .card{
-        margin-left: -4rem;
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: 180px;
-        height: 100%;
-        max-height: 400px;
+    .card {
+      margin-left: -4rem;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 180px;
+      height: 100%;
+      max-height: 400px;
     }
 
     .front_image {
-        width: 100%;
-        max-width: 180px;
-        height: 100%;
-        max-height: 227px;
+      width: 100%;
+      max-width: 180px;
+      height: 100%;
+      max-height: 227px;
     }
 
-    .card:nth-child(2){
-        margin-left: 3rem;
-        margin-bottom: 2rem
+    .card:nth-child(2) {
+      margin-left: 3rem;
+      margin-bottom: 2rem;
     }
 
     #dealer-value {
-        font-family: $font_body;
-        display: grid;
-        justify-items: center;
-        align-items: center;
-        width: 60px;
-        height: 60px;
-        background: rgba($black_primary, .7);
-        font-size: 40px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
+      font-family: $font_body;
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      background: rgba($black_primary, 0.7);
+      font-size: 40px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
-}
+  }
 
-#player-container {
+  #player-container {
     width: max-content;
     will-change: width;
-    transition: .4s;
+    transition: 0.4s;
     min-width: 376px;
     // outline: blue 1px solid;
     height: 100%;
@@ -229,59 +245,59 @@ body#game {
     margin: auto;
     grid-row: row2;
 
-    .card{
-        margin-left: -4rem;
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: 180px;
-        height: 100%;
-        max-height: 400px;
+    .card {
+      margin-left: -4rem;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 180px;
+      height: 100%;
+      max-height: 400px;
     }
-    .card:nth-child(2){
-        margin-left: 3rem;
-        margin-top: 2rem
+    .card:nth-child(2) {
+      margin-left: 3rem;
+      margin-top: 2rem;
     }
 
     #player-value {
-        font-family: $font_body;
-        display: grid;
-        justify-items: center;
-        align-items: center;
-        width: 60px;
-        height: 60px;
-        background: rgba($black_primary, .7);
-        font-size: 40px;
-        position: absolute;
-        z-index: 999;
-        top: 0;
-        left: 0;
+      font-family: $font_body;
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      background: rgba($black_primary, 0.7);
+      font-size: 40px;
+      position: absolute;
+      z-index: 999;
+      top: 0;
+      left: 0;
     }
-}
+  }
 
-.card {
+  .card {
     width: 100%;
     height: 100%;
     perspective: 600px;
     position: relative;
     z-index: 1;
-}
+  }
 
-.card.flip {
-    animation: fakeAnimation .4s ease-in-out both;
-}
+  .card.flip {
+    animation: fakeAnimation 0.4s ease-in-out both;
+  }
 
-.front_image,
-.back_image {
+  .front_image,
+  .back_image {
     width: 100%;
     height: 100%;
-}
+  }
 
-.back_image {
+  .back_image {
     border-radius: 10px;
-}
+  }
 
-.card .front {
+  .card .front {
     margin: auto;
     z-index: 900;
     width: 100%;
@@ -292,15 +308,15 @@ body#game {
     transform: rotateX(0deg) rotateY(0deg);
     transform-style: preserve-3d;
     backface-visibility: hidden;
-    transition: all .4s ease-in-out;
-}
+    transition: all 0.4s ease-in-out;
+  }
 
-.card.flip .front {
+  .card.flip .front {
     z-index: 900;
     transform: rotateY(180deg);
-}
+  }
 
-.card .back {
+  .card .back {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -313,66 +329,65 @@ body#game {
     transform: rotateY(-180deg);
     transform-style: preserve-3d;
     backface-visibility: hidden;
-    transition: all .4s ease-in-out;
-}
+    transition: all 0.4s ease-in-out;
+  }
 
-.card.flip .back {
+  .card.flip .back {
     z-index: 1000;
     transform: rotateX(0deg) rotateY(0deg);
-}
+  }
 
-#deck {
+  #deck {
     position: absolute;
     top: 50%;
     right: 10%;
     transform: translateY(-80%);
     display: grid;
-    
-    &>* {
-        grid-area: 1/1;
+
+    & > * {
+      grid-area: 1/1;
     }
+  }
 
-    
-}
-
-#btns {
+  #btns {
     position: absolute;
     top: 50%;
     left: 10%;
     transform: translateY(-80%);
     text-align: center;
     .btn {
-        font-family: $font_body;
-        @extend .primary_button;
+      font-family: $font_body;
+      @extend .primary_button;
+      margin-top: 0;
+      background-color: #ffbd4c;
+      box-shadow: none;
+      z-index: 999;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+
+      &:nth-child(1) {
         margin-top: 0;
-        background-color: #FFBD4C;
-        box-shadow: none;
-        z-index: 999;
-        padding-left: 3rem;
-        padding-right: 3rem;
-        border-radius: 10px;
-        margin-top: 2rem;
-
-        &:nth-child(1) {
-            margin-top: 0;
-        }
+      }
     }
-}
+  }
 
-@keyframes fakeAnimation {
+  @keyframes fakeAnimation {
     from {
-        opacity: 1;
-    } to {
-        opacity: 1;
+      opacity: 1;
     }
-}
+    to {
+      opacity: 1;
+    }
+  }
 
-@keyframes fadeIn {
+  @keyframes fadeIn {
     from {
-        opacity: 0;
-    } to {
-        opacity: 1;
+      opacity: 0;
     }
-}
-
+    to {
+      opacity: 1;
+    }
+  }
 }

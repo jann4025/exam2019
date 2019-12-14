@@ -1,114 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Best Blackjack || Vind 100kr til dit første spil</title>
-    <link rel="stylesheet" href="/src/scss/main.scss">
-</head>
+    <link rel="stylesheet" href="/src/scss/main.scss" />
+  </head>
 
-<body id="game">
+  <body id="game">
     <div id="onboarding">
-        <div class="content form">
-            <h1>Du er næsten klar til at spille!</h1>
-            <p>Før vi går i gang vil vi rigtig gerne lære dig lidt bedre, hvad må vi kalde dig?</p>
-            <form id="fornavn">
-                <div class="field">
-                    <input type="text" placeholder="Dit fornavn" name="firstname" id="name" required>
-                    <label for="name">Dit fornavn</label>
-                </div>
-                <input type="submit" value="Spil nu">
-            </form>
-        </div>
+      <div class="content rules">
+        <h1>Hej, Velkomen til Best Blackjacks demo spil!</h1>
+        <p>
+          Før vi går i gang vil vi gerne gennemgå reglerne sammen med dig. Hvis
+          du allerede har styr på reglerne kan du altid springe guiden over!
+          <br />
+          Klik videre for at starte guiden!
+        </p>
+        <button class="btn card-values-btn">Videre</button>
+        <small class="skip"
+          ><br />
+          <br />
+          Spring guiden over</small
+        >
+      </div>
 
-        <div class="content start">
-            <h1>Hej <span class="name"></span>! <br> Er du klar til at spille?</h1>
-            <p>Vi har ikke brug for mere fra dig nu, så hvis du er klar til at spille og vinde din bonus på 100 kr.
-                til dit første spil, så er vi også! <br><br></p>
-            <p>Skal vi ikke bare se at komme i gang?</p>
-            <button class="btn spilNu">Spil nu</button>
-        </div>
+      <div class="content card-values">
+        <h1>Kortenes værdier</h1>
+        <p></p>
+        <button class="btn card-values-btn">Videre</button>
+        <small class="skip"
+          ><br />
+          <br />
+          Spring guiden over</small
+        >
+      </div>
+
+      <div class="content form">
+        <h1>Du er næsten klar til at spille!</h1>
+        <p>
+          Før vi går i gang vil vi rigtig gerne lære dig lidt bedre kende, hvad
+          må vi kalde dig?
+        </p>
+        <form id="fornavn">
+          <div class="field">
+            <input
+              type="text"
+              placeholder="Dit fornavn"
+              name="firstname"
+              id="name"
+              required
+            />
+            <label for="name">Dit fornavn</label>
+          </div>
+          <input type="submit" value="Videre" />
+        </form>
+      </div>
+
+      <div class="content start">
+        <h1>
+          Hej <span class="name"></span>! <br />
+          Er du klar til at spille?
+        </h1>
+        <p>
+          Vi har ikke brug for mere fra dig nu, så hvis du er klar til at spille
+          og vinde din bonus på 100 kr. til dit første spil, så er vi også!
+          <br /><br />
+        </p>
+        <p>Skal vi ikke bare se at komme i gang?</p>
+        <button class="btn spilNu">Spil nu</button>
+      </div>
     </div>
 
     <section class="winScreen">
-        <!-- Animation created by Lexi Michel https://lottiefiles.com/6902-exploding-ribbon-and-confetti -->
-        <lottie-player id="confettiAnimation" src="https://assets10.lottiefiles.com/packages/lf20_aEFaHc.json"
-            background="transparent" speed=".5" style="width: 100%; height: 100%;">
-        </lottie-player>
-        <div class="content">
-            <h1>Sådan <span class="name"></span>, du vandt over dealeren!</h1>
-            <p>Nu er du klar til at få din gratis bonus på 100 kr. til dit første spil!</p>
-            <p>Tryk på "Få din bonus nu" for at komme i gang med at spille!</p>
-            <button class="btn">Få din bonus nu</button>
+      <!-- Animation created by Lexi Michel https://lottiefiles.com/6902-exploding-ribbon-and-confetti -->
+      <lottie-player
+        id="confettiAnimation"
+        src="https://assets10.lottiefiles.com/packages/lf20_aEFaHc.json"
+        background="transparent"
+        speed=".5"
+        style="width: 100%; height: 100%;"
+      >
+      </lottie-player>
+      <div class="content">
+        <div class="inner">
+          <h1>Sådan <span class="name"></span>, du vandt over dealeren!</h1>
+          <p>
+            Nu er du klar til at få din gratis bonus på 100 kr. til dit første
+            spil!
+          </p>
+          <p>Tryk på "Få din bonus nu" for at komme i gang med at spille!</p>
+          <button class="btn get-bonus">Få din bonus nu</button>
         </div>
+        <form action="" method="post" hidden>
+          <h1>Tilmeld dig</h1>
+          <h3>Og få din gratis bonus første gang du spiller</h3>
+
+          <div class="flex-form-field">
+            <div class="field">
+              <!-- <i class="fas fa-question-circle"></i> -->
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="F.eks Jane"
+                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"
+                required
+              />
+              <label for="firstname">Fornavn</label>
+            </div>
+            <div class="field">
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"
+                placeholder="F.eks Appleseed"
+                required
+              />
+              <label for="lastname">Efternavn</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <!-- <i class="fas fa-question-circle"></i> -->
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="F.eks jane.appleseed@gmail.com"
+              required
+            />
+            <label for="email">E-mail</label>
+          </div>
+
+          <div class="field">
+            <!-- <i class="fas fa-question-circle"></i> -->
+            <input
+              type="tel"
+              name="tel"
+              id="tel"
+              placeholder="F.eks 22 22 81 73"
+              required
+            />
+            <label for="tel">Mobil nr. <small>(Valgfrit)</small></label>
+          </div>
+
+          <div class="field">
+            <!-- <i class="fas fa-question-circle"></i> -->
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Adgangskode"
+              pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              required
+            />
+            <label for="password">Adgangskode</label>
+          </div>
+          <ul>
+            <li id="Uppercase">
+              Min. et stort bogstav
+            </li>
+          </ul>
+
+          <div class="field">
+            <input
+              type="password"
+              name="repeatPassword"
+              id="repeatPassword"
+              placeholder="Adgangskode"
+              required
+            />
+            <label for="repeatPassword">Gentag adgangskode</label>
+          </div>
+
+          <input type="submit" value="Tilmeld dig" />
+        </form>
+      </div>
     </section>
 
     <section class="tieScreen">
-        <div class="content">
-            <h1>Øv <span class="name"></span> du vandt ikke denne runde</h1>
-            <p>Da du fik lige så mange point som dealeren, vandt du desværre ikke denne runde - Men du tabte
-                selvfølgelig heller
-                ikke, det er det vi kalder for en Tie i blackjack! Husk du kan prøve så mange gange du vil indtil
-                du vinder!</p>
-            <p>Hvad siger du? Skal vi prøve igen?</p>
-            <button class="btn">Prøv igen</button>
-        </div>
+      <div class="content">
+        <h1>Øv <span class="name"></span> du vandt ikke denne runde</h1>
+        <p>
+          Da du fik lige så mange point som dealeren, vandt du desværre ikke
+          denne runde - Men du tabte selvfølgelig heller ikke, det er det vi
+          kalder for en Tie i blackjack! Husk du kan prøve så mange gange du vil
+          indtil du vinder!
+        </p>
+        <p>Hvad siger du? Skal vi prøve igen?</p>
+        <button class="btn tie_try-again">Prøv igen</button>
+      </div>
     </section>
 
     <section class="gameoverScreen">
-        <div class="content">
-            <h1>Øv <span class="name"></span> du vandt ikke denne runde</h1>
-            <p></p>
-            <p>Hvad siger du? Skal vi prøve igen?</p>
-            <button class="btn">Prøv igen</button>
-        </div>
+      <div class="content">
+        <h1>Øv <span class="name"></span> du vandt ikke denne runde</h1>
+        <p></p>
+        <p>Hvad siger du? Skal vi prøve igen?</p>
+        <button class="btn gameover_try-again">Prøv igen</button>
+      </div>
     </section>
 
     <section id="main_game">
-        <div id="btns">
-            <div class="btn hit">Hit</div>
-            <div class="btn stand">Stand</div>
+      <div id="btns">
+        <div class="btn hit">Hit</div>
+        <div class="btn stand">Stand</div>
+      </div>
+      <div id="deck">
+        <div class="card">
+          <div class="front">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0200/7616/products/playing-cards-bicycle-rider-back-1_1024x1024.png?v=1535755695"
+              class="front_image"
+            />
+          </div>
+          <div class="back">
+            <img src="" class="back_image" />
+          </div>
         </div>
-        <div id="deck">
-            <div class="card">
-                <div class="front">
-                    <img src="https://cdn.shopify.com/s/files/1/0200/7616/products/playing-cards-bicycle-rider-back-1_1024x1024.png?v=1535755695"
-                        class="front_image">
-                </div>
-                <div class="back">
-                    <img src="" class="back_image">
-                </div>
-            </div>
-
-        </div>
-        <div id="dealer-container">
-
-            <div id="dealer-value">0</div>
-        </div>
-        <div id="player-container">
-
-            <div id="player-value">0</div>
-
-
-        </div>
-
+      </div>
+      <div id="dealer-container">
+        <div id="dealer-value">0</div>
+      </div>
+      <div id="player-container">
+        <div id="player-value">0</div>
+      </div>
     </section>
 
     <template id="newCard">
-        <div class="card">
-            <div class="front">
-                <img src="https://cdn.shopify.com/s/files/1/0200/7616/products/playing-cards-bicycle-rider-back-1_1024x1024.png?v=1535755695"
-                    class="front_image">
-            </div>
-            <div class="back">
-                <img src="" class="back_image">
-            </div>
+      <div class="card">
+        <div class="front">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0200/7616/products/playing-cards-bicycle-rider-back-1_1024x1024.png?v=1535755695"
+            class="front_image"
+          />
         </div>
+        <div class="back">
+          <img src="" class="back_image" />
+        </div>
+      </div>
     </template>
     <script src="game.js"></script>
+    <script src="./src/js/form_script.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-</body>
-
+  </body>
 </html>
