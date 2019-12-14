@@ -38,6 +38,11 @@ body#game {
         font-weight: 900;
         margin-bottom: 2rem;
       }
+      small {
+        font-family: $font_body;
+        color: $white_primary;
+        font-size: small;
+      }
       form#fornavn {
         background: none;
         padding: 0;
@@ -65,13 +70,49 @@ body#game {
       }
 
       &.rules {
-        small {
-          font-family: $font_body;
-          color: $white_primary;
-          font-size: small;
-        }
         .btn {
           @extend .primary_button;
+        }
+      }
+
+      &.card-values {
+        display: none;
+        .btn {
+          @extend .primary_button;
+        }
+        .inner {
+          text-align: left;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-width: 80%;
+          margin: auto;
+          margin-top: 4rem;
+
+          &.picture-10s,
+          &.normalcards {
+            display: none;
+          }
+
+          &.picture-10s {
+            max-width: 100%;
+          }
+
+          .right {
+            max-width: 600px;
+            h2 {
+              font-family: $font_headline;
+              font-weight: 700;
+              font-size: 3rem;
+            }
+          }
+          .left {
+            margin-right: 2rem;
+            img {
+              width: 100%;
+              max-width: 200px;
+            }
+          }
         }
       }
       &.form {

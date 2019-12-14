@@ -78,8 +78,30 @@ function onBoarding() {
 }
 
 function cardValues() {
+  document
+    .querySelector('.card-values-btn')
+    .removeEventListener('click', cardValues);
   document.querySelector('.rules').style.display = 'none';
   document.querySelector('.card-values').style.display = 'block';
+  document.querySelector('.next-card').addEventListener('click', pictureCards);
+
+  function pictureCards() {
+    document
+      .querySelector('.next-card')
+      .removeEventListener('click', pictureCards);
+    document.querySelector('.inner.aces').style.display = 'none';
+    document.querySelector('.inner.picture-10s').style.display = 'flex';
+    document.querySelector('.next-card').addEventListener('click', nomarlCards);
+  }
+
+  function nomarlCards() {
+    document
+      .querySelector('.next-card')
+      .removeEventListener('click', nomarlCards);
+    document.querySelector('.inner.picture-10s').style.display = 'none';
+    document.querySelector('.inner.normalcards').style.display = 'flex';
+    document.querySelector('.next-card').addEventListener('click', nomarlCards);
+  }
 }
 
 function onSubmit(form, e) {
