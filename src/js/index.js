@@ -5,12 +5,6 @@ document.addEventListener("DOMContentLoaded", start);
 
 let detailsAll;
 
-document.querySelector(".hero_button").addEventListener("click", test);
-
-function test() {
-  console.log("clicked");
-}
-
 function start() {
   fetchContent();
 
@@ -26,12 +20,11 @@ function navColor() {
 }
 
 function removeOpen(e) {
-  console.log("RemoveOpen");
+  console.log("toggle");
   if (e.target.getAttribute("open") === null) {
     detailsAll.forEach(detail => detail.removeAttribute("open"));
     e.target.setAttribute("open", true);
   } else {
-    console.info(true);
     e.target.removeAttribute("open");
   }
 }
@@ -144,8 +137,7 @@ function rules(fetchRules) {
   console.log(fetchRules);
   fetchRules.forEach(obj => {
     document.querySelector(".rules_headline").innerHTML = obj.headline_rules;
-    document.querySelector(".txt_rules_1").innerHTML = obj.txt_rules_1;
-    document.querySelector(".txt_rules_2").innerHTML = obj.txt_rules_2;
+    document.querySelector(".txt_rules").innerHTML = obj.txt_rules_1;
   });
 }
 
