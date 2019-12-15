@@ -2,9 +2,9 @@ import React from "react";
 
 export default function ListItem(props) {
   return (
-    <tr className="hover:bg-grey-200">
-      <td className="w-30 p-6">{props.user_id}</td>
-      <td className="w-64 p-4 ">
+    <tr className=" hover:bg-grey-200 shadow">
+      <td className="w-30 p-6 m-10 ">{props.user_id}</td>
+      <td className="w-64 py-4 ">
         <strong className="block">
           {props.firstname} {props.lastname}
         </strong>
@@ -14,7 +14,7 @@ export default function ListItem(props) {
 
       <td>
         <button
-          className="text-red-600 m-4 hover:text-gray-300 "
+          className="text-red-600 m-4 hover:text-gray-300 font-semibold "
           onClick={() => {
             props.deleteUser(props.id);
           }}
@@ -22,7 +22,7 @@ export default function ListItem(props) {
           Slet
         </button>
         <button
-          className="text-gray-900 m-4 hover:text-gray-300"
+          className="text-gray-900 m-4 hover:text-gray-300 font-semibold"
           onClick={() => {
             props.editUser(props);
           }}

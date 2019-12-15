@@ -8,8 +8,8 @@ export default function List(props) {
 
   return (
     <>
-      <div className="overflow-hidden overflow-x-auto">
-        <table className="table-auto lg:w-5/6 m-auto">
+      <div className="overflow-hidden overflow-x-auto py-6">
+        <table className="table-fixed lg:w-2/3 m-auto ">
           <Header />
 
           <tbody className="">

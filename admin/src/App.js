@@ -18,7 +18,7 @@ export default function App(props) {
   const [user, setUser] = useState("Standard");
   const [sort, setSort] = useState("user_id");
   const [filter, setFilter] = useState("Alle");
-  const [formState, setFormState] = useState("post");
+  const [formState, setFormState] = useState("Tilføj");
   const [user_id, setUserId] = useState("");
   const [id, setId] = useState("");
   const onSort = e => {
@@ -80,7 +80,7 @@ export default function App(props) {
           setEmail("");
           setUser("");
         });
-    } else if (formState === "put") {
+    } else if (formState === "Gem") {
       fetch(baseURL + "/" + id, {
         method: "put",
         headers: headers,
@@ -141,7 +141,7 @@ export default function App(props) {
     setEmail(data.mail);
     console.count("state");
     setUser(data.user);
-    setFormState("put");
+    setFormState("Gem");
     setUserId(data.user_id);
     setId(data.id);
   };
@@ -175,43 +175,43 @@ export default function App(props) {
 
   return (
     <div className="App">
-      <header className="bg-gray-400 mb-10">
-        <h1 className="uppercase flex justify-center p-10">Liste over brugere</h1>
+      <header className="bg-gray-300 mb-10">
+        <h1 className="flex justify-center py-6 text-xl font-semibold">Liste over brugere</h1>
 
-        <div className="flex justify-center p-5 ">
-          <label>Sorter:</label>
-          <select className="mr-10" value={sort} onChange={onSort}>
+        <div className="flex justify-center lg:flex-row resp:flex-col ">
+          <label className="mx-2 resp:m-auto">Sorter:</label>
+          <select className="mr-4 h-6 w-30 shadow-xl resp:w-32 resp:m-auto" value={sort} onChange={onSort}>
             <option value="name">A-Z</option>
             <option value="user_id">Id nummer</option>
             <option value="user">Brugerrolle</option>
           </select>
-          <label>Filtrer:</label>
-          <select value={filter} onChange={onFilter}>
+          <label className="mx-2 resp:m-auto">Filtrer:</label>
+          <select className="h-6 shadow-xl resp:w-32 resp:m-auto" value={filter} onChange={onFilter}>
             <option>Alle</option>
             <option>Admin</option>
             <option>Standard</option>
           </select>
         </div>
 
-        <form className="flex flex-col justify-center items-center lg:flex-row  md:m-auto" onSubmit={onSubmit}>
-          <label className="mr-1">Fornavn</label>
+        <form className="flex flex-col justify-center items-center  md:flex-col md:m-auto" onSubmit={onSubmit}>
+          <label className="mr-1 my-2">Fornavn</label>
           <div>
-            <input className="mr-4 w-48 " type="text" size="25" placeholder="Jane" name="name" onChange={nameChanged} value={name} required></input>
+            <input className="mr-4 w-48 h-8   rounded-sm shadow-xl" type="text" size="25" placeholder="Jane" name="name" onChange={nameChanged} value={name} required></input>
           </div>
 
-          <label className="mr-1">Efternavn</label>
+          <label className="mr-1 my-2">Efternavn</label>
           <div>
-            <input className="mr-4 w-48" type="text" size="25" placeholder="Doe" name="lastname" onChange={lastnameChanged} value={lastname} required></input>
+            <input className="mr-4 w-48 h-8 rounded-sm shadow-xl" type="text" size="25" placeholder="Doe" name="lastname" onChange={lastnameChanged} value={lastname} required></input>
           </div>
 
-          <label className="mr-1">Email</label>
+          <label className="mr-1 my-2">Email</label>
           <div>
-            <input className="mr-4 w-48" type="text" size="25" placeholder="Jane_doe@gmail.com" onChange={emailChanged} name="email" value={email} required></input>
+            <input className="mr-4 w-48 h-8 rounded-sm shadow-xl" type="text" size="25" placeholder="Jane_doe@gmail.com" onChange={emailChanged} name="email" value={email} required></input>
           </div>
 
-          <label className="mr-1">Brugerrolle</label>
+          <label className="mr-1 my-2">Brugerrolle</label>
           <div>
-            <select className="mr-4 w-48" onChange={userChanged} value={user} required>
+            <select className="mr-4 w-48 h-8 shadow-xl " onChange={userChanged} value={user} required>
               <option value="Admin">Admin</option>
               <option value="Standard">Standard</option>
             </select>
@@ -223,8 +223,8 @@ export default function App(props) {
             Gem
           </button> */}
           <input
-            className="bg-green-500 hover:bg-green-300 w-20 rounded-lg w-32
-          m-6"
+            className="bg-transparent hover:bg-white w-20 font-bold h-8 shadow-xl rounded-lg w-32
+          m-6 border-2 border-solid border-white"
             type="submit"
             value={formState}
           />
