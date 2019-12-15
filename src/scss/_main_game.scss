@@ -80,45 +80,64 @@ body#game {
         .btn {
           @extend .primary_button;
         }
-        .inner {
-          text-align: left;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          max-width: 80%;
-          margin: auto;
-          margin-top: 4rem;
+      }
+      .inner {
+        text-align: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 80%;
+        margin: auto;
+        margin-top: 4rem;
 
-          &.picture-10s,
-          &.normalcards {
+        &.picture-10s,
+        &.normalcards {
+          display: none;
+        }
+
+        &.picture-10s {
+          max-width: 100%;
+        }
+
+        .right {
+          max-width: 600px;
+          h2 {
+            font-family: $font_headline;
+            font-weight: 700;
+            font-size: 3rem;
+          }
+        }
+        .left {
+          margin-right: 2rem;
+          img {
+            width: 100%;
+            max-width: 200px;
+          }
+        }
+      }
+
+      &.form {
+        display: none;
+        .btn {
+          @extend .primary_button;
+        }
+      }
+      &.how-to-play {
+        display: none;
+        .btn {
+          @extend .primary_button;
+        }
+        .how-to-play-inner {
+          &.hit {
             display: none;
-          }
-
-          &.picture-10s {
-            max-width: 100%;
-          }
-
-          .right {
-            max-width: 600px;
-            h2 {
-              font-family: $font_headline;
-              font-weight: 700;
-              font-size: 3rem;
-            }
           }
           .left {
             margin-right: 2rem;
             img {
               width: 100%;
-              max-width: 200px;
+              max-width: 400px;
             }
           }
-        }
-      }
-      &.form {
-        display: none;
-        .btn {
-          @extend .primary_button;
         }
       }
       &.start {

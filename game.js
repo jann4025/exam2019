@@ -100,7 +100,19 @@ function cardValues() {
       .removeEventListener('click', nomarlCards);
     document.querySelector('.inner.picture-10s').style.display = 'none';
     document.querySelector('.inner.normalcards').style.display = 'flex';
-    document.querySelector('.next-card').addEventListener('click', nomarlCards);
+    document.querySelector('.next-card').addEventListener('click', howToPlay);
+  }
+}
+
+function howToPlay() {
+  document.querySelector('.next-card').removeEventListener('click', howToPlay);
+  document.querySelector('.card-values').style.display = 'none';
+  document.querySelector('.how-to-play').style.display = 'block';
+  document.querySelector('.next-rule').addEventListener('click', hit);
+
+  function hit() {
+    document.querySelector('.how-to-play .intro').style.display = 'none';
+    document.querySelector('.how-to-play .hit').style.display = 'flex';
   }
 }
 
