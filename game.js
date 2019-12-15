@@ -22,14 +22,24 @@ function start() {
   );
   creatNewDeck();
   addEventListener();
-  if (localStorage.getItem('PlayedBefore') === null) {
+  if (
+    localStorage.getItem('PlayedBefore') === null &&
+    localStorage.getItem('guideCompletede') === null
+  ) {
     localStorage.removeItem('firstname');
     onBoarding();
   } else if (localStorage.getItem('firstname') === null) {
     localStorage.removeItem('PlayedBefore');
     onBoarding();
   } else if (localStorage.getItem('PlayedBefore') === true) {
-    return;
+    document.querySelector('.start').style.display = 'block';
+    document.querySelector('.start .name').innerHTML = localStorage.getItem(
+      'firstname'
+    );
+    document.querySelector('.spilNu').addEventListener('click', () => {
+      document.querySelector('#onboarding').style.display = 'none';
+      firstDeal();
+    });
   }
 }
 
@@ -42,6 +52,9 @@ function reset() {
   document.querySelector('.gameoverScreen').style.display = 'none';
   document.querySelector('.tieScreen').style.display = 'none';
   hitButton.addEventListener('click', dealNewCardPlayer);
+  document
+    .querySelector('.btn.stand')
+    .addEventListener('click', dealNewCardDealer);
   player = [];
   dealer = [];
   firstDeal();
@@ -65,16 +78,12 @@ function setInitialValues() {
 }
 
 function onBoarding() {
-  const form = document.querySelector('form#fornavn');
   console.log(name);
   document.querySelector('#onboarding').style.display = 'block';
   document
     .querySelector('.card-values-btn')
     .addEventListener('click', cardValues);
-  document.querySelector('.skip').addEventListener('click', cardValues);
-  // form.addEventListener('submit', e => {
-  //   onSubmit(form, e);
-  // });
+  document.querySelector('.skip').addEventListener('click', form);
 }
 
 function cardValues() {
@@ -109,11 +118,50 @@ function howToPlay() {
   document.querySelector('.card-values').style.display = 'none';
   document.querySelector('.how-to-play').style.display = 'block';
   document.querySelector('.next-rule').addEventListener('click', hit);
+  document.querySelector('.skip').addEventListener('click', form);
 
   function hit() {
+    document.querySelector('.next-rule').removeEventListener('click', hit);
     document.querySelector('.how-to-play .intro').style.display = 'none';
     document.querySelector('.how-to-play .hit').style.display = 'flex';
+    document.querySelector('.next-rule').addEventListener('click', stand);
+    document.querySelector('.skip').addEventListener('click', form);
   }
+
+  function stand() {
+    document.querySelector('.next-rule').removeEventListener('click', stand);
+    document.querySelector('.how-to-play .hit').style.display = 'none';
+    document.querySelector('.how-to-play .stand').style.display = 'flex';
+    document.querySelector('.next-rule').addEventListener('click', bust);
+    document.querySelector('.skip').addEventListener('click', form);
+  }
+
+  function bust() {
+    document.querySelector('.next-rule').removeEventListener('click', bust);
+    document.querySelector('.how-to-play .stand').style.display = 'none';
+    document.querySelector('.how-to-play .bust').style.display = 'flex';
+    document.querySelector('.next-rule').addEventListener('click', win);
+    document.querySelector('.skip').addEventListener('click', form);
+  }
+
+  function win() {
+    document.querySelector('.next-rule').removeEventListener('click', win);
+    document.querySelector('.how-to-play .bust').style.display = 'none';
+    document.querySelector('.how-to-play .win').style.display = 'flex';
+    document.querySelector('.next-rule').addEventListener('click', form);
+    document.querySelector('.skip').addEventListener('click', form);
+  }
+}
+
+function form() {
+  const form = document.querySelector('form#fornavn');
+  localStorage.setItem('guideCompletede', true);
+  document.querySelector('.next-rule').removeEventListener('click', form);
+  document.querySelector('.how-to-play').style.display = 'none';
+  document.querySelector('.form').style.display = 'block';
+  form.addEventListener('submit', e => {
+    onSubmit(form, e);
+  });
 }
 
 function onSubmit(form, e) {
@@ -123,7 +171,7 @@ function onSubmit(form, e) {
   document.querySelector('.form').style.display = 'none';
   document.querySelector('.start').style.display = 'block';
   nameFilled = !nameFilled;
-  // localStorage.setItem('PlayedBefore', nameFilled);
+  localStorage.setItem('PlayedBefore', nameFilled);
   document.querySelector('.start .name').innerHTML = localStorage.getItem(
     'firstname'
   );
@@ -494,7 +542,7 @@ function checkValue() {
     playerSum = playerSum + player[i].Value;
   }
   hitButton.addEventListener('click', dealNewCardPlayer);
-  document.querySelector('.stand').addEventListener('click', stand);
+  document.querySelector('.btn.stand').addEventListener('click', stand);
 }
 
 function stand() {
@@ -548,6 +596,9 @@ function tieScreen() {
 
 function gameoverScreen() {
   document.querySelector('.gameoverScreen').classList.add('fade-in');
+  document
+    .querySelector('.gameover_try-again')
+    .addEventListener('click', reset);
   document.querySelector(
     '.gameoverScreen .name'
   ).innerHTML = localStorage.getItem('firstname');

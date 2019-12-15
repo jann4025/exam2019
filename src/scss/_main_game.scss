@@ -128,7 +128,10 @@ body#game {
           @extend .primary_button;
         }
         .how-to-play-inner {
-          &.hit {
+          &.hit,
+          &.stand,
+          &.bust,
+          &.win {
             display: none;
           }
           .left {
