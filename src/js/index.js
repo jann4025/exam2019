@@ -121,9 +121,9 @@ function images(fetchImg) {
     const image1 = obj.img1.guid;
     const image2 = obj.img2.guid;
     const image3 = obj.img3.guid;
-    document.querySelector(".skew1").style.background = `url(${image1})`;
-    document.querySelector(".skew2").style.background = `url(${image2})`;
-    document.querySelector(".skew3").style.background = `url(${image3})`;
+    document.querySelector(".skew1").style.backgroundImage = `url(${image1})`;
+    document.querySelector(".skew2").style.backgroundImage = `url(${image2})`;
+    document.querySelector(".skew3").style.backgroundImage = `url(${image3})`;
 
     document.querySelector(".img_subheadline1").innerHTML = obj.img_subheadline1;
     document.querySelector(".img_subheadline2").innerHTML = obj.img_subheadline2;
