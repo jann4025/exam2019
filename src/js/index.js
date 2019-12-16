@@ -2,13 +2,14 @@
 const regeneratorRuntime = require("regenerator-runtime/runtime");
 
 document.addEventListener("DOMContentLoaded", start);
-
+let textShown = false;
 let detailsAll;
 
 function start() {
   fetchContent();
 
   document.addEventListener("scroll", navColor);
+  document.querySelector(".rules_read_more").addEventListener("click", showMore);
 }
 
 function navColor() {
@@ -19,7 +20,13 @@ function navColor() {
   scrollY <= 800 ? nav.classList.remove("nav_colored") : "";
 }
 
-function removeOpen(e) {
+function showMore() {
+  textShown = !textShown;
+  document.querySelector(".txt_rules").classList.toggle("hide_txt");
+  textShown === true ? (document.querySelector(".rules_read_more").textContent = "Læs mindre") : (document.querySelector(".rules_read_more").textContent = "Læs mere");
+}
+
+function removeOpen() {
   if (this.open) {
     return;
   }
@@ -139,7 +146,7 @@ function rules(fetchRules) {
   console.log(fetchRules);
   fetchRules.forEach(obj => {
     document.querySelector(".rules_headline").innerHTML = obj.headline_rules;
-    document.querySelector(".txt_rules").innerHTML = obj.txt_rules_1;
+    document.querySelector(".txt_rules").innerHTML = obj.txt_rules;
   });
 }
 
@@ -163,12 +170,8 @@ function details(fetchDetails) {
     let klon = tempRules.cloneNode(!0).content;
     klon.querySelector("summary").innerHTML = obj.headline;
     klon.querySelector(".details_txt").innerHTML = obj.details_txt;
-    if (destRules2.childNodes.length < 5) {
-      destRules2.prepend(klon);
-      console.info(destRules1.childNodes.length);
-    } else {
-      destRules1.prepend(klon);
-    }
+
+    destRules2.childNodes.length < 5 ? destRules2.prepend(klon) : destRules1.prepend(klon);
   });
 }
 

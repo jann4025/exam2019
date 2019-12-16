@@ -7,7 +7,7 @@
   }
 }
 
-@mixin ls {
+@mixin tb {
   @media screen and (max-width: 768px) {
     @content;
   }
