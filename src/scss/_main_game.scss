@@ -34,9 +34,29 @@ body#game {
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
+      @include mm_horisontal {
+        width: 90%;
+      }
       h1 {
         font-weight: 900;
         margin-bottom: 2rem;
+
+        @include mm_horisontal {
+          font-size: 2em;
+          text-align: center;
+        }
+      }
+
+      p {
+        @include mm_horisontal {
+          margin: auto;
+        }
+      }
+
+      .btn {
+        @include mm_horisontal {
+          margin-top: 1rem;
+        }
       }
       small {
         font-family: $font_body;
@@ -88,7 +108,7 @@ body#game {
         align-items: center;
         max-width: 80%;
         margin: auto;
-        margin-top: 4rem;
+        margin-top: 0rem;
 
         &.picture-10s,
         &.normalcards {
@@ -255,6 +275,14 @@ body#game {
     grid-row: row1;
     margin: auto;
 
+    @include mm_horisontal_game {
+      min-width: 250px;
+    }
+
+    @include ipad_horisontal {
+      margin-bottom: 0.5rem;
+    }
+
     .card {
       margin-left: -4rem;
       position: relative;
@@ -263,6 +291,11 @@ body#game {
       max-width: 180px;
       height: 100%;
       max-height: 400px;
+
+      @include mm_horisontal_game {
+        max-width: 100px;
+        max-height: 130px;
+      }
     }
 
     .front_image {
@@ -270,11 +303,19 @@ body#game {
       max-width: 180px;
       height: 100%;
       max-height: 227px;
+
+      @include mm_horisontal_game {
+        max-height: 130px;
+        max-width: 100px;
+      }
     }
 
     .card:nth-child(2) {
       margin-left: 3rem;
       margin-bottom: 2rem;
+      @include mm_horisontal_game {
+        margin-left: 0;
+      }
     }
 
     #dealer-value {
@@ -289,6 +330,13 @@ body#game {
       position: absolute;
       bottom: 0;
       left: 0;
+
+      @include mm_horisontal_game {
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+        margin-top: 0.5rem;
+      }
     }
   }
 
@@ -308,6 +356,13 @@ body#game {
     margin: auto;
     grid-row: row2;
 
+    @include mm_horisontal_game {
+      min-width: 250px;
+    }
+    @include ipad_horisontal {
+      margin-top: 0.5rem;
+    }
+
     .card {
       margin-left: -4rem;
       position: relative;
@@ -316,10 +371,24 @@ body#game {
       max-width: 180px;
       height: 100%;
       max-height: 400px;
+      @include mm_horisontal_game {
+        max-width: 100px;
+        max-height: 130px;
+      }
+
+      .front_image {
+        @include mm_horisontal_game {
+          max-height: 130px;
+          max-width: 100px;
+        }
+      }
     }
     .card:nth-child(2) {
       margin-left: 3rem;
       margin-top: 2rem;
+      @include mm_horisontal_game {
+        margin-left: 0;
+      }
     }
 
     #player-value {
@@ -335,6 +404,13 @@ body#game {
       z-index: 999;
       top: 0;
       left: 0;
+
+      @include mm_horisontal_game {
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+        margin-top: 0.5rem;
+      }
     }
   }
 
@@ -372,6 +448,19 @@ body#game {
     transform-style: preserve-3d;
     backface-visibility: hidden;
     transition: all 0.4s ease-in-out;
+
+    @include mm_horisontal_game {
+      max-width: 100px;
+      max-height: 130px;
+    }
+    @include ipad_horisontal {
+      max-width: 150px;
+    }
+
+    @include mm_horisontal {
+      max-width: 100px;
+      max-height: 130px;
+    }
   }
 
   .card.flip .front {
@@ -393,6 +482,14 @@ body#game {
     transform-style: preserve-3d;
     backface-visibility: hidden;
     transition: all 0.4s ease-in-out;
+    @include mm_horisontal_game {
+      max-width: 100px;
+      max-height: 130px;
+    }
+    @include ipad_horisontal {
+      max-width: 155px;
+      max-height: 211px;
+    }
   }
 
   .card.flip .back {
@@ -407,6 +504,11 @@ body#game {
     transform: translateY(-80%);
     display: grid;
 
+    @include mm_horisontal_game {
+      top: 58%;
+      right: 4%;
+    }
+
     & > * {
       grid-area: 1/1;
     }
@@ -416,8 +518,12 @@ body#game {
     position: absolute;
     top: 50%;
     left: 10%;
-    transform: translateY(-80%);
+    transform: translateY(-50%);
     text-align: center;
+    @include mm_horisontal_game {
+      top: 50%;
+      left: 3%;
+    }
     .btn {
       font-family: $font_body;
       @extend .primary_button;
@@ -429,6 +535,13 @@ body#game {
       padding-right: 3rem;
       border-radius: 10px;
       margin-top: 2rem;
+      @include mm_horisontal_game {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+        border-radius: 3px;
+      }
 
       &:nth-child(1) {
         margin-top: 0;
