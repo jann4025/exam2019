@@ -20,12 +20,14 @@ function navColor() {
 }
 
 function removeOpen(e) {
-  console.log("toggle");
-  if (e.target.getAttribute("open") === null) {
-    detailsAll.forEach(detail => detail.removeAttribute("open"));
-    e.target.setAttribute("open", true);
-  } else {
-    e.target.removeAttribute("open");
+  if (this.open) {
+    return;
+  }
+
+  for (const detail of detailsAll) {
+    if (detail.open) {
+      detail.removeAttribute("open");
+    }
   }
 }
 
