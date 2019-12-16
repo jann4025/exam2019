@@ -13,7 +13,6 @@ let temp = document.querySelector('template');
 let hitButton = document.querySelector('.btn.hit');
 
 const btns = document.querySelector('#btns');
-const btns1 = document.querySelector('#btns');
 
 let nameFilled = false;
 
