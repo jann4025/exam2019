@@ -60,7 +60,7 @@ export default function App(props) {
   // POST METHOD
   const onSubmit = e => {
     e.preventDefault();
-    if (formState === "post") {
+    if (formState === "Tilføj") {
       fetch(baseURL, {
         method: "post",
         headers: headers,
@@ -78,7 +78,6 @@ export default function App(props) {
           setName("");
           setLastname("");
           setEmail("");
-          setUser("");
         });
     } else if (formState === "Gem") {
       fetch(baseURL + "/" + id, {
@@ -98,9 +97,9 @@ export default function App(props) {
           setName("");
           setLastname("");
           setEmail("");
-          setUser("");
+
           setId("");
-          setFormState("post");
+          setFormState("Tilføj");
           window.location = "";
         });
     }
