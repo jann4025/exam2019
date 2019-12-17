@@ -10,10 +10,14 @@ body#game {
   display: flex;
   align-items: center;
   background-color: $black_primary;
-  background-image: url('/src/assets/svg/bg-table.svg');
+  background-image: url("/src/assets/svg/bg-table.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  font-family: neue-haas-grotesk-display, sans-serif;
+
+  h1 {
+  }
 
   #signUpForm {
     position: fixed;
@@ -55,9 +59,15 @@ body#game {
   }
 
   h1 {
+    font-size: 4rem;
     @include mm_horisontal {
       font-size: 2rem;
     }
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
   }
 
   .skip {
