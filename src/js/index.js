@@ -153,6 +153,9 @@ function rules(fetchRules) {
 function join(fetchJoin) {
   console.log(fetchJoin);
   fetchJoin.forEach(obj => {
+    const bg_img = obj.bg_img.guid;
+
+    document.querySelector("#join").style.backgroundImage = `url(${bg_img})`;
     document.querySelector(".join_subheadline").innerHTML = obj.headline_join;
     document.querySelector(".join_cta").innerHTML = obj.subheadline_join;
     document.querySelector(".join_button").innerHTML = obj.button_join;

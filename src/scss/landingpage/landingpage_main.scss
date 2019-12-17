@@ -1,23 +1,8 @@
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 3em;
-}
-
-body {
-  background: $black_primary;
-  color: $white_primary;
-}
-
-main {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-h1 {
+@mixin font-family-h1 {
   font-family: $font_headline;
   font-size: 3em;
   text-align: center;
+  font-weight: bold;
 
   @include mm_horisontal {
     font-size: 2.5em;
@@ -32,7 +17,7 @@ h1 {
   }
 }
 
-h2 {
+@mixin font-family-h2 {
   font-family: $font_headline;
   font-size: 1.8em;
   text-align: center;
@@ -54,7 +39,7 @@ h2 {
   }
 }
 
-p {
+@mixin font-family-p {
   font-family: $font_body;
   line-height: 1.5;
   max-width: 70vw;
@@ -74,26 +59,41 @@ p {
   }
 }
 
-a {
+@mixin font-family-a {
   text-decoration: none;
   color: $white_primary;
   font-family: $font_body;
 }
 
-.nav_colored {
-  background: $black_primary;
-  @include tb {
-    background: transparent;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 3em;
 }
 
-nav {
+body {
+  background: $black_primary;
+  color: $white_primary;
+}
+
+main {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.nav_colored {
+  background: $black_primary;
+}
+
+#nav_bar {
   position: fixed;
   width: 100vw;
   z-index: 999;
   padding: 0.8em;
 
   a {
+    @include font-family-a;
+
     &::after {
       content: "";
       transition: width 0.3s;
@@ -107,6 +107,10 @@ nav {
       width: 100%;
       transform: scaleX(1);
     }
+  }
+
+  @include tb {
+    background: $black_primary;
   }
 
   //BURGERMENU
@@ -132,21 +136,22 @@ nav {
     #menuToggle {
       display: block;
       position: relative;
-      top: 30px;
-      left: 30px;
+      top: 5px;
+      left: 5px;
 
       a {
         text-decoration: none;
         color: $white_primary;
         transition: color 1s ease;
+        @include font-family-a;
       }
 
       input {
         display: block;
-        width: 40px;
-        height: 32px;
+        width: 2em;
+        height: 4px;
         position: absolute;
-        top: -7px;
+        top: -5px;
         left: -5px;
 
         opacity: 0;
@@ -178,7 +183,7 @@ nav {
 
       span {
         display: block;
-        width: 33px;
+        width: 2em;
         height: 4px;
         margin-bottom: 5px;
         position: relative;
@@ -187,7 +192,7 @@ nav {
         border-radius: 3px;
 
         z-index: 1;
-        transform-origin: 4px 0px;
+        transform-origin: 0.2em 0em;
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
         &:first-child {
           transform-origin: 0% 0%;
@@ -227,11 +232,11 @@ nav {
   text-align: center;
 
   h1 {
+    @include font-family-h1();
     font-size: 6em;
     padding: 0.4em;
     color: $red_primary;
     text-shadow: $primary_glow;
-    // font-family: $font_logo;
     font-weight: 600;
     text-transform: uppercase;
 
@@ -249,6 +254,7 @@ nav {
   }
 
   h2 {
+    @include font-family-h2();
     color: $yellow_primary;
     font-size: 3.5em;
     font-weight: 600;
@@ -267,6 +273,7 @@ nav {
   }
 
   p {
+    @include font-family-p;
     font-size: 1.4em;
 
     @include mm_horisontal {
@@ -334,6 +341,13 @@ nav {
 }
 
 #welcome {
+  h1 {
+    @include font-family-h1;
+  }
+  h2 {
+    @include font-family-h2;
+  }
+
   display: grid;
   justify-items: center;
   margin: 3em 5em;
@@ -354,18 +368,9 @@ nav {
     }
   }
 
-  .images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1em;
-    margin: 3em 0em;
-    img {
-      max-width: 400px;
-      width: 100%;
-    }
-  }
-
   p {
+    @include font-family-p();
+
     @include tb {
       margin: 0 2em;
     }
@@ -403,6 +408,10 @@ nav {
     margin: 2em;
     font-size: 0.8em;
 
+    p {
+      @include font-family-p;
+    }
+
     @include ll {
       max-width: 300px;
     }
@@ -429,6 +438,7 @@ nav {
 
     .review_txt_box {
       h2 {
+        @include font-family-h2;
         font-size: 1.3em;
         padding-bottom: 0.6em;
         font-weight: bold;
@@ -451,6 +461,9 @@ nav {
 
       svg {
         width: 200px;
+        @include ml {
+          width: 150px;
+        }
       }
     }
   }
@@ -460,6 +473,15 @@ nav {
   display: grid;
   justify-items: center;
   margin: 3em 5em;
+
+  h1 {
+    @include font-family-h1;
+  }
+
+  p {
+    @include font-family-p;
+  }
+
   & > * {
     padding: 0.4em 2em;
 
@@ -469,7 +491,7 @@ nav {
   }
 
   @include tb {
-    margin: 1em;
+    margin: 2em 1em;
   }
 }
 
@@ -490,6 +512,7 @@ nav {
 
   @include ml {
     display: block;
+    margin: 2em 0;
   }
 
   @include iphone5_horisontal {
@@ -516,6 +539,7 @@ nav {
       display: grid;
       grid-template-rows: 1fr 1fr;
       justify-items: center;
+
       @include ll {
         transform: skewY(0deg);
         opacity: 1;
@@ -533,6 +557,7 @@ nav {
       }
 
       h2 {
+        @include font-family-h2;
         font-size: 2em;
         max-width: 300px;
 
@@ -592,10 +617,12 @@ nav {
   }
 
   h1 {
+    @include font-family-h1;
     text-align: center;
   }
 
   a {
+    @include font-family-a;
     font-weight: bold;
   }
 
@@ -611,8 +638,10 @@ nav {
   }
 
   .rules_txt {
+    @include font-family-p;
     columns: 2;
     column-gap: 4em;
+    max-width: 95%;
 
     @include mm_horisontal {
       column-gap: 2em;
@@ -624,6 +653,7 @@ nav {
 
     .rules_read_more {
       display: none;
+      margin-left: -0.5em;
 
       @include ml {
         display: block;
@@ -648,10 +678,10 @@ nav {
   }
 
   details[open] summary ~ * {
-    animation: sweep 0.3s ease-in-out;
+    animation: fade 0.3s ease-in-out;
   }
 
-  @keyframes sweep {
+  @keyframes fade {
     0% {
       opacity: 0;
     }
@@ -683,6 +713,10 @@ nav {
       }
     }
 
+    p {
+      @include font-family-p;
+    }
+
     .details_box {
       display: grid;
       grid-template-columns: auto 1fr;
@@ -707,9 +741,8 @@ nav {
 }
 
 #join {
-  background-image: url(/src/assets/img/table.png);
   width: 100%;
-
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -723,8 +756,8 @@ nav {
   }
 
   h2 {
+    @include font-family-h2;
     font-size: 3em;
-    font-family: $font_headline;
 
     @include ml {
       font-size: 2em;
@@ -770,6 +803,14 @@ nav {
 footer {
   font-size: 0.8em;
   margin: 4em 4em 2em;
+
+  @include ml {
+    margin: 1em;
+  }
+
+  a {
+    @include font-family-a;
+  }
   #footer_links {
     display: flex;
     justify-content: space-between;
@@ -801,7 +842,11 @@ footer {
     display: grid;
     justify-items: center;
     @include ml {
-      margin-top: 4em;
+      margin-top: 1em;
+    }
+
+    p {
+      @include font-family-p;
     }
 
     .footer_txt_approved {
