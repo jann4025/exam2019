@@ -31,8 +31,38 @@ function start() {
   } else if (localStorage.getItem('firstname') === null) {
     localStorage.removeItem('PlayedBefore');
     onBoarding();
-  } else if (localStorage.getItem('PlayedBefore') === true) {
+  } else if (localStorage.getItem('bonusRecived', true)) {
     document.querySelector('.start').style.display = 'block';
+    document.querySelector('#onboarding').style.display = 'block';
+    document.querySelector('.rules').style.display = 'none';
+    document.querySelector('.start').innerHTML = ` <h1>
+    Hej <span class="name"></span>! <br /> Godt at se dig igen
+  </h1>
+  <p>
+    Vi kan se at du allerede har modtaget din bonus og du har derfor ikke mulighed for at spille igen! <br /> <br />
+    Men du kan altid finde alle vores andre spil på forsiden
+    <br />
+  </p>
+  <button class="btn spilNu">Gå tilbage til forsiden</button>`;
+    document.querySelector('.start .name').innerHTML = localStorage.getItem(
+      'firstname'
+    );
+    document.querySelector('.spilNu').addEventListener('click', () => {
+      window.location.pathname = 'index.html';
+    });
+  } else if (localStorage.getItem('guideCompletede', true)) {
+    document.querySelector('.start').style.display = 'block';
+    document.querySelector('#onboarding').style.display = 'block';
+    document.querySelector('.rules').style.display = 'none';
+    document.querySelector('.start').innerHTML = ` <h1>
+    Hej <span class="name"></span>! <br /> Er du klar til at spille igen?
+  </h1>
+  <p>
+    Godt at se at du er klar til at prøve igen! Vi har ikke så meget vi vil gennem gå med dig
+    <br />
+  </p>
+  <p>Så hvad siger du? Skal vi ikke bare se at komme i gang?</p>
+  <button class="btn spilNu">Spil nu</button>`;
     document.querySelector('.start .name').innerHTML = localStorage.getItem(
       'firstname'
     );
@@ -51,6 +81,7 @@ function reset() {
   cleanTable();
   document.querySelector('.gameoverScreen').style.display = 'none';
   document.querySelector('.tieScreen').style.display = 'none';
+  document.querySelector('.winScreen').style.display = 'none';
   hitButton.addEventListener('click', dealNewCardPlayer);
   document
     .querySelector('.btn.stand')
@@ -83,7 +114,9 @@ function onBoarding() {
   document
     .querySelector('.card-values-btn')
     .addEventListener('click', cardValues);
-  document.querySelector('.skip').addEventListener('click', form);
+  document
+    .querySelectorAll('.skip')
+    .forEach(skip => skip.addEventListener('click', form));
 }
 
 function cardValues() {
@@ -99,7 +132,7 @@ function cardValues() {
       .querySelector('.next-card')
       .removeEventListener('click', pictureCards);
     document.querySelector('.inner.aces').style.display = 'none';
-    document.querySelector('.inner.picture-10s').style.display = 'flex';
+    document.querySelector('.inner.picture-10s').style.display = 'block';
     document.querySelector('.next-card').addEventListener('click', nomarlCards);
   }
 
@@ -108,7 +141,7 @@ function cardValues() {
       .querySelector('.next-card')
       .removeEventListener('click', nomarlCards);
     document.querySelector('.inner.picture-10s').style.display = 'none';
-    document.querySelector('.inner.normalcards').style.display = 'flex';
+    document.querySelector('.inner.normalcards').style.display = 'block';
     document.querySelector('.next-card').addEventListener('click', howToPlay);
   }
 }
@@ -123,7 +156,7 @@ function howToPlay() {
   function hit() {
     document.querySelector('.next-rule').removeEventListener('click', hit);
     document.querySelector('.how-to-play .intro').style.display = 'none';
-    document.querySelector('.how-to-play .hit').style.display = 'flex';
+    document.querySelector('.how-to-play .hit').style.display = 'block';
     document.querySelector('.next-rule').addEventListener('click', stand);
     document.querySelector('.skip').addEventListener('click', form);
   }
@@ -131,7 +164,7 @@ function howToPlay() {
   function stand() {
     document.querySelector('.next-rule').removeEventListener('click', stand);
     document.querySelector('.how-to-play .hit').style.display = 'none';
-    document.querySelector('.how-to-play .stand').style.display = 'flex';
+    document.querySelector('.how-to-play .stand').style.display = 'block';
     document.querySelector('.next-rule').addEventListener('click', bust);
     document.querySelector('.skip').addEventListener('click', form);
   }
@@ -139,7 +172,7 @@ function howToPlay() {
   function bust() {
     document.querySelector('.next-rule').removeEventListener('click', bust);
     document.querySelector('.how-to-play .stand').style.display = 'none';
-    document.querySelector('.how-to-play .bust').style.display = 'flex';
+    document.querySelector('.how-to-play .bust').style.display = 'block';
     document.querySelector('.next-rule').addEventListener('click', win);
     document.querySelector('.skip').addEventListener('click', form);
   }
@@ -147,7 +180,7 @@ function howToPlay() {
   function win() {
     document.querySelector('.next-rule').removeEventListener('click', win);
     document.querySelector('.how-to-play .bust').style.display = 'none';
-    document.querySelector('.how-to-play .win').style.display = 'flex';
+    document.querySelector('.how-to-play .win').style.display = 'block';
     document.querySelector('.next-rule').addEventListener('click', form);
     document.querySelector('.skip').addEventListener('click', form);
   }
@@ -158,6 +191,9 @@ function form() {
   localStorage.setItem('guideCompletede', true);
   document.querySelector('.next-rule').removeEventListener('click', form);
   document.querySelector('.how-to-play').style.display = 'none';
+  document.querySelector('.rules').style.display = 'none';
+  document.querySelector('.how-to-play').style.display = 'none';
+  document.querySelector('.card-values').style.display = 'none';
   document.querySelector('.form').style.display = 'block';
   form.addEventListener('submit', e => {
     onSubmit(form, e);
@@ -576,6 +612,7 @@ function showdealerSumFull() {
 }
 
 function winScreen() {
+  document.querySelector('.winScreen').style.display = 'block';
   document.querySelector('.winScreen').classList.add('fade-in');
   document.querySelector('.winScreen .name').innerHTML = localStorage.getItem(
     'firstname'
@@ -587,6 +624,7 @@ function winScreen() {
 }
 
 function tieScreen() {
+  document.querySelector('.tieScreen').style.display = 'block';
   document.querySelector('.tieScreen').classList.add('fade-in');
   document.querySelector('.tieScreen .name').innerHTML = localStorage.getItem(
     'firstname'
@@ -595,6 +633,7 @@ function tieScreen() {
 }
 
 function gameoverScreen() {
+  document.querySelector('.gameoverScreen').style.display = 'block';
   document.querySelector('.gameoverScreen').classList.add('fade-in');
   document
     .querySelector('.gameover_try-again')
@@ -624,6 +663,11 @@ function gameoverScreen() {
 }
 
 function signUpForm() {
-  document.querySelector('.winScreen form').removeAttribute('hidden');
+  document.querySelector('#signUpForm').removeAttribute('hidden');
+  document.querySelector('input#name').value = localStorage.getItem(
+    'firstname'
+  );
   document.querySelector('.winScreen .inner').style.display = 'none';
+  document.querySelector('#signUpForm .inner').style.display = 'block';
+  document.querySelector('#signUpForm .confirm-email').style.display = 'none';
 }

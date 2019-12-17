@@ -1,7 +1,7 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', start);
 import IMask from 'imask';
-const form = document.querySelector('form');
+const form = document.querySelector('#signUpForm');
 function start() {
   console.log(
     'Connection between the DOM and the Script was successfull! Nice 😎'
@@ -45,10 +45,12 @@ function submitForm() {
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   const innerForm = document.querySelector('form .inner');
-  localStorage.setItem('username', email);
-  localStorage.setItem('password', password);
   innerForm.style.display = 'none';
   document.querySelector('.confirm-email').style.display = 'block';
+  localStorage.setItem('bonusRecived', true);
+  document.querySelector('.close-btn').addEventListener('click', () => {
+    window.location.pathname = 'index.html';
+  });
 }
 function paswordValidate() {
   //selectors

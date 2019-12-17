@@ -15,8 +15,53 @@ body#game {
   background-position: center;
   background-size: cover;
 
+  #signUpForm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+
+    .btn {
+      @extend .primary_button;
+      margin-top: 1rem;
+    }
+
+    .confirm-email {
+      @include mm_horisontal {
+        margin-top: -3rem;
+      }
+    }
+
+    p {
+      margin: auto;
+    }
+
+    img {
+      @include mm_horisontal {
+        max-width: 90px;
+      }
+    }
+
+    @include mm_horisontal {
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+    }
+  }
+
   &.blur-body {
     filter: blur(10px);
+  }
+
+  h1 {
+    @include mm_horisontal {
+      font-size: 2rem;
+    }
+  }
+
+  .skip {
+    cursor: pointer;
   }
 
   #onboarding {
@@ -28,6 +73,10 @@ body#game {
     width: 100vw;
     height: 100vh;
     background-color: rgba($black_primary, 0.7);
+
+    .btn {
+      margin-top: 1rem;
+    }
     .content {
       position: absolute;
       top: 50%;
@@ -40,11 +89,19 @@ body#game {
       h1 {
         font-weight: 900;
         margin-bottom: 2rem;
-
+        font-size: 3rem;
         @include mm_horisontal {
           font-size: 2em;
           text-align: center;
+          margin-bottom: 1rem;
         }
+      }
+      h2 {
+        $min_width: 300px;
+        $max_width: 1440px;
+        $min_font: 20px;
+        $max_font: 36px;
+        @include fluid-type($min_width, $max_width, $min_font, $max_font);
       }
 
       p {
@@ -102,10 +159,7 @@ body#game {
         }
       }
       .inner {
-        text-align: left;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
         max-width: 80%;
         margin: auto;
         margin-top: 0rem;
@@ -118,14 +172,11 @@ body#game {
         &.picture-10s {
           max-width: 100%;
         }
-
-        .right {
-          max-width: 600px;
-          h2 {
-            font-family: $font_headline;
-            font-weight: 700;
-            font-size: 3rem;
-          }
+        h2 {
+          font-family: $font_headline;
+          font-weight: 700;
+          font-size: 3rem;
+          text-align: center;
         }
         .left {
           margin-right: 2rem;
@@ -144,8 +195,14 @@ body#game {
       }
       &.how-to-play {
         display: none;
+
+        p {
+          max-height: 110px;
+          overflow: scroll;
+        }
         .btn {
           @extend .primary_button;
+          margin-top: 1rem;
         }
         .how-to-play-inner {
           &.hit,
@@ -251,22 +308,41 @@ body#game {
 
   #main_game {
     width: 100%;
-    max-width: 800px;
+    max-width: 55.555vw;
     height: 100%;
-    max-height: 750px;
+    max-height: 49.083vw;
     margin: auto;
     margin-top: 0;
     display: grid;
     align-items: center;
     justify-items: start;
     grid-template-rows: [row1-start] 50% [row1-end row2-start] 50% [row2-end];
+    @include ipadPro_horisontal {
+      max-height: 58.083vw;
+    }
+    @include ll {
+      max-height: 58.083vw;
+    }
+    @include tb {
+      max-height: 70.083vw;
+    }
+    @include ml {
+      max-height: 55.083vw;
+    }
+    @include m733x425 {
+      max-height: 50.083vw;
+    }
+
+    @include iphone6Plus_horisontal {
+      max-height: 49.083vw;
+    }
   }
 
   #dealer-container {
     width: auto;
-    min-width: 376px;
+    min-width: 26.111vw;
     height: 100%;
-    max-height: 260px;
+    max-height: 18.055vw;
     padding: 1rem;
     position: relative;
     display: flex;
@@ -274,10 +350,6 @@ body#game {
     align-items: baseline;
     grid-row: row1;
     margin: auto;
-
-    @include mm_horisontal_game {
-      min-width: 250px;
-    }
 
     @include ipad_horisontal {
       margin-bottom: 0.5rem;
@@ -288,26 +360,21 @@ body#game {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 180px;
+      max-width: 12.5vw;
       height: 100%;
-      max-height: 400px;
+      max-height: 27.777vw;
 
-      @include mm_horisontal_game {
-        max-width: 100px;
-        max-height: 130px;
-      }
+      // @include mm_horisontal_game {
+      //   max-width: 100px;
+      //   max-height: 130px;
+      // }
     }
 
     .front_image {
       width: 100%;
-      max-width: 180px;
+      max-width: 12.5vw;
       height: 100%;
-      max-height: 227px;
-
-      @include mm_horisontal_game {
-        max-height: 130px;
-        max-width: 100px;
-      }
+      max-height: 15.763vw;
     }
 
     .card:nth-child(2) {
@@ -323,20 +390,21 @@ body#game {
       display: grid;
       justify-items: center;
       align-items: center;
-      width: 60px;
-      height: 60px;
+      width: 4.166vw;
+      height: 4.166vw;
       background: rgba($black_primary, 0.7);
-      font-size: 40px;
+      font-size: 2.777vw;
       position: absolute;
+      z-index: 999;
       bottom: 0;
       left: 0;
 
-      @include mm_horisontal_game {
-        width: 40px;
-        height: 40px;
-        font-size: 2rem;
-        margin-top: 0.5rem;
-      }
+      // @include mm_horisontal_game {
+      //   width: 40px;
+      //   height: 40px;
+      //   font-size: 2rem;
+      //   margin-top: 0.5rem;
+      // }
     }
   }
 
@@ -344,11 +412,11 @@ body#game {
     width: max-content;
     will-change: width;
     transition: 0.4s;
-    min-width: 376px;
+    min-width: 26.111vw;
     // outline: blue 1px solid;
     height: 100%;
     padding: 1rem;
-    max-height: 260px;
+    max-height: 18.055vw;
     position: relative;
     display: flex;
     justify-content: center;
@@ -356,9 +424,9 @@ body#game {
     margin: auto;
     grid-row: row2;
 
-    @include mm_horisontal_game {
-      min-width: 250px;
-    }
+    // @include mm_horisontal_game {
+    //   min-width: 250px;
+    // }
     @include ipad_horisontal {
       margin-top: 0.5rem;
     }
@@ -368,19 +436,19 @@ body#game {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 180px;
+      max-width: 12.5vw;
       height: 100%;
-      max-height: 400px;
-      @include mm_horisontal_game {
-        max-width: 100px;
-        max-height: 130px;
-      }
+      max-height: 27.777vw;
+      // @include mm_horisontal_game {
+      //   max-width: 100px;
+      //   max-height: 130px;
+      // }
 
       .front_image {
-        @include mm_horisontal_game {
-          max-height: 130px;
-          max-width: 100px;
-        }
+        // @include mm_horisontal_game {
+        //   max-height: 130px;
+        //   max-width: 100px;
+        // }
       }
     }
     .card:nth-child(2) {
@@ -396,21 +464,14 @@ body#game {
       display: grid;
       justify-items: center;
       align-items: center;
-      width: 60px;
-      height: 60px;
+      width: 4.166vw;
+      height: 4.166vw;
       background: rgba($black_primary, 0.7);
-      font-size: 40px;
+      font-size: 2.777vw;
       position: absolute;
       z-index: 999;
       top: 0;
       left: 0;
-
-      @include mm_horisontal_game {
-        width: 40px;
-        height: 40px;
-        font-size: 2rem;
-        margin-top: 0.5rem;
-      }
     }
   }
 
@@ -432,15 +493,11 @@ body#game {
     height: 100%;
   }
 
-  .back_image {
-    border-radius: 10px;
-  }
-
   .card .front {
     margin: auto;
     z-index: 900;
     width: 100%;
-    max-width: 180px;
+    max-width: 10vw;
     height: auto;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -448,19 +505,6 @@ body#game {
     transform-style: preserve-3d;
     backface-visibility: hidden;
     transition: all 0.4s ease-in-out;
-
-    @include mm_horisontal_game {
-      max-width: 100px;
-      max-height: 130px;
-    }
-    @include ipad_horisontal {
-      max-width: 150px;
-    }
-
-    @include mm_horisontal {
-      max-width: 100px;
-      max-height: 130px;
-    }
   }
 
   .card.flip .front {
@@ -474,22 +518,13 @@ body#game {
     left: 0px;
     z-index: 800;
     width: 100%;
-    max-width: 180px;
-    height: 100%;
-    max-height: 400px;
+    max-width: 10vw;
+    height: 14.02vw;
     box-shadow: 0 1rem 2.8rem 0 rgba(0, 0, 0, 0.15);
     transform: rotateY(-180deg);
     transform-style: preserve-3d;
     backface-visibility: hidden;
     transition: all 0.4s ease-in-out;
-    @include mm_horisontal_game {
-      max-width: 100px;
-      max-height: 130px;
-    }
-    @include ipad_horisontal {
-      max-width: 155px;
-      max-height: 211px;
-    }
   }
 
   .card.flip .back {
@@ -504,9 +539,34 @@ body#game {
     transform: translateY(-80%);
     display: grid;
 
+    @include ipadPro_horisontal {
+      top: 45%;
+      right: 4%;
+    }
+
+    @include ipad_horisontal {
+      top: 45%;
+      right: 4%;
+    }
+
     @include mm_horisontal_game {
       top: 58%;
       right: 4%;
+    }
+    @include tb {
+      top: 42%;
+    }
+
+    @include m733x425 {
+      top: 50%;
+    }
+
+    @include iphone6_horisontal {
+      top: 53%;
+    }
+
+    @include iphone6Plus_horisontal {
+      top: 53%;
     }
 
     & > * {
@@ -516,13 +576,43 @@ body#game {
 
   #btns {
     position: absolute;
-    top: 50%;
+    top: 39%;
     left: 10%;
     transform: translateY(-50%);
     text-align: center;
+
+    @include ipadPro_horisontal {
+      top: 38%;
+      left: 6%;
+    }
+
     @include mm_horisontal_game {
       top: 50%;
       left: 3%;
+    }
+    @include ll {
+      top: 38%;
+      left: 5%;
+    }
+
+    @include m733x425 {
+      top: 43%;
+    }
+
+    @include pixel2Xl {
+      top: 49%;
+    }
+
+    @include iphone5_horisontal {
+      top: 45%;
+    }
+
+    @include iphone6_horisontal {
+      top: 44%;
+    }
+
+    @include iphone6Plus_horisontal {
+      top: 44%;
     }
     .btn {
       font-family: $font_body;
@@ -535,12 +625,47 @@ body#game {
       padding-right: 3rem;
       border-radius: 10px;
       margin-top: 2rem;
+      @include ll {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+      }
       @include mm_horisontal_game {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
         margin-top: 1rem;
         font-size: 1rem;
         border-radius: 3px;
+      }
+
+      @include m733x425 {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        font-size: 0.8rem;
+      }
+
+      @include pixel2Xl {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        font-size: 0.8rem;
+      }
+
+      @include iphone5_horisontal {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        font-size: 0.6rem;
+      }
+
+      @include iphone5_horisontal {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      @include iphone6Plus_horisontal {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 0.8rem;
       }
 
       &:nth-child(1) {
