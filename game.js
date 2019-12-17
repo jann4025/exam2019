@@ -43,13 +43,12 @@ function start() {
     Men du kan altid finde alle vores andre spil på forsiden
     <br />
   </p>
-  <button class="btn spilNu">Gå tilbage til forsiden</button>`;
+  <a href="index.html" >
+  <button class="btn spilNu">Gå tilbage til forsiden</button>
+  </a>`;
     document.querySelector('.start .name').innerHTML = localStorage.getItem(
       'firstname'
     );
-    document.querySelector('.spilNu').addEventListener('click', () => {
-      window.location.pathname = 'index.html';
-    });
   } else if (localStorage.getItem('guideCompletede', true)) {
     document.querySelector('.start').style.display = 'block';
     document.querySelector('#onboarding').style.display = 'block';
