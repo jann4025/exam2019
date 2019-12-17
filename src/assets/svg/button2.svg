@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="216.87" height="211.79" viewBox="0 0 216.87 211.79">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dd2e59;
+      }
+
+      .cls-2 {
+        fill: #efefef;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #999;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-4 {
+        font-size: 30px;
+        fill: #fff;
+        font-family: NHaasGroteskDSPro-75Bd, Neue Haas Grotesk Display Pro;
+      }
+
+      .cls-5 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0.01em;
+      }
+    </style>
+  </defs>
+  <title>Artboard 3</title>
+  <g id="Layer_4" data-name="Layer 4">
+    <circle class="cls-1" cx="108.4" cy="106.9" r="80"/>
+    <g>
+      <rect class="cls-2" x="96.4" y="26.9" width="25" height="160"/>
+      <rect class="cls-2" x="95.9" y="26.4" width="25" height="160" transform="translate(214.79 -2) rotate(90)"/>
+      <rect class="cls-2" x="95.65" y="26.89" width="25" height="160.51" transform="translate(107.44 -45.09) rotate(45)"/>
+      <rect class="cls-2" x="96.4" y="26.49" width="25" height="159.81" transform="translate(-43.34 108.16) rotate(-45)"/>
+    </g>
+    <circle class="cls-3" cx="108.73" cy="107.42" r="80"/>
+    <circle class="cls-1" cx="108.8" cy="103.49" r="52.41"/>
+    <text class="cls-4" transform="translate(68.85 113.29)"><tspan class="cls-5">S</tspan><tspan class="cls-6" x="19.2" y="0">t</tspan><tspan x="30.03" y="0">and</tspan></text>
+  </g>
+</svg>

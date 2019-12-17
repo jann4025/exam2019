@@ -1,0 +1,99 @@
+@mixin desktop {
+}
+
+@mixin ll {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tb {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin ml {
+  @media screen and (max-width: 414px) {
+    @content;
+  }
+}
+
+@mixin mm {
+  @media screen and (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin ms {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin mm_horisontal {
+  @media screen and (max-width: 812px) {
+    @content;
+  }
+}
+
+@mixin mm_horisontal_game {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin iphone5_horisontal {
+  @media screen and (max-width: 568px) and (min-width: 568px) and (max-height: 320px) and (min-height: 320px) {
+    @content;
+  }
+}
+
+@mixin iphone6_horisontal {
+  @media screen and (max-width: 667px) and (max-height: 375px) {
+    @content;
+  }
+}
+
+@mixin iphone6Plus_horisontal {
+  @media screen and (max-width: 736px) and (max-height: 414px) {
+    @content;
+  }
+}
+
+@mixin ipad_horisontal {
+  @media screen and (max-width: 1024px) and (max-height: 768px) {
+    @content;
+  }
+}
+
+@mixin ipadPro_horisontal {
+  @media screen and (max-width: 1366px) and (max-height: 1024px) {
+    @content;
+  }
+}
+
+@mixin m733x425 {
+  @media (max-width: 733px) and (max-height: 425px) {
+    @content;
+  }
+}
+
+@mixin pixel2Xl {
+  @media (max-width: 833px) and (max-height: 411px) {
+    @content;
+  }
+}
+
+@media (orientation: portrait) {
+  .turnPhone {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+  }
+}

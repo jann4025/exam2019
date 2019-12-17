@@ -1,8 +1,11 @@
 @import "./fonts";
+@import "./variants";
 @import "./colors";
 @import "./effects";
+@import "./components";
 @import "./reset";
 @import "./breakpoints";
 @import "./layout";
+@import "./form";
 @import "./landingpage/landingpage_main.scss";
-@import "./game/main_game.scss";
+@import "./main_game";

@@ -1,8 +1,9 @@
 @font-face {
-  font-family: "neonregular";
-  src: url("../assets/fonts/neon-webfont.woff2") format("woff2"), url("../assets/fonts/neon-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'neonregular';
+    src: url('~/src/assets/fonts/neon-webfont.woff2') format('woff2'),
+         url('~/src/assets/fonts/neon-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 @import url("https://use.typekit.net/dsa0xgj.css");
 
