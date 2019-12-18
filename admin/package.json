@@ -23,6 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://jannickholm.dk/kea/3-semester/bestblackjack.dk/admin/",
   "eslintConfig": {
     "extends": "react-app"
   },

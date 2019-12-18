@@ -46,7 +46,6 @@ function submitForm() {
   innerForm.style.display = 'none';
   document.querySelector('.confirm-email').style.display = 'block';
   localStorage.setItem('bonusRecived', true);
-  document.querySelector('.close-btn').addEventListener('click', () => {});
   postToDB();
 }
 

@@ -39,31 +39,31 @@ function removeOpen() {
 }
 
 async function fetchContent() {
-  let jsonHero = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/hero");
+  let jsonHero = await fetch("https://jannickholm.dk/kea/3-semester/bestblackjack.dk/wp/wp-json/wp/v2/hero");
   let fetchHero = await jsonHero.json();
 
-  let jsonWelcome = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/welcome");
+  let jsonWelcome = await fetch("https://jannickholm.dk/kea/3-semester/bestblackjack.dk/wp/wp-json/wp/v2/welcome");
   let fetchWelcome = await jsonWelcome.json();
 
-  let jsonIntro = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/introduction");
+  let jsonIntro = await fetch("https://jannickholm.dk/kea/3-semester/bestblackjack.dk/wp/wp-json/wp/v2/introduction");
   let fetchIntro = await jsonIntro.json();
 
-  let jsonImg = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/images");
+  let jsonImg = await fetch("https://jannickholm.dk/kea/3-semester/bestblackjack.dk/wp/wp-json/wp/v2/images");
   let fetchImg = await jsonImg.json();
 
-  let jsonRules = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/rules");
+  let jsonRules = await fetch("https://jannickholm.dk/kea/3-semester/bestblackjack.dk/wp/wp-json/wp/v2/rules");
   let fetchRules = await jsonRules.json();
 
-  let jsonJoin = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/join");
+  let jsonJoin = await fetch("https://jannickholm.dk/kea/3-semester/bestblackjack.dk/wp/wp-json/wp/v2/join");
   let fetchJoin = await jsonJoin.json();
 
-  let jsonDetails = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/details");
+  let jsonDetails = await fetch("https://jannickholm.dk/kea/3-semester/bestblackjack.dk/wp/wp-json/wp/v2/details");
   let fetchDetails = await jsonDetails.json();
 
-  let jsonValues = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/values");
+  let jsonValues = await fetch("https://jannickholm.dk/kea/3-semester/bestblackjack.dk/wp/wp-json/wp/v2/values");
   let fetchValues = await jsonValues.json();
 
-  let jsonReviews = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/reviews");
+  let jsonReviews = await fetch("https://jannickholm.dk/kea/3-semester/bestblackjack.dk/wp/wp-json/wp/v2/reviews");
   let fetchReviews = await jsonReviews.json();
 
   hero(fetchHero);

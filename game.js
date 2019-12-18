@@ -52,7 +52,7 @@ function start() {
     Men du kan altid finde alle vores andre spil på forsiden
     <br />
   </p>
-  <a href="index.html" >
+  <a href="index.html">
   <button class="btn spilNu">Gå tilbage til forsiden</button>
   </a>`;
     document.querySelector('.start .name').innerHTML = localStorage.getItem(
@@ -523,6 +523,7 @@ function dealNewCardDealer() {
   cardSound.currentTime = 0;
   cardSound.playbackRate = 1;
   cardSound.play();
+
   if (dealerSum < 17) {
     let rN = Math.floor(Math.random() * newDeck.length);
     const id = newDeck[rN].Suit.charAt(0).toUpperCase() + newDeck[rN].Value;
