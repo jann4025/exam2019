@@ -215,12 +215,7 @@ export default function App(props) {
               <option value="Standard">Standard</option>
             </select>
           </div>
-          {/* <button
-            className=" bg-blue-500 hover:bg-blue-300 w-20 rounded-lg w-32
-          m-4 "
-          >
-            Gem
-          </button> */}
+
           <input
             className="bg-transparent hover:bg-white w-20 font-bold h-8 shadow-xl rounded-lg w-32
           m-6 border-2 border-solid border-white"
