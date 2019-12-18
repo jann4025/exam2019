@@ -345,7 +345,7 @@ body#game {
       max-height: 55.083vw;
     }
     @include m733x425 {
-      max-height: 50.083vw;
+      max-height: 57.083vw;
     }
 
     @include iphone6Plus_horisontal {
@@ -454,23 +454,12 @@ body#game {
       max-width: 12.5vw;
       height: 100%;
       max-height: 27.777vw;
-      // @include mm_horisontal_game {
-      //   max-width: 100px;
-      //   max-height: 130px;
-      // }
-
-      .front_image {
-        // @include mm_horisontal_game {
-        //   max-height: 130px;
-        //   max-width: 100px;
-        // }
-      }
     }
     .card:nth-child(2) {
       margin-left: 3rem;
       margin-top: 2rem;
       @include mm_horisontal_game {
-        margin-left: 0;
+        margin: 0;
       }
     }
 
@@ -499,7 +488,7 @@ body#game {
   }
 
   .card.flip {
-    animation: fakeAnimation 0.4s ease-in-out both;
+    animation: fakeAnimation 0.4s ease-in-out backwards;
   }
 
   .front_image,
@@ -634,12 +623,17 @@ body#game {
       @extend .primary_button;
       margin-top: 0;
       background-color: #ffbd4c;
-      box-shadow: rgba(#ffbd4c, 0.5) 0 0 30px;
+      box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.15);
       z-index: 999;
       padding-left: 3rem;
       padding-right: 3rem;
       border-radius: 10px;
       margin-top: 2rem;
+      transition: all 0.4s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
       @include ll {
         padding-left: 2.5rem;
         padding-right: 2.5rem;

@@ -16,7 +16,16 @@ const btns = document.querySelector('#btns');
 
 let nameFilled = false;
 
+let cardSound = document.querySelector('#cardFlip');
+let gameover = document.querySelector('#gameover');
+let win = document.querySelector('#win');
+let bgMusic = document.querySelector('#bg-music');
+
 function start() {
+  bgMusic.currentTime = 0;
+  bgMusic.volume = 0.2;
+  console.log(bgMusic.volume);
+  bgMusic.play();
   console.log(
     'Connection between the DOM and the Script was successfull! Nice 😎'
   );
@@ -73,6 +82,8 @@ function start() {
 }
 
 function reset() {
+  bgMusic.currentTime = 0;
+  bgMusic.play();
   newDeck = [];
   newDeck = generateDeck();
   setInitialValues();
@@ -82,6 +93,7 @@ function reset() {
   document.querySelector('.tieScreen').style.display = 'none';
   document.querySelector('.winScreen').style.display = 'none';
   hitButton.addEventListener('click', dealNewCardPlayer);
+  // document.querySelector('.flip').style.animation = 'none';
   document
     .querySelector('.btn.stand')
     .addEventListener('click', dealNewCardDealer);
@@ -342,6 +354,9 @@ function flipPlayer(id) {
   const { invertX, invertY } = getInvert(first, last);
 
   el.style.transform = `translate(${invertX}px, ${invertY}px)`;
+  cardSound.currentTime = 0;
+  cardSound.playbackRate = 1;
+  cardSound.play();
   let animation = split[3].animate(
     [
       { transform: `translate(${invertX}px, ${invertY}px)` },
@@ -358,6 +373,9 @@ function flipPlayer(id) {
     split[3].classList.add('flip');
     split[3].addEventListener('transitionend', () => {
       //When the flip animation ends, start animation on the second card in the player-cards container
+      cardSound.currentTime = 0;
+      cardSound.playbackRate = 1;
+      cardSound.play();
       let animation2 = dist.childNodes[4].animate(
         [
           { transform: `translate(${invertX}px, ${invertY}px)` },
@@ -376,6 +394,7 @@ function flipPlayer(id) {
 
         split[4].addEventListener('transitionend', () => {
           btns.style.display = 'block';
+
           showplayerSum();
           if (
             (playerSum == 21 &&
@@ -384,6 +403,8 @@ function flipPlayer(id) {
             (player[1].Value == 10 && player[0].Value == 11)
           ) {
             winScreen();
+          } else if (playerSum == 22) {
+            gameoverScreen();
           }
         });
       });
@@ -439,6 +460,9 @@ function flipDealer(id) {
 }
 
 function dealNewCardPlayer() {
+  cardSound.currentTime = 0;
+  cardSound.playbackRate = 1;
+  cardSound.play();
   btns.style.display = 'none';
   let rN = Math.floor(Math.random() * newDeck.length);
   const id = newDeck[rN].Suit.charAt(0).toUpperCase() + newDeck[rN].Value;
@@ -487,6 +511,7 @@ function dealNewCardPlayer() {
           showplayerSum();
           setTimeout(() => {
             gameoverScreen();
+            clearTimeout();
           }, 200);
         }
       });
@@ -495,6 +520,9 @@ function dealNewCardPlayer() {
 }
 
 function dealNewCardDealer() {
+  cardSound.currentTime = 0;
+  cardSound.playbackRate = 1;
+  cardSound.play();
   if (dealerSum < 17) {
     let rN = Math.floor(Math.random() * newDeck.length);
     const id = newDeck[rN].Suit.charAt(0).toUpperCase() + newDeck[rN].Value;
@@ -536,12 +564,22 @@ function dealNewCardDealer() {
     animation.addEventListener('finish', e => {
       el.classList.add('flip');
       el.addEventListener('animationend', e => {
-        showdealerSumFull();
+        setTimeout(() => {
+          showdealerSumFull();
+          clearTimeout();
+        }, 200);
+
         if (dealerSum < 17) {
           dealNewCardDealer();
         } else {
-          showdealerSumFull();
-          setTimeout(checkWinner, 200);
+          setTimeout(() => {
+            showdealerSumFull();
+            clearTimeout();
+          }, 200);
+          setTimeout(() => {
+            checkWinner();
+            clearTimeout();
+          }, 300);
         }
       });
     });
@@ -590,11 +628,21 @@ function stand() {
 function checkdealerSum() {
   if (dealerSum < 17) {
     console.log('foo');
-    showdealerSumFull();
     dealNewCardDealer();
+    setTimeout(() => {
+      showdealerSumFull();
+      clearTimeout();
+    }, 200);
   } else {
-    showdealerSumFull();
-    setTimeout(checkWinner, 200);
+    setTimeout(() => {
+      showdealerSumFull();
+      clearTimeout();
+    }, 200);
+
+    setTimeout(() => {
+      checkWinner();
+      clearTimeout();
+    }, 400);
   }
 }
 
@@ -611,6 +659,11 @@ function showdealerSumFull() {
 }
 
 function winScreen() {
+  bgMusic.currentTime = 0;
+  bgMusic.pause();
+  win.currentTime = 0;
+  win.playbackRate = 1;
+  win.play();
   document.querySelector('.winScreen').style.display = 'block';
   document.querySelector('.winScreen').classList.add('fade-in');
   document.querySelector('.winScreen .name').innerHTML = localStorage.getItem(
@@ -623,6 +676,11 @@ function winScreen() {
 }
 
 function tieScreen() {
+  bgMusic.currentTime = 0;
+  bgMusic.pause();
+  gameover.currentTime = 0;
+  gameover.playbackRate = 1;
+  gameover.play();
   document.querySelector('.tieScreen').style.display = 'block';
   document.querySelector('.tieScreen').classList.add('fade-in');
   document.querySelector('.tieScreen .name').innerHTML = localStorage.getItem(
@@ -632,6 +690,11 @@ function tieScreen() {
 }
 
 function gameoverScreen() {
+  bgMusic.currentTime = 0;
+  bgMusic.pause();
+  gameover.currentTime = 0;
+  gameover.playbackRate = 1;
+  gameover.play();
   document.querySelector('.gameoverScreen').style.display = 'block';
   document.querySelector('.gameoverScreen').classList.add('fade-in');
   document
@@ -662,6 +725,8 @@ function gameoverScreen() {
 }
 
 function signUpForm() {
+  bgMusic.currentTime = 0;
+  bgMusic.play();
   document.querySelector('#signUpForm').removeAttribute('hidden');
   document.querySelector('input#name').value = localStorage.getItem(
     'firstname'
