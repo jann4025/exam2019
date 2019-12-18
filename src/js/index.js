@@ -39,8 +39,6 @@ function removeOpen() {
 }
 
 async function fetchContent() {
-  console.log("fetch begin");
-
   let jsonHero = await fetch("http://natsir.dk/kea/wordpress_exam/wp-json/wp/v2/hero");
   let fetchHero = await jsonHero.json();
 
@@ -81,15 +79,18 @@ async function fetchContent() {
 
 function hero(fetchHero) {
   fetchHero.forEach(obj => {
+    const hero_img = obj.hero_bg_img.guid;
+
     document.querySelector(".hero_headline").innerHTML = obj.headline;
     document.querySelector(".hero_p").innerHTML = obj.sub_headline;
     document.querySelector(".hero_h2").innerHTML = obj.premium;
     document.querySelector(".hero_button").innerHTML = obj.button_txt;
+    document.querySelector(".intro_btn").innerHTML = obj.button_txt;
+    document.querySelector("#hero").style.backgroundImage = `url(${hero_img})`;
   });
 }
 
 function welcome(fetchWelcome) {
-  console.log(fetchWelcome);
   fetchWelcome.forEach(obj => {
     document.querySelector(".welcome_headline").innerHTML = obj.headline_welcome;
     document.querySelector(".welcome_h2").innerHTML = obj.subheadline_welcome;
@@ -98,8 +99,6 @@ function welcome(fetchWelcome) {
 }
 
 function reviews(fetchReviews) {
-  console.log(fetchReviews);
-
   let destReviews = document.querySelector("#reviews");
   let tempReviews = document.querySelector(".reviews_template");
 
@@ -115,7 +114,6 @@ function reviews(fetchReviews) {
 }
 
 function introduction(fetchIntro) {
-  console.log(fetchIntro);
   fetchIntro.forEach(obj => {
     document.querySelector(".intro_headline").innerHTML = obj.headline_intro;
     document.querySelector(".intro_p").innerHTML = obj.txt_intro;
@@ -123,7 +121,6 @@ function introduction(fetchIntro) {
 }
 
 function images(fetchImg) {
-  console.log(fetchImg);
   fetchImg.forEach(obj => {
     const image1 = obj.img1.guid;
     const image2 = obj.img2.guid;
@@ -143,7 +140,6 @@ function images(fetchImg) {
 }
 
 function rules(fetchRules) {
-  console.log(fetchRules);
   fetchRules.forEach(obj => {
     document.querySelector(".rules_headline").innerHTML = obj.headline_rules;
     document.querySelector(".txt_rules").innerHTML = obj.txt_rules;
@@ -151,7 +147,6 @@ function rules(fetchRules) {
 }
 
 function join(fetchJoin) {
-  console.log(fetchJoin);
   fetchJoin.forEach(obj => {
     const bg_img = obj.bg_img.guid;
 
@@ -163,8 +158,6 @@ function join(fetchJoin) {
 }
 
 function details(fetchDetails) {
-  console.log(fetchDetails);
-
   let destRules1 = document.querySelector(".rules_dest_1");
   let destRules2 = document.querySelector(".rules_dest_2");
   let tempRules = document.querySelector(".rules_template");
@@ -179,7 +172,6 @@ function details(fetchDetails) {
 }
 
 function values(fetchValues) {
-  console.log(fetchValues);
   let destRules = document.querySelector(".rules_dest_2");
   let tempRules = document.querySelector(".values_template");
 

@@ -123,7 +123,7 @@ main {
       display: flex;
 
       & > * {
-        padding: 0.5em 1.5em;
+        padding: 0 1.5em;
       }
     }
 
@@ -164,7 +164,7 @@ main {
         &:checked ~ span {
           opacity: 1;
           transform: rotate(45deg) translate(-2px, -1px);
-          background: grey;
+          background: $white_primary;
         }
 
         &:checked ~ #menu {
@@ -188,7 +188,7 @@ main {
         margin-bottom: 5px;
         position: relative;
 
-        background: grey;
+        background: $white_primary;
         border-radius: 3px;
 
         z-index: 1;
@@ -213,6 +213,7 @@ main {
         margin: -100px 0 0 -50px;
         transition: opacity 0.3s ease-in;
         font-size: 1.8em;
+        margin-left: 0.5em;
 
         display: none;
       }
@@ -220,8 +221,21 @@ main {
   }
 }
 
+.logo {
+  margin: 0.5em 1em;
+  position: fixed;
+  z-index: 999;
+
+  @include tb {
+    right: 0;
+  }
+
+  img {
+    width: 40px;
+  }
+}
+
 #hero {
-  background-image: url("/src/assets/img/bg-img.jpg");
   background-size: cover;
   height: 100vh;
 
@@ -293,15 +307,7 @@ main {
   }
 
   button {
-    background: $red_primary;
-    box-shadow: $primary_glow;
-    font-size: 1.2em;
-    color: $white_primary;
-    border: none;
-    border-radius: 5px;
-    padding: 0.6em 1em;
-    margin-top: 2em;
-    cursor: pointer;
+    @extend .primary_button;
 
     @include mm_horisontal {
       font-size: 0.8em;
@@ -317,6 +323,7 @@ main {
 
     @include iphone5_horisontal {
       font-size: 0.8em;
+      margin-top: 1em;
     }
   }
 
@@ -326,6 +333,16 @@ main {
     animation: bounce 1.4s infinite;
     position: absolute;
     bottom: 1em;
+
+    @include tb {
+      bottom: 1em;
+    }
+    @include mm_horisontal {
+      bottom: 0.3em;
+    }
+    @include iphone6_horisontal {
+      bottom: 0.2em;
+    }
   }
 
   @keyframes bounce {
@@ -472,7 +489,7 @@ main {
 #introduction {
   display: grid;
   justify-items: center;
-  margin: 3em 5em;
+  margin: 6em 5em 8em;
 
   h1 {
     @include font-family-h1;
@@ -492,6 +509,10 @@ main {
 
   @include tb {
     margin: 2em 1em;
+  }
+
+  .intro_btn {
+    @extend .primary_button;
   }
 }
 
@@ -559,8 +580,8 @@ main {
       h2 {
         @include font-family-h2;
         font-size: 2em;
-        max-width: 300px;
-
+        max-width: 420px;
+        font-weight: 600;
         @include mm_horisontal {
           font-size: 1.2em;
           max-width: 200px;
@@ -572,16 +593,10 @@ main {
       }
 
       button {
-        background: $red_primary;
-        box-shadow: $primary_glow;
-        border: none;
-        color: $white_primary;
-        font-size: 1em;
-        border-radius: 5px;
-        cursor: pointer;
+        @extend .primary_button;
 
         height: 50px;
-        width: 100px;
+        max-width: auto;
 
         @include mm_horisontal {
           font-size: 0.8em;
@@ -641,7 +656,7 @@ main {
     @include font-family-p;
     columns: 2;
     column-gap: 4em;
-    max-width: 95%;
+    max-width: 100%;
 
     @include mm_horisontal {
       column-gap: 2em;
@@ -653,8 +668,7 @@ main {
 
     .rules_read_more {
       display: none;
-      margin-left: -0.5em;
-
+      margin-top: 0.5em;
       @include ml {
         display: block;
         color: $white_primary;
@@ -758,6 +772,7 @@ main {
   h2 {
     @include font-family-h2;
     font-size: 3em;
+    font-weight: bold;
 
     @include ml {
       font-size: 2em;
@@ -769,27 +784,23 @@ main {
   }
 
   h3 {
-    font-size: 1.8em;
+    font-size: 1.5em;
     font-family: $font_headline;
 
+    @include mm_horisontal {
+      font-size: 1em;
+    }
+
     @include ml {
-      font-size: 1.4em;
+      font-size: 1.2em;
     }
 
     @include iphone5_horisontal {
-      font-size: 1.4em;
+      font-size: 1.2em;
     }
   }
   button {
-    background: $red_primary;
-    box-shadow: $primary_glow;
-    font-size: 1.2em;
-    color: $white_primary;
-    border: none;
-    border-radius: 5px;
-    padding: 0.6em 2em;
-    margin-top: 2em;
-    cursor: pointer;
+    @extend .primary_button;
 
     @include mm_horisontal {
       font-size: 1em;
