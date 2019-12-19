@@ -89,10 +89,6 @@ strong {
  * Add the correct font size in all browsers.
  */
 
-small {
-  font-size: 80%;
-}
-
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
@@ -407,10 +403,13 @@ button,
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 table {
   border-collapse: collapse;
 }
 
+=======
+>>>>>>> dd600b44bb15156d1a51a5e843fdf22ebe5d2a13
 h1 {
   font-size: inherit;
   font-weight: inherit;
@@ -478,6 +477,7 @@ canvas {
   background-color: #e2e8f0;
 }
 
+<<<<<<< HEAD
 .bg-gray-400 {
   background-color: #cbd5e0;
 }
@@ -710,6 +710,143 @@ canvas {
 
   .lg\:w-2\/3 {
     width: 66.666667%;
+=======
+.hover\:bg-white:hover {
+  background-color: #fff;
+}
+
+.border-white {
+  border-color: #fff;
+}
+
+.rounded-sm {
+  border-radius: 0.125rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.border-solid {
+  border-style: solid;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.flex {
+  display: -webkit-box;
+  display: flex;
+}
+
+.flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.items-center {
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.m-6 {
+  margin: 1.5rem;
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.w-48 {
+  width: 12rem;
+}
+
+@media (min-width: 768px) {
+
+  .md\:flex-col {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+
+  .md\:m-auto {
+    margin: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .lg\:flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+>>>>>>> dd600b44bb15156d1a51a5e843fdf22ebe5d2a13
   }
 }
 
